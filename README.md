@@ -8,4 +8,4 @@ Open Main.py to instantly clear you temp files. You can also lunch it from comma
 
 python Main.py [-console] [user]
 
-The args in square brackets aren't mandatory and you also need to use both of them.
+The args in square brackets aren't mandatory and you also don't need to use both of them.
