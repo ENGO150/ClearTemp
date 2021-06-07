@@ -10,22 +10,56 @@ class Variables:
 
 
 def main():
+    used_args_length = 1
+
     username = ""
-    # check_for_username = True
     console = False
 
-    if len(sys.argv) > 1:
-        if sys.argv.__contains__("-console"):
-            console = True
+    # if len(sys.argv) > 1:
+    #     if sys.argv.__contains__("-console"):
+    #         console = True
+    #
+    #     if not console and len(sys.argv) == 3:
+    #         if sys.argv[1] == "-console":
+    #             username = sys.argv[2]
+    #         else:
+    #             username = sys.argv[1]
+    #     elif len(sys.argv) > 3:
+    #         print("Too much arguments!")
+    #         exit(1)
 
-        if not console and len(sys.argv) == 3:
-            if sys.argv[1] == "-console":
-                username = sys.argv[2]
-            else:
-                username = sys.argv[1]
-        elif len(sys.argv) > 3:
-            print("Too much arguments!")
+    if len(sys.argv) > 1:
+        if args_contains("-console"):
+            console = True
+            used_args_length += 1
+
+        if args_contains("-username:"):
+            username = load_flag_text("-username:")
+            used_args_length += 1
+
+        if args_contains("-block"):
+            if os.path.exists(load_temp(username) + "/.blockfile.cleartemp"):
+                print("Temp is already blocked.")
+                exit(1)
+            open(load_temp(username) + "/.blockfile.cleartemp", "w")
+            print("Temp files blocked.")
+            exit(0)
+
+        if args_contains("-unblock"):
+            if os.path.exists(load_temp(username) + "/.blockfile.cleartemp"):
+                os.remove(load_temp(username) + "/.blockfile.cleartemp")
+                print("Temp files unblocked.")
+                exit(0)
+            print("Temp isn't blocked.")
             exit(1)
+
+        if len(sys.argv) != used_args_length:
+            print("You used some incompatible arguments.")
+            exit(1)
+
+    if os.path.exists(load_temp(username) + "/.blockfile.cleartemp"):
+        print("Temp files are blocked!")
+        exit(1)
 
     temp_folder = load_temp(username)
 
@@ -69,6 +103,19 @@ def load_temp(username):
     except IOError:
         print("Wrong user.")
         exit(1)
+
+
+def load_flag_text(text):
+    for arg in sys.argv:
+        if arg.startswith(text):
+            return arg.replace(text, "")
+
+
+def args_contains(text):
+    for arg in sys.argv:
+        if arg.__contains__(text):
+            return arg
+    return False
 
 
 if __name__ == "__main__":
