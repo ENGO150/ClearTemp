@@ -14,19 +14,7 @@ def main():
 
     username = ""
     console = False
-
-    # if len(sys.argv) > 1:
-    #     if sys.argv.__contains__("-console"):
-    #         console = True
-    #
-    #     if not console and len(sys.argv) == 3:
-    #         if sys.argv[1] == "-console":
-    #             username = sys.argv[2]
-    #         else:
-    #             username = sys.argv[1]
-    #     elif len(sys.argv) > 3:
-    #         print("Too much arguments!")
-    #         exit(1)
+    excex = False
 
     if len(sys.argv) > 1:
         if args_contains("-console"):
@@ -38,33 +26,52 @@ def main():
             used_args_length += 1
 
         if args_contains("-block"):
-            if os.path.exists(load_temp(username) + "/.blockfile.cleartemp"):
+            if os.path.exists(load_temp(username, console) + "/.blockfile.cleartemp"):
                 print("Temp is already blocked.")
+                if console:
+                    os.system("pause")
                 exit(1)
-            open(load_temp(username) + "/.blockfile.cleartemp", "w")
+            open(load_temp(username, console) + "/.blockfile.cleartemp", "w")
             print("Temp files blocked.")
+            if console:
+                os.system("pause")
             exit(0)
 
         if args_contains("-unblock"):
-            if os.path.exists(load_temp(username) + "/.blockfile.cleartemp"):
-                os.remove(load_temp(username) + "/.blockfile.cleartemp")
+            if os.path.exists(load_temp(username, console) + "/.blockfile.cleartemp"):
+                os.remove(load_temp(username, console) + "/.blockfile.cleartemp")
                 print("Temp files unblocked.")
+                if console:
+                    os.system("pause")
                 exit(0)
             print("Temp isn't blocked.")
+            if console:
+                os.system("pause")
             exit(1)
+
+        if args_contains("-excex"):
+            print("Exiting on exception.\n")
+            excex = True
+            used_args_length += 1
 
         if len(sys.argv) != used_args_length:
             print("You used some incompatible arguments.")
+            if console:
+                os.system("pause")
             exit(1)
 
-    if os.path.exists(load_temp(username) + "/.blockfile.cleartemp"):
+    if os.path.exists(load_temp(username, console) + "/.blockfile.cleartemp"):
         print("Temp files are blocked!")
+        if console:
+            os.system("pause")
         exit(1)
 
-    temp_folder = load_temp(username)
+    temp_folder = load_temp(username, console)
 
     if not os.path.exists(temp_folder):
         print("The temp folder doesn't exist!")
+        if console:
+            os.system("pause")
         exit(1)
 
     temp_files = os.listdir(temp_folder)
@@ -85,6 +92,11 @@ def main():
                 print("Can't remove: " + file)
         except IOError as e:
             print("Can't remove: " + str(e))
+            if excex:
+                print("Exiting...")
+                if console:
+                    os.system("pause")
+                exit(0)
             Variables.cannot_delete += 1
 
     print("\nSuccessfully deleted " + str(Variables.deleted) + " files, but " + str(Variables.cannot_delete) +
@@ -93,8 +105,10 @@ def main():
     if console:
         os.system("pause")
 
+    exit(0)
 
-def load_temp(username):
+
+def load_temp(username, console):
     try:
         if username == "":
             return tempfile.gettempdir()
@@ -102,6 +116,8 @@ def load_temp(username):
             return "C:/Users/" + username + "/AppData/Local/Temp"
     except IOError:
         print("Wrong user.")
+        if console:
+            os.system("pause")
         exit(1)
 
 
