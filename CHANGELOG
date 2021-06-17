@@ -1,0 +1,4 @@
+4th of June 2021 - v1.0 = Basic python code
+7th of June 2021 - v1.1 = Faster and cleaner code, block & unblock
+8th of June 2021 - v1.2 = Excex
+17th of June 2021 - v1.3 = Completely remade code in Java, added debug flag, added PASSWORD needed for block & unblock flags + random password encryption, removed codeql-analysis.yml, moved code to more classes, added .gitignore, added CHANGELOG
