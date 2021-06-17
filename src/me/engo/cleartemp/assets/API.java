@@ -69,11 +69,12 @@ public class API
                 }
 
                 //BLOCKING
+                String password = Tools.loadFlagText("block", args);
+
                 Files.createFile(blockFile.toPath());
                 Tools.hideFile(blockFile);
 
                 FileWriter fw = new FileWriter(blockFile);
-                String password = Tools.loadFlagText("block", args);
                 StringBuilder newPasswordBuilder = new StringBuilder();
 
                 assert password != null;

@@ -6,16 +6,8 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e00450d6-8219-45ae-b29d-1ff31feafc79" name="Default Changelist" comment="Remade project in java &amp; Added API">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CHANGELOG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/me/engo/cleartemp/assets/API.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/me/engo/cleartemp/assets/Tools.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/codeql-analysis.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ClearTemp/me/engo/cleartemp/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ClearTemp/me/engo/cleartemp/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/engo/cleartemp/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/engo/cleartemp/Main.java" afterDir="false" />
+    <list default="true" id="e00450d6-8219-45ae-b29d-1ff31feafc79" name="Default Changelist" comment="v1.3 (read CHANGELOG)">
+      <change beforePath="$PROJECT_DIR$/src/me/engo/cleartemp/assets/API.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/engo/cleartemp/assets/API.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +77,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623927337482</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="v1.3 (read CHANGELOG)">
+      <created>1623949175139</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1623949175139</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -102,6 +101,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Remade project in java &amp; Added API" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remade project in java &amp; Added API" />
+    <MESSAGE value="v1.3 (read CHANGELOG)" />
+    <option name="LAST_COMMIT_MESSAGE" value="v1.3 (read CHANGELOG)" />
   </component>
 </project>
