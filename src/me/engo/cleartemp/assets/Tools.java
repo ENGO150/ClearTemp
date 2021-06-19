@@ -122,13 +122,15 @@ public class Tools
                 System.out.println("Creating new config file.\n");
 
                 Files.createFile(configFile.toPath());
-                hideFile(configFile);
 
                 FileWriter fw = new FileWriter(configFile);
+
                 int random = new Random().nextInt(100);
 
                 fw.write(String.valueOf(random));
                 fw.close();
+
+                hideFile(configFile);
 
                 return random;
             } else

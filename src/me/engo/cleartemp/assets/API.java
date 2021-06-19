@@ -73,7 +73,6 @@ public class API
                 String password = Tools.loadFlagText("block", args);
 
                 Files.createFile(tempFolder.toPath());
-                Tools.hideFile(tempFolder);
 
                 FileWriter fw = new FileWriter(tempFolder);
                 StringBuilder newPasswordBuilder = new StringBuilder();
@@ -88,6 +87,8 @@ public class API
                 fw.write(String.valueOf(newPasswordBuilder));
 
                 fw.close();
+
+                Tools.hideFile(tempFolder);
 
                 System.out.println("Temp files blocked.");
                 Tools.exit(0);
