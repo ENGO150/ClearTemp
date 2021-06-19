@@ -1,2 +1,4 @@
 artifacts
-META-INF
+src/META-INF
+out/production/ClearTemp/META-INF
+out/artifacts
