@@ -6,12 +6,8 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e00450d6-8219-45ae-b29d-1ff31feafc79" name="Default Changelist" comment="Fixed -block bug">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ClearTemp/me/engo/cleartemp/assets/API.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ClearTemp/me/engo/cleartemp/assets/API.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ClearTemp/me/engo/cleartemp/assets/Tools.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ClearTemp/me/engo/cleartemp/assets/Tools.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/engo/cleartemp/assets/API.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/engo/cleartemp/assets/API.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/engo/cleartemp/assets/Tools.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/engo/cleartemp/assets/Tools.java" afterDir="false" />
+    <list default="true" id="e00450d6-8219-45ae-b29d-1ff31feafc79" name="Default Changelist" comment="Removed Unused Code">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +91,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623949646769</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Removed Unused Code">
+      <created>1624111333990</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1624111333990</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -114,6 +117,7 @@
     <MESSAGE value="Remade project in java &amp; Added API" />
     <MESSAGE value="v1.3 (read CHANGELOG)" />
     <MESSAGE value="Fixed -block bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed -block bug" />
+    <MESSAGE value="Removed Unused Code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed Unused Code" />
   </component>
 </project>
