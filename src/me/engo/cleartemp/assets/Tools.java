@@ -13,7 +13,7 @@ public class Tools
     static File loadTemp(String username)
     {
         //WINDOWS IS USED
-        if (System.getProperty("os.name").equals("Windows"))
+        if (getOs() == 2)
         {
             if (username.equals(""))
             {
@@ -22,8 +22,8 @@ public class Tools
             }
 
             //RETURNING TEMP FOLDER WITH USERNAME FLAG USED
-            return new File("C:/Users/" + username + "/Local/Temp");
-        } else if (System.getProperty("os.name").equals("Linux")) //LINUX IS USED
+            return new File("C:/Users/" + username + "/AppData/Local/Temp");
+        } else if (getOs() == 1) //LINUX IS USED
         {
             //RETURNING DEFAULT LINUX TEMP FOLDER
             return new File("/tmp");
@@ -61,6 +61,7 @@ public class Tools
         return null;
     }
 
+    @SuppressWarnings("all")
     static void exit(int code)
     {
         try
@@ -107,7 +108,7 @@ public class Tools
         {
             File configFile = null;
 
-            if (System.getProperty("os.name").equals("Windows"))
+            if (System.getProperty("os.name").startsWith("Windows"))
             {
                 configFile = new File("C:/Users/" + getUser() + "/.hideconfig.engo");
             } else if (System.getProperty("os.name").equals("Linux"))
@@ -118,6 +119,8 @@ public class Tools
             assert configFile != null;
             if (!configFile.exists())
             {
+                System.out.println("Creating new config file.\n");
+
                 Files.createFile(configFile.toPath());
                 hideFile(configFile);
 
@@ -130,7 +133,7 @@ public class Tools
                 return random;
             } else
             {
-                makeFileReadable(configFile);
+                showFile(configFile);
 
                 List<String> lines = Files.readAllLines(configFile.toPath());
 
@@ -148,31 +151,12 @@ public class Tools
 
     static void hideFile(File file)
     {
-        try
-        {
-            Files.setAttribute(file.toPath(), "dos:hidden", Boolean.TRUE, LinkOption.NOFOLLOW_LINKS);
-            boolean success = file.setReadable(false);
-
-            if (!success)
-            {
-                System.err.println("Configuring file went wrong!");
-                exit(1);
-            }
-        } catch (IOException e)
-        {
-            e.printStackTrace();
-        }
+        editFile(file, true);
     }
 
-    static void makeFileReadable(File file)
+    static void showFile(File file)
     {
-        boolean success = file.setReadable(true);
-
-        if (!success)
-        {
-            System.err.println("Configuring file went wrong!");
-            exit(1);
-        }
+        editFile(file, false);
     }
 
     static String getUser()
@@ -182,6 +166,49 @@ public class Tools
 
     static boolean isOsCompatible()
     {
-        return System.getProperty("os.name").equals("Windows") || System.getProperty("os.name").equals("Linux");
+        return getOs() != 0;
+    }
+
+    static int getOs()
+    {
+        String osName = System.getProperty("os.name").toLowerCase();
+        if (osName.contains("linux"))
+        {
+            return 1;
+        } else if (osName.contains("windows"))
+        {
+            return 2;
+        } else
+        {
+            return 0;
+        }
+    }
+
+    static void editFile(File file, boolean hide)
+    {
+        try
+        {
+            if (getOs() == 1)
+            {
+                boolean success;
+                hide = !hide;
+
+                success = file.setReadable(hide);
+                if (!file.setExecutable(hide)) success = false;
+
+                if (!success)
+                {
+                    System.err.println("Configuring file went wrong!");
+                    exit(1);
+                }
+            } else if (getOs() == 2)
+            {
+                Files.setAttribute(file.toPath(), "dos:hidden", hide, LinkOption.NOFOLLOW_LINKS);
+                Files.setAttribute(file.toPath(), "dos:readonly", hide, LinkOption.NOFOLLOW_LINKS);
+            }
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        }
     }
 }
