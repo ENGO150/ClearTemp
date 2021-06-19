@@ -6,9 +6,10 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e00450d6-8219-45ae-b29d-1ff31feafc79" name="Default Changelist" comment="Fixed Windows Bug">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="e00450d6-8219-45ae-b29d-1ff31feafc79" name="Default Changelist" comment="Fixed -block bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ClearTemp/me/engo/cleartemp/assets/API.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ClearTemp/me/engo/cleartemp/assets/API.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ClearTemp/me/engo/cleartemp/assets/Tools.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ClearTemp/me/engo/cleartemp/assets/Tools.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/me/engo/cleartemp/assets/API.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/engo/cleartemp/assets/API.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/me/engo/cleartemp/assets/Tools.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/engo/cleartemp/assets/Tools.java" afterDir="false" />
     </list>
@@ -39,7 +40,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Java/libs/commons-io-2.8.0.jar" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.18770581" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -94,14 +95,7 @@
       <option name="project" value="LOCAL" />
       <updated>1623949646769</updated>
     </task>
-    <task id="LOCAL-00004" summary="Fixed Windows Bug">
-      <created>1624105694453</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1624105694453</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -120,7 +114,6 @@
     <MESSAGE value="Remade project in java &amp; Added API" />
     <MESSAGE value="v1.3 (read CHANGELOG)" />
     <MESSAGE value="Fixed -block bug" />
-    <MESSAGE value="Fixed Windows Bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed Windows Bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed -block bug" />
   </component>
 </project>

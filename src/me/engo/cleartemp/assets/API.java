@@ -20,6 +20,7 @@ public class API
         if (!Tools.isOsCompatible())
         {
             System.err.println("Sorry, but it seems this OS isn't supported. If you are using supported OS (Windows, Linux), report it here: https://github.com/ENGO150/ClearTemp/issues");
+            System.out.println(System.getProperty("os.name"));
             Tools.exit(1);
         }
 
@@ -46,7 +47,7 @@ public class API
             if (Tools.argsContainsFlag("username", args) != null)
             {
                 //CHECK IF LINUX IS USED
-                if (Tools.getOs() == 1)
+                if (System.getProperty("os.name").equals("Linux"))
                 {
                     System.err.println("Username feature cannot be used on Linux!");
                     Tools.exit(1);

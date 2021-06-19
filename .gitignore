@@ -1,4 +1,2 @@
 artifacts
-src/META-INF
-out/production/ClearTemp/META-INF
-out/artifacts
+META-INF

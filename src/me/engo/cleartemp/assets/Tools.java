@@ -108,12 +108,12 @@ public class Tools
         {
             File configFile = null;
 
-            if (getOs() == 2)
+            if (System.getProperty("os.name").startsWith("Windows"))
             {
-                configFile = new File("C:/Users/" + getUser() + "/.blockconfig.engo");
-            } else if (getOs() == 1)
+                configFile = new File("C:/Users/" + getUser() + "/.hideconfig.engo");
+            } else if (System.getProperty("os.name").equals("Linux"))
             {
-                configFile = new File("/home/" + getUser() + "/.blockconfig.engo");
+                configFile = new File("/home/" + getUser() + "/.hideconfig.engo");
             }
 
             assert configFile != null;
@@ -122,14 +122,13 @@ public class Tools
                 System.out.println("Creating new config file.\n");
 
                 Files.createFile(configFile.toPath());
+                hideFile(configFile);
 
                 FileWriter fw = new FileWriter(configFile);
                 int random = new Random().nextInt(100);
 
                 fw.write(String.valueOf(random));
                 fw.close();
-
-                hideFile(configFile);
 
                 return random;
             } else
