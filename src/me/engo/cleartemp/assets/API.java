@@ -7,6 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.List;
+import java.util.Random;
 
 public class API
 {
@@ -223,6 +224,12 @@ public class API
 
         //FINAL MESSAGE
         System.out.println("\nSuccessfully deleted " + deleted + " files, " + cannotDelete + " files are now probably used and they cannot be removed.");
+
+        if (new Random().nextInt(100) > 75)
+        {
+            System.out.println("\nThank you for supporting this project! :)");
+        }
+
         Tools.exit(0);
     }
 }

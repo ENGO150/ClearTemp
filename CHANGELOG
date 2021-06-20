@@ -3,3 +3,4 @@
 8th of June 2021 - v1.2 = Excex
 17th of June 2021 - v1.3 = Completely remade code in Java, added debug flag, added PASSWORD needed for block & unblock flags + random password encryption, removed codeql-analysis.yml, moved code to more classes, added .gitignore, added CHANGELOG
 18th of June 2021 - v1.4 = Cleaned code, fixed Windows bug
+20th of June 2021 - v1.5 = Cleaned code, fixed FileEdit bug, :)
