@@ -26,26 +26,39 @@ public class API
         }
 
         //VARS
-        int usedArgsLength = 0;
         String username = "";
         boolean excex = false;
         int cannotDelete = 0;
         int deleted = 0;
-        File tempFolder;
+        File usedFile;
         int key = Tools.getEncryptionKey();
+
+        String[] compatibleArgs =
+        {
+                "console", "username", "block", "unblock", "excex", "debug"
+        };
+
+        //CHECK FOR INVALID FLAGS
+        Tools.loadInvalidFlags(compatibleArgs, args);
 
         //CHECK IF THERE'S SOME FLAGS
         if (args.length > 0)
         {
+            //DEBUG FLAG - DOESN'T ACTUALLY DELETES FILES
+            if (Tools.argsContainsFlag(compatibleArgs[5], args) != null)
+            {
+                System.out.println("Entered debugging mode.\n");
+                debug = true;
+            }
+
             //CONSOLE FLAG
-            if (Tools.argsContainsFlag("console", args) != null)
+            if (Tools.argsContainsFlag(compatibleArgs[0], args) != null)
             {
                 console = true;
-                ++usedArgsLength;
             }
 
             //USERNAME FLAG - WINDOWS TEMP FOLDER FOR USER
-            if (Tools.argsContainsFlag("username", args) != null)
+            if (Tools.argsContainsFlag(compatibleArgs[1], args) != null)
             {
                 //CHECK IF LINUX IS USED
                 if (System.getProperty("os.name").equals("Linux"))
@@ -54,78 +67,84 @@ public class API
                     Tools.exit(1);
                 }
 
-                username = Tools.loadFlagText("username", args);
-                ++usedArgsLength;
+                username = Tools.loadFlagText(compatibleArgs[1], args);
             }
 
             //BLOCK FLAG - PREVENTING TEMP FROM REMOVING BY THIS PROGRAM
-            if (Tools.argsContainsFlag("block", args) != null)
+            if (Tools.argsContainsFlag(compatibleArgs[2], args) != null)
             {
-                tempFolder = new File(Tools.loadTemp(username) + "/.blockfile.engo");
+                usedFile = new File(Tools.loadTemp(username) + "/.blockfile.engo");
 
                 //CHECK IF TEMP IS ALREADY BLOCKED
-                if (tempFolder.exists())
+                if (usedFile.exists())
                 {
                     System.err.println("Temp is already blocked!");
                     Tools.exit(1);
                 }
 
                 //BLOCKING
-                String password = Tools.loadFlagText("block", args);
-
-                Files.createFile(tempFolder.toPath());
-
-                FileWriter fw = new FileWriter(tempFolder);
-                StringBuilder newPasswordBuilder = new StringBuilder();
-
-                assert password != null;
-                for (char character : password.toCharArray())
+                if (!debug)
                 {
-                    character += key;
-                    newPasswordBuilder.append(character);
+                    String password = Tools.loadFlagText(compatibleArgs[2], args);
+
+                    Files.createFile(usedFile.toPath());
+
+                    FileWriter fw = new FileWriter(usedFile);
+                    StringBuilder newPasswordBuilder = new StringBuilder();
+
+                    assert password != null;
+                    for (char character : password.toCharArray())
+                    {
+                        character += key;
+                        newPasswordBuilder.append(character);
+                    }
+
+                    fw.write(String.valueOf(newPasswordBuilder));
+
+                    fw.close();
+
+                    Tools.hideFile(usedFile);
                 }
-
-                fw.write(String.valueOf(newPasswordBuilder));
-
-                fw.close();
-
-                Tools.hideFile(tempFolder);
 
                 System.out.println("Temp files blocked.");
                 Tools.exit(0);
             }
 
             //UNBLOCK FLAG - REMOVING BLOCK
-            if (Tools.argsContainsFlag("unblock", args) != null)
+            if (Tools.argsContainsFlag(compatibleArgs[3], args) != null)
             {
-                tempFolder = new File(Tools.loadTemp(username) + "/.blockfile.engo");
+                usedFile = new File(Tools.loadTemp(username) + "/.blockfile.engo");
 
                 //CHECK IF TEMP IS BLOCKED
-                if (tempFolder.exists())
+                if (usedFile.exists())
                 {
-                    //BLOCKING
-                    Tools.showFile(tempFolder);
-
-                    String password = Tools.loadFlagText("unblock", args);
-                    List<String> usedPassword = Files.readAllLines(tempFolder.toPath());
-                    StringBuilder usedPasswordBuilder = new StringBuilder();
-
-                    for (char character : usedPassword.get(0).toCharArray())
+                    //UNBLOCKING
+                    if (!debug)
                     {
-                        character -= key;
-                        usedPasswordBuilder.append(character);
+                        Tools.showFile(usedFile);
+
+                        String password = Tools.loadFlagText(compatibleArgs[3], args);
+                        List<String> usedPassword = Files.readAllLines(usedFile.toPath());
+                        StringBuilder usedPasswordBuilder = new StringBuilder();
+
+                        for (char character : usedPassword.get(0).toCharArray())
+                        {
+                            character -= key;
+                            usedPasswordBuilder.append(character);
+                        }
+
+                        assert password != null;
+                        if (!(password.equals(String.valueOf(usedPasswordBuilder))))
+                        {
+                            Tools.hideFile(usedFile);
+
+                            System.err.println("Wrong password!");
+                            Tools.exit(1);
+                        }
+
+                        Files.delete(usedFile.toPath());
                     }
 
-                    assert password != null;
-                    if (!(password.equals(String.valueOf(usedPasswordBuilder))))
-                    {
-                        Tools.hideFile(tempFolder);
-
-                        System.err.println("Wrong password!");
-                        Tools.exit(1);
-                    }
-
-                    Files.delete(tempFolder.toPath());
                     System.out.println("Temp files unblocked.");
                     Tools.exit(0);
                 }
@@ -135,47 +154,31 @@ public class API
             }
 
             //EXCEX FLAG - EXITING ON ANY DELETING EXCEPTION
-            if (Tools.argsContainsFlag("excex", args) != null)
+            if (Tools.argsContainsFlag(compatibleArgs[4], args) != null)
             {
                 System.out.println("Exiting on exception.\n");
                 excex = true;
-                ++usedArgsLength;
-            }
-
-            //DEBUG FLAG - DOESN'T ACTUALLY DELETES FILES
-            if (Tools.argsContainsFlag("debug", args) != null)
-            {
-                System.out.println("Entered debugging mode.\n");
-                debug = true;
-                ++usedArgsLength;
-            }
-
-            //CHECK IF THERE'S SOME BAD ARGS
-            if (args.length != usedArgsLength)
-            {
-                System.err.println("You used some incompatible arguments.");
-                Tools.exit(1);
             }
         }
 
         //CHECK IF TEMP IS BLOCKED
-        tempFolder = Tools.loadTemp(username);
-        if ((new File(tempFolder + "/.blockfile.engo")).exists())
+        usedFile = Tools.loadTemp(username);
+        if ((new File(usedFile + "/.blockfile.engo")).exists())
         {
             System.err.println("Temp files are blocked!");
             Tools.exit(1);
         }
 
-        assert tempFolder != null;
+        assert usedFile != null;
 
         //CHECK FOR TEMP FOLDER
-        if (!tempFolder.exists())
+        if (!usedFile.exists())
         {
             System.err.println("The temp folder doesn't exist!");
             Tools.exit(1);
         }
 
-        File[] tempFiles = tempFolder.listFiles();
+        File[] tempFiles = usedFile.listFiles();
 
         assert tempFiles != null;
 
@@ -227,7 +230,12 @@ public class API
 
         if (new Random().nextInt(100) > 75)
         {
-            System.out.println("\nThank you for supporting this project! :)");
+            System.out.print("\n:) Thank you for supporting this project! ");
+
+            if (new Random().nextInt(1000) == 420)
+            {
+                System.out.println("Look here: https://cutt.ly/4n4LcDo");
+            }
         }
 
         Tools.exit(0);

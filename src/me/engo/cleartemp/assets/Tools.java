@@ -5,6 +5,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.LinkOption;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -86,6 +88,8 @@ public class Tools
     static String argsContainsFlag(String text, String[] args)
     {
         text = "-" + text;
+        boolean error = false;
+        String returning = null;
 
         //GETS ARGS
         for (String arg : args)
@@ -93,13 +97,21 @@ public class Tools
             //CHECK IF ARGS CONTAINS TEXT
             if (arg.contains(text))
             {
+                //IS DOUBLE-USED
+                if (error)
+                {
+                    System.err.println("The '" + text.substring(1) + "' flag is used more than once!");
+                    exit(1);
+                }
+
                 //RETURNING USED ARG
-                return arg;
+                returning = arg;
+                error = true;
             }
         }
 
-        //FALSE
-        return null;
+        //RETURN
+        return returning;
     }
 
     static int getEncryptionKey()
@@ -108,15 +120,17 @@ public class Tools
         {
             File configFile = null;
 
+            //WINDOWS
             if (System.getProperty("os.name").startsWith("Windows"))
             {
                 configFile = new File("C:/Users/" + getUser() + "/.hideconfig.engo");
-            } else if (System.getProperty("os.name").equals("Linux"))
+            } else if (System.getProperty("os.name").equals("Linux")) //LINUX
             {
                 configFile = new File("/home/" + getUser() + "/.hideconfig.engo");
             }
 
             assert configFile != null;
+            //CREATING
             if (!configFile.exists())
             {
                 System.out.println("Creating new config file.\n");
@@ -133,7 +147,7 @@ public class Tools
                 hideFile(configFile);
 
                 return random;
-            } else
+            } else //GETTING
             {
                 showFile(configFile);
 
@@ -212,5 +226,40 @@ public class Tools
         {
             e.printStackTrace();
         }
+    }
+
+    static void loadInvalidFlags(String[] allowed, String[] args)
+    {
+        //NO FLAGS
+        if (args.length == 0) return;
+
+        //INVALID
+        if (Arrays.toString(args).contains("_"))
+        {
+            System.err.println("You used invalid character! ('_')");
+            exit(1);
+        }
+
+        //VARS
+        List<String> remainingArgs = new ArrayList<>(Arrays.asList(args));
+
+        //REPLACING
+        for (String allowedArg : allowed)
+        {
+            remainingArgs.removeIf(n -> (n.startsWith("-" + allowedArg)));
+        }
+
+        //TO STRING
+        String invalidArg = remainingArgs.toString().substring(1, remainingArgs.toString().length() - 1);
+
+        //WORKING FLAGS
+        if (invalidArg.equals("")) return;
+
+        //GET FIRST ERROR
+        invalidArg = invalidArg.split(":")[0];
+
+        //EXIT
+        System.err.println("You used invalid flag(s)! ('" + invalidArg + "')");
+        exit(1);
     }
 }
