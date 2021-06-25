@@ -50,7 +50,7 @@ public class Tools
                 if (returning.equals("") || returning.equals(text))
                 {
                     System.err.println("No flag text found!");
-                    exit(1);
+                    exit(8);
                 }
 
                 return returning;
@@ -59,13 +59,93 @@ public class Tools
 
         //ERR
         System.err.println("No flag found!");
-        exit(1);
+        exit(9);
         return null;
     }
 
     @SuppressWarnings("all")
     static void exit(int code)
     {
+        if (API.exit)
+        {
+            //VAR
+            String reason = "";
+
+            //GETTING REASON
+            switch (code)
+            {
+                //GOOD
+                case 103:
+                    reason = "excex exit";
+                    break;
+                case 102:
+                    reason = "successfuly unblocked temp";
+                    break;
+                case 101:
+                    reason = "successfully blocked temp";
+                    break;
+                case 0:
+                    reason = "successfully deleted temp";
+                    break;
+
+                //BAD
+                case 1:
+                    reason = "unsuported OS";
+                    break;
+                case 2:
+                    reason = "username feature used on linux";
+                    break;
+                case 3:
+                    reason = "temp already blocked";
+                    break;
+                case 4:
+                    reason = "invalid password";
+                    break;
+                case 5:
+                    reason = "not blocked temp";
+                    break;
+                case 6:
+                    reason = "temp blocked";
+                    break;
+                case 7:
+                    reason = "temp folder not found";
+                    break;
+                case 8:
+                    reason = "no flag text found";
+                    break;
+                case 9:
+                    reason = "no flag found";
+                    break;
+                case 10:
+                    reason = "one flag used more than once";
+                    break;
+                case 11:
+                    reason = "cannot configure the file";
+                    break;
+                case 12:
+                    reason = "invalid flag used";
+                    break;
+
+                //ELSE
+                default:
+                    reason = "! reason isn't avaible !";
+                    break;
+            }
+
+            //MESSAGE
+            System.out.println("Program exited with code " + code + "; " + reason);
+        }
+
+        if (new Random().nextInt(100) > 75)
+        {
+            System.out.print(":) Thank you for supporting this project! ");
+
+            if (new Random().nextInt(1000) == 420)
+            {
+                System.out.println("Look here: https://cutt.ly/4n4LcDo");
+            }
+        }
+
         try
         {
             //CHECK IF CONSOLE IS ENABLED
@@ -101,7 +181,7 @@ public class Tools
                 if (error)
                 {
                     System.err.println("The '" + text.substring(1) + "' flag is used more than once!");
-                    exit(1);
+                    exit(10);
                 }
 
                 //RETURNING USED ARG
@@ -121,10 +201,10 @@ public class Tools
             File configFile = null;
 
             //WINDOWS
-            if (System.getProperty("os.name").startsWith("Windows"))
+            if (Tools.getOs() == 2)
             {
                 configFile = new File("C:/Users/" + getUser() + "/.hideconfig.engo");
-            } else if (System.getProperty("os.name").equals("Linux")) //LINUX
+            } else if (Tools.getOs() == 1) //LINUX
             {
                 configFile = new File("/home/" + getUser() + "/.hideconfig.engo");
             }
@@ -215,7 +295,7 @@ public class Tools
                 if (!success)
                 {
                     System.err.println("Configuring file went wrong!");
-                    exit(1);
+                    exit(11);
                 }
             } else if (getOs() == 2)
             {
@@ -237,7 +317,7 @@ public class Tools
         if (Arrays.toString(args).contains("_"))
         {
             System.err.println("You used invalid character! ('_')");
-            exit(1);
+            exit(12);
         }
 
         //VARS
@@ -260,6 +340,6 @@ public class Tools
 
         //EXIT
         System.err.println("You used invalid flag(s)! ('" + invalidArg + "')");
-        exit(1);
+        exit(12);
     }
 }

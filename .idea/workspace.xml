@@ -6,11 +6,10 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e00450d6-8219-45ae-b29d-1ff31feafc79" name="Default Changelist" comment=":)">
-      <change afterPath="$PROJECT_DIR$/Resources/yay.wav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="e00450d6-8219-45ae-b29d-1ff31feafc79" name="Default Changelist" comment="Fixed Double-flag Bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClearTemp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ClearTemp.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CHANGELOG" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ClearTemp/me/engo/cleartemp/assets/API.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ClearTemp/me/engo/cleartemp/assets/API.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ClearTemp/me/engo/cleartemp/assets/Tools.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ClearTemp/me/engo/cleartemp/assets/Tools.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/me/engo/cleartemp/assets/API.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/engo/cleartemp/assets/API.java" afterDir="false" />
@@ -41,6 +40,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_MARK_IGNORED_FILES_AS_EXCLUDED" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -127,7 +127,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624196417109</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Fixed Double-flag Bug">
+      <created>1624465381122</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1624465381122</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -151,6 +158,7 @@
     <MESSAGE value="Updated .gitignore" />
     <MESSAGE value="Fixed FileEdit Bug" />
     <MESSAGE value=":)" />
-    <option name="LAST_COMMIT_MESSAGE" value=":)" />
+    <MESSAGE value="Fixed Double-flag Bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed Double-flag Bug" />
   </component>
 </project>

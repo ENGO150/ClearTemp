@@ -7,13 +7,13 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.List;
-import java.util.Random;
 
 public class API
 {
-    //API SETTINGS - CAN BE CHANGED
-    public static boolean console = false;
-    public static boolean debug = false;
+    //API SETTINGS (!CHANGING ISN'T RECOMMENDED!)
+    public static boolean console;
+    public static boolean debug;
+    public static boolean exit;
 
     //API VOID
     public static void clearTemp(String[] args) throws IOException
@@ -21,21 +21,22 @@ public class API
         if (!Tools.isOsCompatible())
         {
             System.err.println("Sorry, but it seems this OS isn't supported. If you are using supported OS (Windows, Linux), report it here: https://github.com/ENGO150/ClearTemp/issues");
-            System.out.println(System.getProperty("os.name"));
             Tools.exit(1);
         }
 
         //VARS
-        String username = "";
-        boolean excex = false;
         int cannotDelete = 0;
         int deleted = 0;
-        File usedFile;
         int key = Tools.getEncryptionKey();
 
+        File usedFile;
+        String username = "";
+
+        boolean excex = false;
+
         String[] compatibleArgs =
-        {
-                "console", "username", "block", "unblock", "excex", "debug"
+        {       //0        //1         //2      //3        //4      //5      //6
+                "console", "username", "block", "unblock", "excex", "debug", "exit"
         };
 
         //CHECK FOR INVALID FLAGS
@@ -47,7 +48,7 @@ public class API
             //DEBUG FLAG - DOESN'T ACTUALLY DELETES FILES
             if (Tools.argsContainsFlag(compatibleArgs[5], args) != null)
             {
-                System.out.println("Entered debugging mode.\n");
+                System.out.println("Entered debugging mode.");
                 debug = true;
             }
 
@@ -61,10 +62,10 @@ public class API
             if (Tools.argsContainsFlag(compatibleArgs[1], args) != null)
             {
                 //CHECK IF LINUX IS USED
-                if (System.getProperty("os.name").equals("Linux"))
+                if (Tools.getOs() == 1)
                 {
                     System.err.println("Username feature cannot be used on Linux!");
-                    Tools.exit(1);
+                    Tools.exit(2);
                 }
 
                 username = Tools.loadFlagText(compatibleArgs[1], args);
@@ -79,7 +80,7 @@ public class API
                 if (usedFile.exists())
                 {
                     System.err.println("Temp is already blocked!");
-                    Tools.exit(1);
+                    Tools.exit(3);
                 }
 
                 //BLOCKING
@@ -107,7 +108,7 @@ public class API
                 }
 
                 System.out.println("Temp files blocked.");
-                Tools.exit(0);
+                Tools.exit(101);
             }
 
             //UNBLOCK FLAG - REMOVING BLOCK
@@ -139,26 +140,35 @@ public class API
                             Tools.hideFile(usedFile);
 
                             System.err.println("Wrong password!");
-                            Tools.exit(1);
+                            Tools.exit(4);
                         }
 
                         Files.delete(usedFile.toPath());
                     }
 
                     System.out.println("Temp files unblocked.");
-                    Tools.exit(0);
+                    Tools.exit(102);
                 }
 
                 System.err.println("Temp files aren't blocked.");
-                Tools.exit(1);
+                Tools.exit(5);
             }
 
             //EXCEX FLAG - EXITING ON ANY DELETING EXCEPTION
             if (Tools.argsContainsFlag(compatibleArgs[4], args) != null)
             {
-                System.out.println("Exiting on exception.\n");
+                System.out.println("Exiting on exception.");
                 excex = true;
             }
+
+            //EXIT FLAG - SHOWS WHY THE PROGRAM IS EXITING
+            if (Tools.argsContainsFlag(compatibleArgs[6], args) != null)
+            {
+                System.out.println("Showing exit reasons.");
+                exit = true;
+            }
+
+            System.out.println("\n");
         }
 
         //CHECK IF TEMP IS BLOCKED
@@ -166,7 +176,7 @@ public class API
         if ((new File(usedFile + "/.blockfile.engo")).exists())
         {
             System.err.println("Temp files are blocked!");
-            Tools.exit(1);
+            Tools.exit(6);
         }
 
         assert usedFile != null;
@@ -175,7 +185,7 @@ public class API
         if (!usedFile.exists())
         {
             System.err.println("The temp folder doesn't exist!");
-            Tools.exit(1);
+            Tools.exit(7);
         }
 
         File[] tempFiles = usedFile.listFiles();
@@ -218,7 +228,7 @@ public class API
                 //EXCEX FLAG FUNCTION
                 if (excex)
                 {
-                    Tools.exit(0);
+                    Tools.exit(103);
                 }
 
                 ++cannotDelete;
@@ -227,16 +237,6 @@ public class API
 
         //FINAL MESSAGE
         System.out.println("\nSuccessfully deleted " + deleted + " files, " + cannotDelete + " files are now probably used and they cannot be removed.");
-
-        if (new Random().nextInt(100) > 75)
-        {
-            System.out.print("\n:) Thank you for supporting this project! ");
-
-            if (new Random().nextInt(1000) == 420)
-            {
-                System.out.println("Look here: https://cutt.ly/4n4LcDo");
-            }
-        }
 
         Tools.exit(0);
     }
