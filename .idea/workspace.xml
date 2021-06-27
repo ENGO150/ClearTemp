@@ -6,14 +6,8 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e00450d6-8219-45ae-b29d-1ff31feafc79" name="Default Changelist" comment="Fixed Double-flag Bug">
+    <list default="true" id="e00450d6-8219-45ae-b29d-1ff31feafc79" name="Default Changelist" comment="Cleaned code &amp; Added exit flag">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CHANGELOG" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ClearTemp/me/engo/cleartemp/assets/API.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ClearTemp/me/engo/cleartemp/assets/API.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ClearTemp/me/engo/cleartemp/assets/Tools.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ClearTemp/me/engo/cleartemp/assets/Tools.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/engo/cleartemp/assets/API.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/engo/cleartemp/assets/API.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/engo/cleartemp/assets/Tools.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/engo/cleartemp/assets/Tools.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +128,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624465381122</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Cleaned code &amp; Added exit flag">
+      <created>1624639781077</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1624639781079</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -159,6 +160,7 @@
     <MESSAGE value="Fixed FileEdit Bug" />
     <MESSAGE value=":)" />
     <MESSAGE value="Fixed Double-flag Bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed Double-flag Bug" />
+    <MESSAGE value="Cleaned code &amp; Added exit flag" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleaned code &amp; Added exit flag" />
   </component>
 </project>
