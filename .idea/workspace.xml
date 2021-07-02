@@ -2,17 +2,116 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="ClearTemp:jar" />
+      <artifact name="ClearTemp.main:jar" />
     </artifacts-to-build>
   </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="e00450d6-8219-45ae-b29d-1ff31feafc79" name="Default Changelist" comment="Cleaned code &amp; Added exit flag">
+    <list default="true" id="343e472d-5c8b-41a3-908b-4c23ae90092c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gradle/4.4.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/4.4.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/6.8/executionHistory/executionHistory.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/6.8/executionHistory/executionHistory.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/6.8/fileChanges/last-build.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/6.8/fileHashes/fileHashes.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/6.8/fileHashes/fileHashes.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/6.8/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/6.8/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/6.8/javaCompile/javaCompile.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/6.8/javaCompile/taskHistory.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/configuration-cache/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/vcs-1/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries-with-intellij-classes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/resources/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/resources/en.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/en.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/yay.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ClearTemp.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/ClearTemp_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/ClearTemp_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/commons_io_2_8_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CHANGELOG" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClearTemp.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/yay.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ClearTemp/me/engo/cleartemp/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ClearTemp/me/engo/cleartemp/assets/API.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ClearTemp/me/engo/cleartemp/assets/Tools.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ClearTemp/yay.wav" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/resources/yay.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/engo/cleartemp/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/engo/cleartemp/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/engo/cleartemp/assets/API.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/engo/cleartemp/assets/API.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/engo/cleartemp/assets/Tools.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/engo/cleartemp/assets/Tools.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ClearTemp" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ClearTemp" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ClearTemp" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ClearTemp" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="shadow" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -24,7 +123,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1u2ap0ex6HWPY6UPXJWB2Py0rP3" />
+  <component name="ProjectId" id="1uigXQGdhlXC742wQZL0xwr7BJk" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -34,22 +133,29 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="ASKED_MARK_IGNORED_FILES_AS_EXCLUDED" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Java/libs/commons-io-2.8.0.jar" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.18770581" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
   </component>
-  <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="$PROJECT_DIR$/src/main/java/me/engo/cleartemp/assets" />
+      <recent name="$PROJECT_DIR$/src/main/java/me/engo/cleartemp" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Gradle.ClearTemp [shadowJar]">
+    <configuration name="Debug" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="me.engo.cleartemp.Main" />
-      <module name="ClearTemp" />
+      <module name="ClearTemp.main" />
+      <option name="PROGRAM_PARAMETERS" value="-debug -exit" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="me.engo.cleartemp.assets.*" />
+          <option name="PATTERN" value="me.engo.cleartemp.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -57,85 +163,47 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ClearTemp [shadowJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="shadowJar" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.Debug" />
+      <item itemvalue="Gradle.ClearTemp [shadowJar]" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Gradle.ClearTemp [shadowJar]" />
+        <item itemvalue="Application.Debug" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e00450d6-8219-45ae-b29d-1ff31feafc79" name="Default Changelist" comment="" />
-      <created>1623866317404</created>
+      <changelist id="343e472d-5c8b-41a3-908b-4c23ae90092c" name="Default Changelist" comment="" />
+      <created>1625153863436</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1623866317404</updated>
+      <updated>1625153863436</updated>
     </task>
-    <task id="LOCAL-00001" summary="Remade project in java &amp; Added API">
-      <created>1623927337482</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1623927337482</updated>
-    </task>
-    <task id="LOCAL-00002" summary="v1.3 (read CHANGELOG)">
-      <created>1623949175139</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1623949175139</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Fixed -block bug">
-      <created>1623949646769</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1623949646769</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Removed Unused Code">
-      <created>1624111333990</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1624111333990</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Updated .gitignore">
-      <created>1624111466567</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1624111466567</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Fixed FileEdit Bug">
-      <created>1624112886126</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1624112886126</updated>
-    </task>
-    <task id="LOCAL-00007" summary=":)">
-      <created>1624196417109</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1624196417109</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Fixed Double-flag Bug">
-      <created>1624465381122</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1624465381122</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Cleaned code &amp; Added exit flag">
-      <created>1624639781077</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1624639781079</updated>
-    </task>
-    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -152,15 +220,5 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Remade project in java &amp; Added API" />
-    <MESSAGE value="v1.3 (read CHANGELOG)" />
-    <MESSAGE value="Fixed -block bug" />
-    <MESSAGE value="Removed Unused Code" />
-    <MESSAGE value="Updated .gitignore" />
-    <MESSAGE value="Fixed FileEdit Bug" />
-    <MESSAGE value=":)" />
-    <MESSAGE value="Fixed Double-flag Bug" />
-    <MESSAGE value="Cleaned code &amp; Added exit flag" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleaned code &amp; Added exit flag" />
   </component>
 </project>
