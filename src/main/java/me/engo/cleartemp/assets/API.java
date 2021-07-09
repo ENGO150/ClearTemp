@@ -7,6 +7,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.List;
+import java.util.Objects;
+
+import static me.engo.cleartemp.assets.Tools.*;
 
 public class API
 {
@@ -14,20 +17,21 @@ public class API
     public static boolean console;
     public static boolean debug;
     public static boolean exit;
+    public static String lang = "en";
 
     //API VOID
     public static void clearTemp(String[] args) throws IOException
     {
-        if (!Tools.isOsCompatible())
+        if (!isOsCompatible())
         {
-            System.err.println("Sorry, but it seems this OS isn't supported. If you are using supported OS (Windows, Linux), report it here: https://github.com/ENGO150/ClearTemp/issues");
-            Tools.exit(1);
+            printErrTranslate("not_compatible_os");
+            exit(1);
         }
 
         //VARS
         int cannotDelete = 0;
         int deleted = 0;
-        int key = Tools.getEncryptionKey();
+        int key = getEncryptionKey();
 
         File usedFile;
         String username = "";
@@ -35,58 +39,72 @@ public class API
         boolean excex = false;
 
         String[] compatibleArgs =
-                {       //0        //1         //2      //3        //4      //5      //6
-                        "console", "username", "block", "unblock", "excex", "debug", "exit"
-                };
+        {       //0        //1         //2      //3        //4      //5      //6     //7
+                "console", "username", "block", "unblock", "excex", "debug", "exit", "language"
+        };
 
         //CHECK FOR INVALID FLAGS
-        Tools.loadInvalidFlags(compatibleArgs, args);
+        loadInvalidFlags(compatibleArgs, args);
 
         //CHECK IF THERE'S SOME FLAGS
         if (args.length > 0)
         {
-            //DEBUG FLAG - DOESN'T ACTUALLY DELETES FILES
-            if (Tools.argsContainsFlag(compatibleArgs[5], args) != null)
+            //LANGUAGE FLAG - SET LANG
+            if (argsContainsFlag(compatibleArgs[7], args) != null)
             {
-                System.out.println("Entered debugging mode.");
+                String language = Objects.requireNonNull(loadFlagText(compatibleArgs[7], args)).toLowerCase();
+
+                loadInvalidArg(new String[]{"en", "cz"}, language);
+
+                lang = language;
+
+                printTranslate("using_lang");
+            }
+
+            //DEBUG FLAG - DOESN'T ACTUALLY DELETES FILES
+            if (argsContainsFlag(compatibleArgs[5], args) != null)
+            {
+                printTranslate("debug");
                 debug = true;
             }
 
             //CONSOLE FLAG
-            if (Tools.argsContainsFlag(compatibleArgs[0], args) != null)
+            if (argsContainsFlag(compatibleArgs[0], args) != null)
             {
+                printTranslate("console");
+
                 console = true;
             }
 
             //USERNAME FLAG - WINDOWS TEMP FOLDER FOR USER
-            if (Tools.argsContainsFlag(compatibleArgs[1], args) != null)
+            if (argsContainsFlag(compatibleArgs[1], args) != null)
             {
                 //CHECK IF LINUX IS USED
-                if (Tools.getOs() == 1)
+                if (getOs() == 1)
                 {
-                    System.err.println("Username feature cannot be used on Linux!");
-                    Tools.exit(2);
+                    printErrTranslate("username_linux");
+                    exit(2);
                 }
 
-                username = Tools.loadFlagText(compatibleArgs[1], args);
+                username = loadFlagText(compatibleArgs[1], args);
             }
 
             //BLOCK FLAG - PREVENTING TEMP FROM REMOVING BY THIS PROGRAM
-            if (Tools.argsContainsFlag(compatibleArgs[2], args) != null)
+            if (argsContainsFlag(compatibleArgs[2], args) != null)
             {
-                usedFile = new File(Tools.loadTemp(username) + "/.blockfile.engo");
+                usedFile = new File(loadTemp(username) + "/.blockfile.engo");
 
                 //CHECK IF TEMP IS ALREADY BLOCKED
                 if (usedFile.exists())
                 {
-                    System.err.println("Temp is already blocked!");
-                    Tools.exit(3);
+                    printErrTranslate("temp_already_blocked");
+                    exit(3);
                 }
 
                 //BLOCKING
                 if (!debug)
                 {
-                    String password = Tools.loadFlagText(compatibleArgs[2], args);
+                    String password = loadFlagText(compatibleArgs[2], args);
 
                     Files.createFile(usedFile.toPath());
 
@@ -104,17 +122,17 @@ public class API
 
                     fw.close();
 
-                    Tools.hideFile(usedFile);
+                    hideFile(usedFile);
                 }
 
-                System.out.println("Temp files blocked.");
-                Tools.exit(101);
+                printTranslate("temp_blocked");
+                exit(101);
             }
 
             //UNBLOCK FLAG - REMOVING BLOCK
-            if (Tools.argsContainsFlag(compatibleArgs[3], args) != null)
+            if (argsContainsFlag(compatibleArgs[3], args) != null)
             {
-                usedFile = new File(Tools.loadTemp(username) + "/.blockfile.engo");
+                usedFile = new File(loadTemp(username) + "/.blockfile.engo");
 
                 //CHECK IF TEMP IS BLOCKED
                 if (usedFile.exists())
@@ -122,9 +140,9 @@ public class API
                     //UNBLOCKING
                     if (!debug)
                     {
-                        Tools.showFile(usedFile);
+                        showFile(usedFile);
 
-                        String password = Tools.loadFlagText(compatibleArgs[3], args);
+                        String password = loadFlagText(compatibleArgs[3], args);
                         List<String> usedPassword = Files.readAllLines(usedFile.toPath());
                         StringBuilder usedPasswordBuilder = new StringBuilder();
 
@@ -137,34 +155,34 @@ public class API
                         assert password != null;
                         if (!(password.equals(String.valueOf(usedPasswordBuilder))))
                         {
-                            Tools.hideFile(usedFile);
+                            hideFile(usedFile);
 
-                            System.err.println("Wrong password!");
-                            Tools.exit(4);
+                            printErrTranslate("wrong_password");
+                            exit(4);
                         }
 
                         Files.delete(usedFile.toPath());
                     }
 
-                    System.out.println("Temp files unblocked.");
-                    Tools.exit(102);
+                    printTranslate("temp_unblocked");
+                    exit(102);
                 }
 
-                System.err.println("Temp files aren't blocked.");
-                Tools.exit(5);
+                printErrTranslate("temp_already_unblocked");
+                exit(5);
             }
 
             //EXCEX FLAG - EXITING ON ANY DELETING EXCEPTION
-            if (Tools.argsContainsFlag(compatibleArgs[4], args) != null)
+            if (argsContainsFlag(compatibleArgs[4], args) != null)
             {
-                System.out.println("Exiting on exception.");
+                printTranslate("excex");
                 excex = true;
             }
 
             //EXIT FLAG - SHOWS WHY THE PROGRAM IS EXITING
-            if (Tools.argsContainsFlag(compatibleArgs[6], args) != null)
+            if (argsContainsFlag(compatibleArgs[6], args) != null)
             {
-                System.out.println("Showing exit reasons.");
+                printTranslate("exit");
                 exit = true;
             }
 
@@ -172,11 +190,11 @@ public class API
         }
 
         //CHECK IF TEMP IS BLOCKED
-        usedFile = Tools.loadTemp(username);
+        usedFile = loadTemp(username);
         if ((new File(usedFile + "/.blockfile.engo")).exists())
         {
-            System.err.println("Temp files are blocked!");
-            Tools.exit(6);
+            printErrTranslate("temp_blocked_err");
+            exit(6);
         }
 
         assert usedFile != null;
@@ -184,8 +202,8 @@ public class API
         //CHECK FOR TEMP FOLDER
         if (!usedFile.exists())
         {
-            System.err.println("The temp folder doesn't exist!");
-            Tools.exit(7);
+            printErrTranslate("temp_folder_err");
+            exit(7);
         }
 
         File[] tempFiles = usedFile.listFiles();
@@ -205,7 +223,7 @@ public class API
                         Files.delete(file.toPath());
                     }
 
-                    System.out.println("Removed file: " + file.getName());
+                    System.out.println(getTranslate("removed_file") + file.getName());
                     ++deleted;
                 } else if (file.isDirectory()) //IS FOLDER
                 {
@@ -214,21 +232,21 @@ public class API
                         FileUtils.deleteDirectory(file);
                     }
 
-                    System.out.println("Removed directory: " + file.getName());
+                    System.out.println(getTranslate("removed_directory") + file.getName());
                     ++deleted;
                 } else //CHECK FOR SOME SHIT :)
                 {
-                    System.out.println("Can't remove: " + file.getName());
+                    System.out.println(getTranslate("cant_remove") + file.getName());
                     ++cannotDelete;
                 }
             } catch (Exception e)
             {
-                System.out.println("Can't remove: " + file.getName());
+                System.out.println(getTranslate("cant_remove") + file.getName());
 
                 //EXCEX FLAG FUNCTION
                 if (excex)
                 {
-                    Tools.exit(103);
+                    exit(103);
                 }
 
                 ++cannotDelete;
@@ -236,8 +254,8 @@ public class API
         }
 
         //FINAL MESSAGE
-        System.out.println("\nSuccessfully deleted " + deleted + " files, " + cannotDelete + " files are now probably used and they cannot be removed.");
+        System.out.println(getTranslate("final").replace("{DELETED}", String.valueOf(deleted)).replace("{CANNOT}", String.valueOf(cannotDelete)));
 
-        Tools.exit(0);
+        exit(0);
     }
 }

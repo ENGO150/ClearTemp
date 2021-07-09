@@ -46,7 +46,7 @@ public class Tools
 
                 if (returning.equals("") || returning.equals(text))
                 {
-                    System.err.println("No flag text found!");
+                    printErrTranslate("no_flag_text");
                     exit(8);
                 }
 
@@ -55,7 +55,7 @@ public class Tools
         }
 
         //ERR
-        System.err.println("No flag found!");
+        printErrTranslate("no_flag");
         exit(9);
         return null;
     }
@@ -73,73 +73,79 @@ public class Tools
             {
                 //GOOD
                 case 103:
-                    reason = "excex exit";
+                    reason = getTranslate("excex_exit");
                     break;
                 case 102:
-                    reason = "successfuly unblocked temp";
+                    reason = getTranslate("temp_unblocked_exit");
                     break;
                 case 101:
-                    reason = "successfully blocked temp";
+                    reason = getTranslate("temp_blocked_exit");
                     break;
                 case 0:
-                    reason = "successfully deleted temp";
+                    reason = getTranslate("temp_deleted_exit");
                     break;
 
                 //BAD
                 case 1:
-                    reason = "unsuported OS";
+                    reason = getTranslate("not_compatible_os_exit");
                     break;
                 case 2:
-                    reason = "username feature used on linux";
+                    reason = getTranslate("username_linux_exit");
                     break;
                 case 3:
-                    reason = "temp already blocked";
+                    reason = getTranslate("temp_already_blocked_exit");
                     break;
                 case 4:
-                    reason = "invalid password";
+                    reason = getTranslate("wrong_password_exit");
                     break;
                 case 5:
-                    reason = "not blocked temp";
+                    reason = getTranslate("temp_already_unblocked_exit");
                     break;
                 case 6:
-                    reason = "temp blocked";
+                    reason = getTranslate("temp_blocked_err_exit");
                     break;
                 case 7:
-                    reason = "temp folder not found";
+                    reason = getTranslate("temp_folder_err_exit");
                     break;
                 case 8:
-                    reason = "no flag text found";
+                    reason = getTranslate("no_flag_text_exit");
                     break;
                 case 9:
-                    reason = "no flag found";
+                    reason = getTranslate("no_flag_exit");
                     break;
                 case 10:
-                    reason = "one flag used more than once";
+                    reason = getTranslate("flag_used_exit");
                     break;
                 case 11:
-                    reason = "cannot configure the file";
+                    reason = getTranslate("edit_file_exit");
                     break;
                 case 12:
-                    reason = "invalid flag used";
+                    reason = getTranslate("invalid_flag_exit");
+                    break;
+                case 13:
+                    reason = getTranslate("invalid_arg_exit");
+                    break;
+                case 14:
+                    reason = getTranslate("invalid_json_exit");
                     break;
 
                 //ELSE
                 default:
-                    reason = "! reason isn't avaible !";
+                    reason = getTranslate("reason_exit");
                     break;
             }
 
             //MESSAGE
-            System.out.println("Program exited with code " + code + "; " + reason);
+            System.out.println(getTranslate("console_exit").replace("{CODE}", String.valueOf(code)) + reason);
         }
 
-        if (new Random().nextInt(100) > 75)
+        if ((new Random().nextInt(100) > 75) && (code == 0 || code > 100))
         {
-            System.out.print(":) Thank you for supporting this project! ");
+            System.out.print(getTranslate("thanks"));
 
             if (new Random().nextInt(1000) == 420)
             {
-                System.out.println("Look here: https://cutt.ly/4n4LcDo");
+                printTranslate("look");
             }
         }
 
@@ -148,7 +154,7 @@ public class Tools
             //CHECK IF CONSOLE IS ENABLED
             if (API.console)
             {
-                System.out.println("\nPress ENTER to exit: ");
+                printTranslate("press_enter");
                 //WAIT FOR ENTER
                 System.in.read();
             }
@@ -177,7 +183,7 @@ public class Tools
                 //IS DOUBLE-USED
                 if (error)
                 {
-                    System.err.println("The '" + text.substring(1) + "' flag is used more than once!");
+                    System.err.println(getTranslate("flag_used").replace("{FLAG}", text.substring(1)));
                     exit(10);
                 }
 
@@ -210,7 +216,7 @@ public class Tools
             //CREATING
             if (!configFile.exists())
             {
-                System.out.println("Creating new config file.\n");
+                printTranslate("creating_config");
 
                 Files.createFile(configFile.toPath());
 
@@ -291,7 +297,7 @@ public class Tools
 
                 if (!success)
                 {
-                    System.err.println("Configuring file went wrong!");
+                    printErrTranslate("edit_file");
                     exit(11);
                 }
             } else if (getOs() == 2)
@@ -313,7 +319,7 @@ public class Tools
         //INVALID
         if (Arrays.toString(args).contains("_"))
         {
-            System.err.println("You used invalid character! ('_')");
+            printErrTranslate("invalid_char");
             exit(12);
         }
 
@@ -336,16 +342,47 @@ public class Tools
         invalidArg = invalidArg.split(":")[0];
 
         //EXIT
-        System.err.println("You used invalid flag(s)! ('" + invalidArg + "')");
+        System.err.println(getTranslate("invalid_flag").replace("{FLAG}", invalidArg));
         exit(12);
     }
 
-    //NOT WORKING!!!!
-    //TODO: Fix
-    static String getTranslate(String lang, String object) throws IOException
+    //GET TRANSLATE
+    static String getTranslate(String object)
     {
-        String defaultFile = Objects.requireNonNull(Thread.currentThread().getContextClassLoader().getResource(lang + ".json")).getFile();
+        String returning = null;
 
-        return JsonParser.parseReader(new FileReader(defaultFile)).getAsJsonObject().get(object).getAsString();
+        try
+        {
+            returning = JsonParser.parseReader(new InputStreamReader(Objects.requireNonNull(Thread.currentThread().getContextClassLoader().getResourceAsStream(API.lang + ".json")))).getAsJsonObject().get(object).getAsString();
+        } catch (NullPointerException e)
+        {
+            System.err.println(getTranslate("invalid_json").replace("{OBJECT}", object));
+            exit(14);
+        }
+
+        return returning;
+    }
+
+    //PRINT TRANSLATE
+    static void printTranslate(String object)
+    {
+        System.out.println(getTranslate(object));
+    }
+
+    //PRINT ERR TRANSLATE
+    static void printErrTranslate(String object)
+    {
+        System.err.println(getTranslate(object));
+    }
+
+    //CHECK IF ARG IS IN ALLOWED
+    static void loadInvalidArg(String[] allowed, String arg)
+    {
+        List<String> allowedList = Arrays.asList(allowed);
+        if (!allowedList.contains(arg))
+        {
+            System.out.println(getTranslate("invalid_arg").replace("{ARG}", arg));
+            exit(13);
+        }
     }
 }
