@@ -277,6 +277,9 @@ public class Tools
         } else if (osName.contains("windows"))
         {
             return 2;
+        } else if (osName.contains("mac")) //JUST BETA
+        {
+            return 3;
         } else
         {
             return 0;

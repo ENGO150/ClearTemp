@@ -1,5 +1,6 @@
 {
   "not_compatible_os": "Omlouváme se, ale tento operační systém není podporován. Pokud používáte podporovaný OS (Windows, Linux), nahlašte chybu zde: https://github.com/ENGO150/ClearTemp/issues.",
+  "mac_beta": "Pravděpodobně používáte Mac. Pokud ne, nahlašte problém zde: https://github.com/ENGO150/ClearTemp/issues. Pokud jste uživatel Macu, zkontrolujte, jestli složka níže existuje a je také dočasná. Pokud je, napište mi na discordu. (ENGO_150#1322)",
 
   "using_lang": "Používá se Čeština.",
 
