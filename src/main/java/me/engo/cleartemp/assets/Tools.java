@@ -2,6 +2,7 @@ package me.engo.cleartemp.assets;
 
 import com.google.gson.JsonParser;
 
+import javax.swing.*;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.LinkOption;
@@ -26,6 +27,9 @@ public class Tools
         {
             //RETURNING DEFAULT LINUX TEMP FOLDER
             return new File("/tmp");
+        } else if (getOs() == 3)
+        {
+            return new File(System.getProperty("java.io.tmpdir"));
         }
 
         return null;
@@ -72,6 +76,9 @@ public class Tools
             switch (code)
             {
                 //GOOD
+                case 104:
+                    reason = ":)";
+                    break;
                 case 103:
                     reason = getTranslate("excex_exit");
                     break;
@@ -204,12 +211,15 @@ public class Tools
             File configFile = null;
 
             //WINDOWS
-            if (Tools.getOs() == 2)
+            if (getOs() == 2)
             {
                 configFile = new File("C:/Users/" + getUser() + "/.hideconfig.engo");
-            } else if (Tools.getOs() == 1) //LINUX
+            } else if (getOs() == 1) //LINUX
             {
                 configFile = new File("/home/" + getUser() + "/.hideconfig.engo");
+            } else if (getOs() == 3) // MAC
+            {
+                configFile = new File(System.getProperty("java.io.tmpdir")); //JUST BETA
             }
 
             assert configFile != null;
@@ -290,7 +300,7 @@ public class Tools
     {
         try
         {
-            if (getOs() == 1)
+            if (getOs() == 1 || getOs() == 3)
             {
                 boolean success;
                 hide = !hide;
@@ -340,6 +350,18 @@ public class Tools
 
         //WORKING FLAGS
         if (invalidArg.equals("")) return;
+
+        //:)
+        if (invalidArg.equals("sus"))
+        {
+            JOptionPane.showMessageDialog(null, "Never gonna give you up\n" +
+                    "Never gonna let you down\n" +
+                    "Never gonna run around and desert you\n" +
+                    "Never gonna make you cry\n" +
+                    "Never gonna say goodbye\n" +
+                    "Never gonna tell a lie and hurt you", "sussy boi", JOptionPane.INFORMATION_MESSAGE);
+            exit(104);
+        }
 
         //GET FIRST ERROR
         invalidArg = invalidArg.split(":")[0];

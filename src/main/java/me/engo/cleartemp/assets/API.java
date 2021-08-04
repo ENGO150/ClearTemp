@@ -28,17 +28,6 @@ public class API
             exit(1);
         }
 
-        if (getOs() == 3) // MAC OS
-        {
-            printTranslate("mac_beta");
-            System.out.println("folder >>> " + System.getProperty("java.io.tmpdir"));
-
-            console = true;
-            exit = false;
-
-            exit(0);
-        }
-
         //VARS
         int cannotDelete = 0;
         int deleted = 0;
@@ -90,8 +79,8 @@ public class API
             //USERNAME FLAG - WINDOWS TEMP FOLDER FOR USER
             if (argsContainsFlag(compatibleArgs[1], args) != null)
             {
-                //CHECK IF LINUX IS USED
-                if (getOs() == 1)
+                //CHECK IF LINUX OR MAC + IS USED
+                if (getOs() != 2)
                 {
                     printErrTranslate("username_linux");
                     exit(2);
@@ -197,6 +186,12 @@ public class API
                 exit = true;
             }
 
+            System.out.print("\n");
+        }
+
+        if (getOs() == 3)
+        {
+            printTranslate("mac_beta");
             System.out.print("\n");
         }
 
