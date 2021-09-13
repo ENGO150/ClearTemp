@@ -17,7 +17,10 @@ java -jar ClearTemp.jar [-console] [-username:NAME] [-block:PASSWORD] [-unblock:
 - -language:LANG = use more languages (replace LANG with language shortcut; Available: EN, CZ)
 
 
-The args in square brackets aren't mandatory, and you also don't need to use both of them. I am not responsible for any misuse. Use this program only with the permission of the user to whom you are deleting temporary files. I am developing this program on Linux (Ubuntu), but it should work perfectly on Windows, too.
+The args in square brackets aren't required, and you also don't need to use both of them. I am not responsible for any misuse. Use this program only with the permission of the user to whom you are deleting temporary files. I am developing this program on Linux (Ubuntu), but it should work perfectly on Windows, too.
 
 
 *you can download the jar file [here](https://github.com/ENGO150/ClearTemp/releases/latest).
+
+I apologize for not updating this project. I have a lot of work now, and I am also redoing this project in C. Please be patient.
+---
