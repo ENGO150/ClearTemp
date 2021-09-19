@@ -4,11 +4,11 @@ Project that clears your temp files.
 ---
 You can launch jar file by double-clicking it, but if you want to use some flags, launch it from command line:
 
-java -jar ClearTemp.jar [-console] [-username:NAME] [-block:PASSWORD] [-unblock:PASSWORD] [-excex] [-debug] [-exit] [-language:LANG]
+java -jar ClearTemp.jar [-console] [-usernameFlag:NAME] [-block:PASSWORD] [-unblock:PASSWORD] [-excex] [-debug] [-exit] [-language:LANG]
 
 
 - -console = show console
-- -username:NAME = clear temp of specific user (replace NAME with user's name) !!THIS ISN'T WORKING ON LINUX - DEFAULT TEMP DIRECTORY ON LINUX IS /TMP!!
+- -usernameFlag:NAME = clear temp of specific user (replace NAME with user's name) !!THIS ISN'T WORKING ON LINUX - DEFAULT TEMP DIRECTORY ON LINUX IS /TMP!!
 - -block:PASSWORD = block deleting temp with this program (replace PASSWORD with password for blocking !YOU CAN USE SPECIAL CHARACTERS, BUT AT YOUR OWN RISK!)
 - -unblock:PASSWORD = unblock deleting temp with this program (replace PASSWORD with password you used [-block])
 - -excex = exiting on exception (that is, whenever a program finds a temporary file that cannot be deleted, it stops)

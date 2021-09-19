@@ -1,0 +1,64 @@
+not_compatible_os: Sorry, but it seems this OS isn't supported. If you are using supported OS (Windows, Linux), report it here: https://github.com/ENGO150/ClearTemp/issues.
+
+using_lang: Using English.
+
+debug: Entered debugging mode.
+console: Using console.
+excex: Exiting on exception.
+exit: Showing exit reasons.
+
+username_linux: Username feature cannot be used on Linux!
+
+temp_already_blocked: Temp is already blocked!
+temp_already_unblocked: Temp files aren't blocked.
+temp_blocked: Temp files blocked.
+temp_unblocked: Temp files unblocked.
+wrong_password: Wrong password!
+temp_blocked_err: Temp files are blocked!
+temp_folder_err: The temp folder doesn't exist!
+
+removed_file: Removed file:
+removed_directory: Removed directory:
+cant_remove: Can't remove:
+
+final: \nSuccessfully deleted {DELETED} files, {CANNOT} files are now probably used and they cannot be removed.
+
+no_flag_text: No flag text found!
+no_flag: No flag found!
+
+excex_exit: excex exit
+temp_unblocked_exit: successfuly unblocked temp
+temp_blocked_exit: successfully blocked temp
+temp_deleted_exit: successfully deleted temp
+not_compatible_os_exit: unsuported OS",
+username_linux_exit: username feature used on linux
+temp_already_blocked_exit: temp already blocked
+wrong_password_exit: "invalid password
+temp_already_unblocked_exit: "not blocked temp
+temp_blocked_err_exit: "temp blocked
+temp_folder_err_exit: "temp folder not found
+no_flag_text_exit: "no flag text found
+no_flag_exit: "no flag found
+flag_used_exit: "one flag used more than once
+edit_file_exit: "cannot configure the file
+invalid_flag_exit: "invalid flag used
+invalid_arg_exit: "invalid arg used
+invalid_json_exit: json object not found
+
+reason_exit: ! reason isn't avaible !
+
+console_exit: Program exited with code {CODE};
+press_enter: \nPress ENTER to exit:
+
+thanks: :) Thank you for supporting this project!
+look: Look here: https://cutt.ly/4n4LcDo
+
+flag_used: The '{FLAG}' flag is used more than once!
+
+creating_config: Creating new config file.\n
+
+edit_file: Configuring file went wrong!
+
+invalid_char: You used invalid character! ('_')
+invalid_flag: You used invalid flag(s)! ('{FLAG}')
+invalid_arg": You used invalid arg! ('{ARG}')

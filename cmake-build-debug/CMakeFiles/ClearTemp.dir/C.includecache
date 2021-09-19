@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/D9CB7B60C982002D/C/ClearTemp/include/api.h
+stdbool.h
+-
+
+/mnt/D9CB7B60C982002D/C/ClearTemp/include/tools.h
+
+/mnt/D9CB7B60C982002D/C/ClearTemp/src/assets/api.c
+../../include/api.h
+/mnt/D9CB7B60C982002D/C/ClearTemp/include/api.h
+../../include/tools.h
+/mnt/D9CB7B60C982002D/C/ClearTemp/include/tools.h
+

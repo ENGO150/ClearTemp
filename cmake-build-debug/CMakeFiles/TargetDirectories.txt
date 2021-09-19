@@ -1,0 +1,3 @@
+/mnt/D9CB7B60C982002D/C/ClearTemp/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/mnt/D9CB7B60C982002D/C/ClearTemp/cmake-build-debug/CMakeFiles/edit_cache.dir
+/mnt/D9CB7B60C982002D/C/ClearTemp/cmake-build-debug/CMakeFiles/ClearTemp.dir
