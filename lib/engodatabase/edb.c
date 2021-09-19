@@ -25,15 +25,12 @@ void readString(char objectRaw[], FILE * edbLoc, char ** objectFinal)
             {
                 //END OF MATCHING
                 char finalObject[strlen(buffer) - i];
-                for (int l = (i + 1); l < strlen(buffer); l++)
+                for (int l = (i + 1); l < (strlen(buffer) + 1); l++)
                 {
                     finalObject[l - (i + 1)] = buffer[l];
-
-
-                    //TODO: Fix end of array
-                    //printf("finalObject[%d] byl nastaven na %c\n%s\n\n", l - (i + 1), buffer[l], finalObject);
                 }
 
+                fclose(edbLoc);
                 *objectFinal = finalObject;
                 return;
             }
