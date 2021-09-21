@@ -1,0 +1,64 @@
+not_compatible_os: Omlouváme se, ale tento operační systém není podporován. Pokud používáte podporovaný OS (Windows, Linux), nahlašte chybu zde: https://github.com/ENGO150/ClearTemp/issues.
+
+using_lang: Používá se Čeština.
+
+debug: Používá se debugovací mód.
+console: Používá se konzole.
+excex: Zastavení na výjímkách.
+exit: Ukazují se důvody zastavení.
+
+username_linux: Funkce uživatelského jména nemůže být použita na Linuxu!
+
+temp_already_blocked: Dočasné soubory jsou již zablokované!
+temp_already_unblocked: Dočasné soubory nejsou zablokované.
+temp_blocked: Dočasné soubory byly zablokovány.
+temp_unblocked: Dočasné soubory byly odblokovány.
+wrong_password: Špatné heslo!
+temp_blocked_err: Dočasné soubory jsou zablokované!
+temp_folder_err: Složka dočasných souborů neexistuje!
+
+removed_file: Soubor smazán:
+removed_directory: Složka smazána:
+cant_remove: Nelze smazat:
+
+final: {LINE}Bylo úspěšně smazáno {DELETED} souborů, {CANNOT} souborů je nyní pravděpodobně používáno a není možné je smazat.
+
+no_flag_text: Nebyl nalezen žádný text flajky!
+no_flag: Nebyla nalezena žádná vlajka!
+
+excex_exit: excex ukončení
+temp_unblocked_exit: dočasné soubory úspěšně zablokovány
+temp_blocked_exit: dočasné soubory úspěšně odblokovány
+temp_deleted_exit: dočasné soubory úspěšně smazány
+not_compatible_os_exit: nepodporovaný OS
+username_linux_exit: uživatelské jméno použito na linuxu
+temp_already_blocked_exit: dočasné soubory jsou již zablokovány
+wrong_password_exit: neplatné heslo
+temp_already_unblocked_exit: dočasné soubory nejsou zablokovány
+temp_blocked_err_exit: dočasné soubory jsou zablokovány
+temp_folder_err_exit: složka dočasných souborů nenalezena
+no_flag_text_exit: žádný text vlajky
+no_flag_exit: žádná vlajka
+flag_used_exit: jedna vlajka je použita vícekrát
+edit_file_exit: nelze nastavit soubor
+invalid_flag_exit: použita neplatná vlajka
+invalid_arg_exit: použit neplatný argument
+invalid_json_exit: json objekt nenalezen
+
+reason_exit: ! důvod není dostupný !
+
+console_exit: Program skončil s kódem {CODE};
+press_enter: {LINE}Zmáčkněte ENTER pro uložení:
+
+thanks: :) Děkujeme, že podporujete tento projekt!
+look: Podívejte se: https://cutt.ly/4n4LcDo
+
+flag_used: Vlajka '{FLAG}' je použita více než jednou!
+
+creating_config: Vytváří se nový konfigurační soubor.{LINE}
+
+edit_file: Konfigurace souboru se nezdařila!
+
+invalid_char: Použili jste neplatný znak! ('_')
+invalid_flag: Použili jste neplatnou vlajku! ('{FLAG}')
+invalid_arg: Použili jste neplatný argument! ('{ARG}')

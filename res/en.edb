@@ -21,7 +21,7 @@ removed_file: Removed file:
 removed_directory: Removed directory:
 cant_remove: Can't remove:
 
-final: \nSuccessfully deleted {DELETED} files, {CANNOT} files are now probably used and they cannot be removed.
+final: {LINE}Successfully deleted {DELETED} files, {CANNOT} files are now probably used and they cannot be removed.
 
 no_flag_text: No flag text found!
 no_flag: No flag found!
@@ -48,14 +48,14 @@ invalid_json_exit: json object not found
 reason_exit: ! reason isn't avaible !
 
 console_exit: Program exited with code {CODE};
-press_enter: \nPress ENTER to exit:
+press_enter: {LINE}Press ENTER to exit:
 
 thanks: :) Thank you for supporting this project!
 look: Look here: https://cutt.ly/4n4LcDo
 
 flag_used: The '{FLAG}' flag is used more than once!
 
-creating_config: Creating new config file.\n
+creating_config: Creating new config file.{LINE}
 
 edit_file: Configuring file went wrong!
 

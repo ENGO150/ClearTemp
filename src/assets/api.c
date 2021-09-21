@@ -12,8 +12,5 @@ void clearTemp(char args[])
         printErr("not_compatible_os", 1);
     }
 
-    //VARS
-    int cannotDelete = 0;
-    int deleted = 0;
-    int key = getEncryptionKey();
+    print("final");
 }

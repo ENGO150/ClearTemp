@@ -12,9 +12,25 @@ stdbool.h
 
 /mnt/D9CB7B60C982002D/C/ClearTemp/include/tools.h
 
+/mnt/D9CB7B60C982002D/C/ClearTemp/lib/engodatabase/edb.h
+
 /mnt/D9CB7B60C982002D/C/ClearTemp/src/assets/api.c
 ../../include/api.h
 /mnt/D9CB7B60C982002D/C/ClearTemp/include/api.h
+../../include/tools.h
+/mnt/D9CB7B60C982002D/C/ClearTemp/include/tools.h
+
+/mnt/D9CB7B60C982002D/C/ClearTemp/src/assets/tools.c
+stdio.h
+-
+stdlib.h
+-
+stdbool.h
+-
+string.h
+-
+../../lib/engodatabase/edb.h
+/mnt/D9CB7B60C982002D/C/ClearTemp/lib/engodatabase/edb.h
 ../../include/tools.h
 /mnt/D9CB7B60C982002D/C/ClearTemp/include/tools.h
 
