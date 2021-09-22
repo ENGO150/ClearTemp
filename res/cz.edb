@@ -43,7 +43,6 @@ flag_used_exit: jedna vlajka je použita vícekrát
 edit_file_exit: nelze nastavit soubor
 invalid_flag_exit: použita neplatná vlajka
 invalid_arg_exit: použit neplatný argument
-invalid_json_exit: json objekt nenalezen
 
 reason_exit: ! důvod není dostupný !
 

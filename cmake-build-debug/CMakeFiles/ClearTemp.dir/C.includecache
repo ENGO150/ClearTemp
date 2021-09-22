@@ -15,6 +15,14 @@ stdbool.h
 /mnt/D9CB7B60C982002D/C/ClearTemp/lib/engodatabase/edb.h
 
 /mnt/D9CB7B60C982002D/C/ClearTemp/src/assets/api.c
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+time.h
+-
 ../../include/api.h
 /mnt/D9CB7B60C982002D/C/ClearTemp/include/api.h
 ../../include/tools.h

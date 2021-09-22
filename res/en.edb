@@ -43,7 +43,6 @@ flag_used_exit: "one flag used more than once
 edit_file_exit: "cannot configure the file
 invalid_flag_exit: "invalid flag used
 invalid_arg_exit: "invalid arg used
-invalid_json_exit: json object not found
 
 reason_exit: ! reason isn't avaible !
 

@@ -30,41 +30,49 @@ bool isOsCompatible()
     return os != 0;
 }
 
-char * replaceWord(const char* s, const char* oldW, const char* newW)
+char * replaceString(const char * word, const char * wordFind, const char * wordReplace, char ** store)
 {
-    char* result;
+    char * result;
     unsigned long i, cnt = 0;
-    unsigned long newWL = strlen(newW);
-    unsigned long oldWL = strlen(oldW);
+    unsigned long wordFindL = strlen(wordReplace);
+    unsigned long wordReplaceL = strlen(wordFind);
 
-    for (i = 0; s[i] != '\0'; i++)
+    for (i = 0; word[i] != '\0'; i++)
     {
-        if (strstr(&s[i], oldW) == &s[i])
+        if (strstr(&word[i], wordFind) == &word[i])
         {
             cnt++;
 
-            i += oldWL - 1;
+            i += wordReplaceL - 1;
         }
     }
 
-    result = (char *) malloc(i + cnt * (newWL - oldWL) + 1);
+    result = (char *) malloc(i + cnt * (wordFindL - wordReplaceL) + 1);
 
     i = 0;
-    while (*s)
+    while (*word)
     {
-        if (strstr(s, oldW) == s)
+        if (strstr(word, wordFind) == word)
         {
-            strcpy(&result[i], newW);
-            i += newWL;
-            s += oldWL;
+            strcpy(&result[i], wordReplace);
+            i += wordFindL;
+            word += wordReplaceL;
         }
         else
         {
-            result[i++] = *s++;
+            result[i++] = *word++;
         }
     }
 
     result[i] = '\0';
+    if (store != NULL)
+    {
+        *store = result;
+        free(result);
+        return * store;
+    }
+
+    free(store);
     return result;
 }
 
@@ -86,90 +94,91 @@ void exitProgram(int code)
     if (exitFlag)
     {
         //TODO: fix replacing
-        char * replacing = NULL/*code*/;
-        char * reason = NULL;
+        char replacing[] = "0"/*code*/;
+        char reason[256];
 
         //GETTING REASON
         switch (code)
         {
             //GOOD
             case 104:
-                reason = ":)";
+                strcpy(reason, getDB(":)"));
                 break;
             case 103:
-                reason = getDB("excex_exit");
+                strcpy(reason, getDB("excex_exit"));
                 break;
             case 102:
-                reason = getDB("temp_unblocked_exit");
+                strcpy(reason, getDB("temp_unblocked_exit"));
                 break;
             case 101:
-                reason = getDB("temp_blocked_exit");
+                strcpy(reason, getDB("temp_blocked_exit"));
                 break;
             case 0:
-                reason = getDB("temp_deleted_exit");
+                strcpy(reason, getDB("temp_deleted_exit"));
                 break;
 
                 //BAD
             case 1:
-                reason = getDB("not_compatible_os_exit");
+                strcpy(reason, getDB("not_compatible_os_exit"));
                 break;
             case 2:
-                reason = getDB("username_linux_exit");
+                strcpy(reason, getDB("username_linux_exit"));
                 break;
             case 3:
-                reason = getDB("temp_already_blocked_exit");
+                strcpy(reason, getDB("temp_already_blocked_exit"));
                 break;
             case 4:
-                reason = getDB("wrong_password_exit");
+                strcpy(reason, getDB("wrong_password_exit"));
                 break;
             case 5:
-                reason = getDB("temp_already_unblocked_exit");
+                strcpy(reason, getDB("temp_already_unblocked_exit"));
                 break;
             case 6:
-                reason = getDB("temp_blocked_err_exit");
+                strcpy(reason, getDB("temp_blocked_err_exit"));
                 break;
             case 7:
-                reason = getDB("temp_folder_err_exit");
+                strcpy(reason, getDB("temp_folder_err_exit"));
                 break;
             case 8:
-                reason = getDB("no_flag_text_exit");
+                strcpy(reason, getDB("no_flag_text_exit"));
                 break;
             case 9:
-                reason = getDB("no_flag_exit");
+                strcpy(reason, getDB("no_flag_exit"));
                 break;
             case 10:
-                reason = getDB("flag_used_exit");
+                strcpy(reason, getDB("flag_used_exit"));
                 break;
             case 11:
-                reason = getDB("edit_file_exit");
+                strcpy(reason, getDB("edit_file_exit"));
                 break;
             case 12:
-                reason = getDB("invalid_flag_exit");
+                strcpy(reason, getDB("invalid_flag_exit"));
                 break;
             case 13:
-                reason = getDB("invalid_arg_exit");
+                strcpy(reason, getDB("invalid_arg_exit"));
                 break;
             case 14:
-                reason = getDB("invalid_json_exit");
+                strcpy(reason, getDB("invalid_json_exit"));
                 break;
 
                 //ELSE
             default:
-                reason = getDB("reason_exit");
+                strcpy(reason, getDB("reason_exit"));
                 break;
         }
 
         strcat(replacing, reason);
 
         //MESSAGE
-        printf("%s\n", replaceWord(getDB("console_exit"), "{CODE}", replacing));
+        //TODO: Fix last letter
+        printf("%s\n", replaceString(getDB("console_exit"), "{CODE}", replacing, NULL));
     }
 
-    if ((rand() % 101 > 75) && (code == 0 || code > 100))
+    if ((rand() % (100 + 1) > 75) && (code == 0 || code > 100))
     {
         printf("%s", getDB("thanks"));
 
-        if (rand() % 1001 == 420)
+        if (rand() % (1000 + 1) == 420)
         {
             print("look");
         }
@@ -193,9 +202,11 @@ char * getUser()
     //TODO: Fix the whole method
     print("enter_username");
 
-    scanf("%s", usernameFlag);
+    char * username = NULL;
+    scanf("%s", username);
+    printf("%s", username);
 
-    return usernameFlag;
+    return username;
 }
 
 void print(char object[])

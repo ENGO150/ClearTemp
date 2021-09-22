@@ -4,11 +4,18 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 #include <edb.h>
 
 void readString(char objectRaw[], FILE * edbLoc, char ** objectFinal)
 {
+    if (edbLoc == NULL)
+    {
+        fprintf(stderr, "edbLoc is NULL!");
+        exit(1);
+    }
+
     char object[strlen(objectRaw + 2)];
     strcpy(object, objectRaw); //COPY objectRaw TO object
     strcat(object, ": "); //ADD ": " TO object
