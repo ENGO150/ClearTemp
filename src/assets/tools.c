@@ -199,14 +199,7 @@ void exitProgram(int code)
 
 char * getUser()
 {
-    //TODO: Fix the whole method
-    print("enter_username");
-
-    char * username = NULL;
-    scanf("%s", username);
-    printf("%s", username);
-
-    return username;
+    return getenv("USERNAME");
 }
 
 void print(char object[])

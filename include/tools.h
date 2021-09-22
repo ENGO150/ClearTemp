@@ -8,7 +8,7 @@
 static bool consoleFlag = false; //If true doesn't close windows at end - waits for your input
 static bool debugFlag = false; //If true program just pretends it's deleting temp
 static bool exitFlag = false; //If true shows exitCode and exitReason (console enable is recommended)
-static char  * usernameFlag = ""; //Username for path to temp; This is used only for Windows (code 2)
+//static char  * usernameFlag = ""; //Username for path to temp; This is used only for Windows (code 2)
 static char * langFlag = "en"; //Language for getDB()
 
 bool isOsCompatible(); //Returns false if os == 0
@@ -21,5 +21,5 @@ char * getDB(char object[]); //Returns "object" from database; look for "langFla
 char * replaceString(const char * word, const char * wordFind, const char * wordReplace, char ** store); //This void finds wordFind in word, then replaces it with wordReplace and if store isn't NULL, stores that value in store, otherwise it returns the value
 
 //int getEncryptionKey(); //This void creates encryption config and returns "secret" value
-
+char * getUser();
 #endif
