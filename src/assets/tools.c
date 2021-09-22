@@ -93,9 +93,10 @@ void exitProgram(int code)
 {
     if (exitFlag)
     {
-        //TODO: fix replacing
-        char replacing[] = "0"/*code*/;
+        char replacing[5];
         char reason[256];
+
+        sprintf(replacing, "%d", code);
 
         //GETTING REASON
         switch (code)
@@ -167,11 +168,9 @@ void exitProgram(int code)
                 break;
         }
 
-        strcat(replacing, reason);
-
         //MESSAGE
-        //TODO: Fix last letter
-        printf("%s\n", replaceString(getDB("console_exit"), "{CODE}", replacing, NULL));
+        //TODO: getDB ends with \n
+        printf("%s%s\n", replaceString(getDB("console_exit"), "{CODE}", replacing, NULL), reason);
     }
 
     if ((rand() % (100 + 1) > 75) && (code == 0 || code > 100))
