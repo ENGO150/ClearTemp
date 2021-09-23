@@ -10,6 +10,7 @@
 
 void readString(char objectRaw[], FILE * edbLoc, char ** objectFinal)
 {
+    //EDB FILE DOESN'T EXISTS
     if (edbLoc == NULL)
     {
         fprintf(stderr, "edbLoc is NULL!");
@@ -45,5 +46,5 @@ void readString(char objectRaw[], FILE * edbLoc, char ** objectFinal)
     }
 
     fclose(edbLoc);
-    *objectFinal = NULL;
+    *objectFinal = "ERR";
 }

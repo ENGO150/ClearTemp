@@ -37,7 +37,7 @@ void clearTemp(char args[])
     strcpy(final, replaceString(final, "{DELETED}", deletedS, NULL));
     strcpy(final, replaceString(final, "{CANNOT}", cannotDeleteS, NULL));
 
-    printf("%s", final);
+    printf("%s\n", final);
 
     exitProgram(0);
 }

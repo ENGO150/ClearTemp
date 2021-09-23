@@ -30,9 +30,9 @@ bool isOsCompatible()
     return os != 0;
 }
 
-char * replaceString(const char * word, const char * wordFind, const char * wordReplace, char ** store)
-{
+char * replaceString(const char * word, const char * wordFind, const char * wordReplace, char ** store) {
     char * result;
+
     unsigned long i, cnt = 0;
     unsigned long wordFindL = strlen(wordReplace);
     unsigned long wordReplaceL = strlen(wordFind);
@@ -57,14 +57,18 @@ char * replaceString(const char * word, const char * wordFind, const char * word
             strcpy(&result[i], wordReplace);
             i += wordFindL;
             word += wordReplaceL;
-        }
-        else
+        } else
         {
             result[i++] = *word++;
         }
     }
 
     result[i] = '\0';
+
+    //REMOVE \n FROM THE END
+    //TODO: It erases the last letter in the first usage
+    result[strlen(result) - 1] = '\0';
+
     if (store != NULL)
     {
         *store = result;
@@ -169,8 +173,7 @@ void exitProgram(int code)
         }
 
         //MESSAGE
-        //TODO: getDB ends with \n
-        printf("%s%s\n", replaceString(getDB("console_exit"), "{CODE}", replacing, NULL), reason);
+        printf("%s %s\n", replaceString(getDB("console_exit"), "{CODE}", replacing, NULL), reason);
     }
 
     if ((rand() % (100 + 1) > 75) && (code == 0 || code > 100))
