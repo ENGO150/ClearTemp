@@ -22,7 +22,7 @@ void clearTemp(char args[])
     //VARS
     int deleted = 0;
     int cannotDelete = 0;
-    //int key = getEncryptionKey();
+    int key = getEncryptionKey();
 
     //FINAL
     char final[256];

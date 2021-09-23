@@ -20,5 +20,5 @@ void exitProgram(int code); //Exits program with code (look for exitFlag in api.
 char * getDB(char object[]); //Returns "object" from database; look for "langFlag"
 char * replaceString(const char * word, const char * wordFind, const char * wordReplace, char ** store); //This void finds wordFind in word, then replaces it with wordReplace and if store isn't NULL, stores that value in store, otherwise it returns the value
 
-//int getEncryptionKey(); //This void creates encryption config and returns "secret" value
+int getEncryptionKey(); //This void creates encryption in ENV and returns "secret" value
 #endif

@@ -201,7 +201,15 @@ void exitProgram(int code)
 
 char * getUser()
 {
-    return getenv("USERNAME");
+    if (os == 1)
+    {
+        return getenv("USERNAME");
+    } else if (os == 2)
+    {
+        return getenv("USER");
+    }
+
+    return NULL;
 }
 
 void print(char object[])
@@ -215,23 +223,37 @@ void printErr(char object[], int exitCode)
     exitProgram(exitCode);
 }
 
-//int getEncryptionKey()
-//{
-//    //TODO: Fix
-//    FILE * configFile;
-//    char fileLoc[256];
-//
-//    //WINDOWS
-//    if (os == 1)
-//    {
-//        strcpy(fileLoc, "C:/Users/");
-//    } else if (os == 2) //LINUX
-//    {
-//        strcpy(fileLoc, "/home/");
-//    }
-//
-//    strcat(fileLoc, getUser());
-//    strcat(fileLoc, "/.block.ecfg");
-//
-//    return 0;
-//}
+int getEncryptionKey() {
+    char path[256];
+
+    //GET PATH
+    if (os == 1)
+    {
+        strcpy(path, "C:/Users/");
+        strcat(path, getUser());
+        strcat(path, "/.ek.ecfg");
+    } else if (os == 2)
+    {
+        strcpy(path, "/home/");
+        strcat(path, getUser());
+        strcat(path, "/.ek.ecfg");
+    }
+
+    FILE * fp = fopen(path, "r");
+    if (fp != NULL) goto notNull; //PATH EXISTS
+
+    //CREATE
+    printf("%s\n", replaceString(getDB("creating_config"), "{LINE}", "\n", NULL));
+    fp = fopen(path, "w+");
+
+    int random = rand() % (100 + 1);
+    fprintf(fp, "%d", random);
+    fclose(fp);
+    return random;
+
+    notNull:;
+    int returningKey;
+    fscanf(fp, "%d", &returningKey);
+
+    return returningKey;
+}
