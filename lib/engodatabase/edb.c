@@ -38,6 +38,12 @@ void readString(char objectRaw[], FILE * edbLoc, char ** objectFinal)
                     finalObject[l - (i + 1)] = buffer[l];
                 }
 
+                //REMOVE \n
+                if (finalObject[strlen(finalObject) - 1] == '\n')
+                {
+                    finalObject[strlen(finalObject) - 1] = '\0';
+                }
+
                 fclose(edbLoc);
                 *objectFinal = finalObject;
                 return;

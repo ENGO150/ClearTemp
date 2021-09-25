@@ -6,6 +6,6 @@
 
 int main(__attribute__((unused)) int argc, char * argv[])
 {
-    clearTemp(*argv);
+    clearTemp(argv);
     return 0;
 }

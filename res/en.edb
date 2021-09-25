@@ -18,7 +18,6 @@ temp_blocked_err: Temp files are blocked!
 temp_folder_err: The temp folder doesn't exist!
 
 removed_file: Removed file:
-removed_directory: Removed directory:
 cant_remove: Can't remove:
 
 final: {LINE}Successfully deleted {DELETED} files, {CANNOT} files are now probably used and they cannot be removed.
@@ -47,7 +46,7 @@ invalid_arg_exit: invalid arg used
 reason_exit: ! reason isn't avaible !
 
 console_exit: Program exited with code {CODE};
-press_enter: {LINE}Press ENTER to exit:
+press_enter: Press ENTER to exit:
 
 thanks: :) Thank you for supporting this project!
 look: Look here: https://cutt.ly/4n4LcDo

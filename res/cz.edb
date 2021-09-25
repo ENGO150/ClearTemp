@@ -18,7 +18,6 @@ temp_blocked_err: Dočasné soubory jsou zablokované!
 temp_folder_err: Složka dočasných souborů neexistuje!
 
 removed_file: Soubor smazán:
-removed_directory: Složka smazána:
 cant_remove: Nelze smazat:
 
 final: {LINE}Bylo úspěšně smazáno {DELETED} souborů, {CANNOT} souborů je nyní pravděpodobně používáno a není možné je smazat.
@@ -47,7 +46,7 @@ invalid_arg_exit: použit neplatný argument
 reason_exit: ! důvod není dostupný !
 
 console_exit: Program skončil s kódem {CODE};
-press_enter: {LINE}Zmáčkněte ENTER pro uložení:
+press_enter: Zmáčkněte ENTER pro uložení:
 
 thanks: :) Děkujeme, že podporujete tento projekt!
 look: Podívejte se: https://cutt.ly/4n4LcDo

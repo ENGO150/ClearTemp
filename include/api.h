@@ -7,6 +7,6 @@
 
 #include <stdbool.h>
 
-void clearTemp(char args[]); //"Main" void
+void clearTemp(char * args[]); //"Main" void
 
 #endif
