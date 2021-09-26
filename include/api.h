@@ -7,6 +7,9 @@
 
 #include <stdbool.h>
 
-void clearTemp(char * args[]); //"Main" void
+#define arg1Size 16
+#define arg2Size 256
+
+void clearTemp(char args[arg1Size][arg2Size]); //"Main" void
 
 #endif

@@ -281,19 +281,72 @@ char * loadTemp(char username[])
     return "ERR";
 }
 
-/*
-
-void loadInvalidFlags(const char compatible[compatibleL][16], char * args[])
+void loadInvalidFlags(const char compatible[compatibleL][16], char args[arg1Size][arg2Size])
 {
-    if (strlen(*args) == 1) return;
+    //CHECK IF ARGS AREN'T EMPTY
+    if (strcmp(args[0], "\0") == 0) return;
 
-    for (int i = 1; i < strlen(*args); i++)
+    //CHECK FOR _ IN ARGS
+    for (int i = 0; i < arg1Size; i++)
     {
-        puts(args[i]);
-        continue;
-        if (strcmp(args[i], "BRUH") == 0)
+        //ARG IS EMPTY
+        if (strcmp(args[i], "\0") == 0) break;
+
+        for (int j = 0; j < arg2Size; j++)
         {
-            printf("A");
+            //ARG IS EMPTY
+            if (args[i][j] == '\0') break;
+
+            //CONTAINS _
+            if (args[i][j] == '_')
+            {
+                printErr("invalid_char", 12);
+            }
         }
     }
-}*/
+
+    //REMAINING ARGS
+    char remainingArgs[arg1Size][arg2Size];
+
+    //ADD COMPATIBLE TO REMAINING
+    for (int i = 0; i < arg1Size; i++)
+    {
+        //ARG IS EMPTY
+        if (strcmp(args[i], "\0") == 0) break;
+
+        //ADD
+        strcpy(remainingArgs[i], args[i]);
+    }
+
+    for (int i = 0; i < arg1Size; i++)
+    {
+        //REMAINING IS EMPTY
+        if (strcmp(remainingArgs[i], "\0") == 0) break;
+
+        for (int j = 0; j < compatibleL; j++)
+        {
+            //COMPATIBLE IS EMPTY
+            if (strcmp(compatible[j], "\0") == 0) break;
+
+            //REMAINING CONTAINS COMPATIBLE
+            if (strcmp(remainingArgs[i], compatible[j]) == 0)
+            {
+                //REMOVE COMPATIBLE FROM REMAINING
+                strcpy(remainingArgs[i], "\0");
+            }
+        }
+    }
+
+    //COMPATIBLE FLAGS
+    if (strcmp(remainingArgs[0], "\0") == 0) return;
+
+    //:)
+    if (strcmp(remainingArgs[0], "sus") == 0)
+    {
+        printf("Oh, so you're a sussy boi?\n\nNever gonna give you up\nNever gonna let you down\nNever gonna run around and desert you\nNever gonna make you cry\nNever gonna say goodbye\nNever gonna tell a lie and hurt you\n");
+        exitProgram(104);
+    }
+
+    fprintf(stderr, "%s", replaceString(getDB("invalid_flag"), "{FLAG}", remainingArgs[0], NULL));
+    exitProgram(12);
+}

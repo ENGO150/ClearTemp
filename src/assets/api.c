@@ -11,7 +11,7 @@
 #include "../../include/api.h"
 #include "../../include/tools.h"
 
-void clearTemp(char * args[])
+void clearTemp(char args[arg1Size][arg2Size])
 {
     srand(time(NULL)); //MAKE RAND() REALLY RANDOM
 
@@ -35,10 +35,12 @@ void clearTemp(char * args[])
 
     bool excex = false;
 
-//    const char compatibleArgs[compatibleL][16] =
-//    {       //0        //1         //2      //3        //4      //5      //6     //7
-//            "console", "username", "block", "unblock", "excex", "debug", "exit", "language"
-//    };
+    const char compatibleArgs[compatibleL][16] =
+    {       //0        //1         //2      //3        //4      //5      //6     //7
+            "console", "username", "block", "unblock", "excex", "debug", "exit", "language"
+    };
+
+    loadInvalidFlags(compatibleArgs, args);
 
     //TODO: ADD FLAGS!!!
 
@@ -71,8 +73,11 @@ void clearTemp(char * args[])
         strcat(fileUsed, "/");
         strcat(tempFileUsed, de->d_name);
 
-        int removed = remove(tempFileUsed);
-        if (debugFlag) removed = -1;
+        int removed = 0;
+        if (!debugFlag)
+        {
+            removed = remove(tempFileUsed);
+        }
 
         //REMOVED
         if (removed == 0)

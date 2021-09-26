@@ -6,7 +6,13 @@
 
 #IncludeRegexTransform: 
 
+../include/api.h
+stdbool.h
+-
+
 /mnt/D9CB7B60C982002D/C/ClearTemp/include/tools.h
+api.h
+-
 
 /mnt/D9CB7B60C982002D/C/ClearTemp/lib/engodatabase/edb.h
 

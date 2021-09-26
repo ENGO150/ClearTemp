@@ -6,9 +6,11 @@ CMakeFiles/ClearTemp.dir/lib/engodatabase/edb.c.o: \
  ../lib/engodatabase/edb.c
 CMakeFiles/ClearTemp.dir/src/assets/api.c.o: \
  ../include/api.h \
+ ../include/api.h \
  ../include/tools.h \
  ../src/assets/api.c
 CMakeFiles/ClearTemp.dir/src/assets/tools.c.o: \
+ ../include/api.h \
  ../include/tools.h \
  ../lib/engodatabase/edb.h \
  ../src/assets/tools.c
