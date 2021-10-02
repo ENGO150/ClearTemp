@@ -1,8 +1,6 @@
 # ClearTemp
 Project that clears your temp files.
 -
-NOTE: THIS IS JUST ALPHA! FLAGS AREN'T WORKING AND YOU MUST RUN CLEARTEMP FROM THE BUILD FOLDER (cmake-build-debug)
--
 ---
 You can launch the file by double-clicking it, but if you want to use some flags, launch it from command line:
 
@@ -21,6 +19,6 @@ You can launch the file by double-clicking it, but if you want to use some flags
 
 The args in square brackets aren't required, and you also don't need to use both of them. I am not responsible for any misuse. Use this program only with the permission of the user to whom you are deleting temporary files. I am developing this program on Linux (Ubuntu), but it should work perfectly on Windows, too.
 
-Java version of ClearTemp lasted 300ms, the new C version lasts 10ms.
+Java version of ClearTemp lasted 300ms, the new C version lasts 6ms.
 
-*you can download the jar file [here](https://github.com/ENGO150/ClearTemp/releases/latest).
+*you can download latest release [here](https://github.com/ENGO150/ClearTemp/releases/latest).
