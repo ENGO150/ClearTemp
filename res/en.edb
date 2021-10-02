@@ -36,7 +36,7 @@ wrong_password_exit: invalid password
 temp_already_unblocked_exit: not blocked temp
 temp_blocked_err_exit: temp blocked
 temp_folder_err_exit: temp folder not found
-no_flag_text_exit: no flag text found
+m: no flag text found
 no_flag_exit: no flag found
 flag_used_exit: one flag used more than once
 edit_file_exit: cannot configure the file
@@ -58,5 +58,6 @@ creating_config: Creating new config file.{LINE}
 edit_file: Configuring file went wrong!
 
 invalid_char: You used invalid character! ('_')
-invalid_flag: You used invalid flag(s)! ('{FLAG}')
+invalid_flag: You used invalid flag(s)! Did you use "--"? ('{FLAG}')
 invalid_arg: You used invalid arg! ('{ARG}')
+invalid_text: It seems you didn't use any text in flag! ('{FLAG}')

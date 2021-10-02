@@ -83,6 +83,9 @@
 		<Unit filename="/mnt/D9CB7B60C982002D/C/ClearTemp/include/api.h">
 			<Option target="ClearTemp"/>
 		</Unit>
+		<Unit filename="/mnt/D9CB7B60C982002D/C/ClearTemp/include/flags.h">
+			<Option target="ClearTemp"/>
+		</Unit>
 		<Unit filename="/mnt/D9CB7B60C982002D/C/ClearTemp/include/tools.h">
 			<Option target="ClearTemp"/>
 		</Unit>
@@ -93,6 +96,9 @@
 			<Option target="ClearTemp"/>
 		</Unit>
 		<Unit filename="/mnt/D9CB7B60C982002D/C/ClearTemp/src/assets/api.c">
+			<Option target="ClearTemp"/>
+		</Unit>
+		<Unit filename="/mnt/D9CB7B60C982002D/C/ClearTemp/src/assets/flags.c">
 			<Option target="ClearTemp"/>
 		</Unit>
 		<Unit filename="/mnt/D9CB7B60C982002D/C/ClearTemp/src/assets/tools.c">

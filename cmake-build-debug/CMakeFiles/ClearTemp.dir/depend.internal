@@ -6,14 +6,18 @@ CMakeFiles/ClearTemp.dir/lib/engodatabase/edb.c.o
  /mnt/D9CB7B60C982002D/C/ClearTemp/lib/engodatabase/edb.c
 CMakeFiles/ClearTemp.dir/src/assets/api.c.o
  ../include/api.h
- /mnt/D9CB7B60C982002D/C/ClearTemp/include/api.h
- /mnt/D9CB7B60C982002D/C/ClearTemp/include/tools.h
+ ../include/flags.h
+ ../include/tools.h
  /mnt/D9CB7B60C982002D/C/ClearTemp/src/assets/api.c
+CMakeFiles/ClearTemp.dir/src/assets/flags.c.o
+ ../include/flags.h
+ /mnt/D9CB7B60C982002D/C/ClearTemp/src/assets/flags.c
 CMakeFiles/ClearTemp.dir/src/assets/tools.c.o
- ../include/api.h
- /mnt/D9CB7B60C982002D/C/ClearTemp/include/tools.h
- /mnt/D9CB7B60C982002D/C/ClearTemp/lib/engodatabase/edb.h
+ ../include/flags.h
+ ../include/tools.h
+ ../lib/engodatabase/edb.h
  /mnt/D9CB7B60C982002D/C/ClearTemp/src/assets/tools.c
 CMakeFiles/ClearTemp.dir/src/main.c.o
- /mnt/D9CB7B60C982002D/C/ClearTemp/include/api.h
+ ../include/api.h
+ ../include/flags.h
  /mnt/D9CB7B60C982002D/C/ClearTemp/src/main.c

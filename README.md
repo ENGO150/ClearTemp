@@ -6,7 +6,7 @@ NOTE: THIS IS JUST ALPHA! FLAGS AREN'T WORKING AND YOU MUST RUN CLEARTEMP FROM T
 ---
 You can launch the file by double-clicking it, but if you want to use some flags, launch it from command line:
 
-./ClearTemp [-console] [-usernameFlag:NAME] [-block:PASSWORD] [-unblock:PASSWORD] [-excex] [-debug] [-exit] [-language:LANG]
+./ClearTemp [--console] [--usernameFlag:NAME] [--block:PASSWORD] [--unblock:PASSWORD] [--excex] [--debug] [--exit] [--language:LANG]
 
 ^ This works on Linux shell or Windows powershell
 

@@ -177,6 +177,30 @@ src/assets/api.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ClearTemp.dir/build.make CMakeFiles/ClearTemp.dir/src/assets/api.c.s
 .PHONY : src/assets/api.c.s
 
+src/assets/flags.o: src/assets/flags.c.o
+.PHONY : src/assets/flags.o
+
+# target to build an object file
+src/assets/flags.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ClearTemp.dir/build.make CMakeFiles/ClearTemp.dir/src/assets/flags.c.o
+.PHONY : src/assets/flags.c.o
+
+src/assets/flags.i: src/assets/flags.c.i
+.PHONY : src/assets/flags.i
+
+# target to preprocess a source file
+src/assets/flags.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ClearTemp.dir/build.make CMakeFiles/ClearTemp.dir/src/assets/flags.c.i
+.PHONY : src/assets/flags.c.i
+
+src/assets/flags.s: src/assets/flags.c.s
+.PHONY : src/assets/flags.s
+
+# target to generate assembly for a file
+src/assets/flags.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ClearTemp.dir/build.make CMakeFiles/ClearTemp.dir/src/assets/flags.c.s
+.PHONY : src/assets/flags.c.s
+
 src/assets/tools.o: src/assets/tools.c.o
 .PHONY : src/assets/tools.o
 
@@ -240,6 +264,9 @@ help:
 	@echo "... src/assets/api.o"
 	@echo "... src/assets/api.i"
 	@echo "... src/assets/api.s"
+	@echo "... src/assets/flags.o"
+	@echo "... src/assets/flags.i"
+	@echo "... src/assets/flags.s"
 	@echo "... src/assets/tools.o"
 	@echo "... src/assets/tools.i"
 	@echo "... src/assets/tools.s"

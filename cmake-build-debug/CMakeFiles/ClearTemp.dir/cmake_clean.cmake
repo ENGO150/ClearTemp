@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/ClearTemp.dir/lib/engodatabase/edb.c.o"
   "CMakeFiles/ClearTemp.dir/src/assets/api.c.o"
+  "CMakeFiles/ClearTemp.dir/src/assets/flags.c.o"
   "CMakeFiles/ClearTemp.dir/src/assets/tools.c.o"
   "CMakeFiles/ClearTemp.dir/src/main.c.o"
   "ClearTemp"

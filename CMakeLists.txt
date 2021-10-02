@@ -13,4 +13,4 @@ add_executable(ClearTemp
         lib/engodatabase/edb.h
         src/assets/api.c
         src/assets/tools.c
-        src/main.c)
+        src/main.c include/flags.h src/assets/flags.c)

@@ -12,18 +12,9 @@
 #include <stdbool.h>
 #include <string.h>
 
-#include "../../lib/engodatabase/edb.h"
+#include <edb.h>
 
-#include "../../include/tools.h"
-
-//Used OS; 1 = Windows, 2 = Linux (UNIX), 3 = Mac, 0 = Incompatible
-#ifdef _WIN32 //WINDOWS
-int os = 1;
-#elif __unix__ //LINUX (UNIX)
-int os = 2;
-/*#elif __APPLE__ //MAC | MAC IS NO LONGER SUPPORTED !!!
-int os = 3;
-*/#endif
+#include <tools.h>
 
 bool isOsCompatible()
 {
@@ -85,7 +76,7 @@ char * getDB(char object[])
 
     char lang[strlen("../res/xx.edb")];
     strcpy(lang, "../res/");
-    strcat(lang, langFlag);
+    strcat(lang, getLangFLag());
     strcat(lang, ".edb");
 
     readString(object , fopen(lang, "r"), finalString);
@@ -94,7 +85,7 @@ char * getDB(char object[])
 
 void exitProgram(int code)
 {
-    if (exitFlag)
+    if (getExitFLag())
     {
         char replacing[5];
         char reason[256];
@@ -185,7 +176,7 @@ void exitProgram(int code)
         }
     }
 
-    if (consoleFlag)
+    if (getConsoleFLag())
     {
         printf("\n%s\n", getDB("press_enter"));
 
@@ -220,42 +211,43 @@ void printErr(char object[], int exitCode)
     exitProgram(exitCode);
 }
 
-//int getEncryptionKey() {
-//    char path[256];
-//
-//    //GET PATH
-//    if (os == 1)
-//    {
-//        strcpy(path, "C:/Users/");
-//        strcat(path, getUser());
-//        strcat(path, "/.ek.ecfg");
-//    } else if (os == 2)
-//    {
-//        strcpy(path, "/home/");
-//        strcat(path, getUser());
-//        strcat(path, "/.ek.ecfg");
-//    }
-//
-//    FILE * fp = fopen(path, "r");
-//    if (fp != NULL) goto notNull; //PATH EXISTS
-//
-//    //CREATE
-//    printf("%s\n", replaceString(getDB("creating_config"), "{LINE}", "\n", NULL));
-//    fp = fopen(path, "w+");
-//
-//    //WRITE RANDOM NUMBER
-//    int random = rand() % (100 + 1);
-//    fprintf(fp, "%d", random);
-//    fclose(fp);
-//    return random;
-//
-//    notNull:;
-//    int returningKey;
-//    //READ CONTENT
-//    fscanf(fp, "%d", &returningKey);
-//
-//    return returningKey;
-//}
+int getEncryptionKey() {
+    char path[256];
+
+    //GET PATH
+    if (os == 1)
+    {
+        strcpy(path, "C:/Users/");
+        strcat(path, getUser());
+        strcat(path, "/.ek.ecfg");
+    } else if (os == 2)
+    {
+        strcpy(path, "/home/");
+        strcat(path, getUser());
+        strcat(path, "/.ek.ecfg");
+    }
+
+    FILE * fp = fopen(path, "r");
+    if (fp != NULL) goto notNull; //PATH EXISTS
+
+    //CREATE
+    printf("%s\n", replaceString(getDB("creating_config"), "{LINE}", "\n", NULL));
+    fp = fopen(path, "w");
+
+    //WRITE RANDOM NUMBER
+    int random = rand() % (100 + 1);
+    fprintf(fp, "%d", random);
+    fclose(fp);
+    return random;
+
+    notNull:;
+    int returningKey;
+
+    //READ CONTENT
+    fscanf(fp, "%d", &returningKey);
+
+    return returningKey;
+}
 
 char * loadTemp(char username[])
 {
@@ -281,7 +273,7 @@ char * loadTemp(char username[])
     return "ERR";
 }
 
-void loadInvalidFlags(const char compatible[compatibleL][16], char args[arg1Size][arg2Size])
+void loadInvalidFlags(const char compatible[compatible1L][compatible2L], char args[arg1Size][arg2Size])
 {
     //CHECK IF ARGS AREN'T EMPTY
     if (strcmp(args[0], "\0") == 0) return;
@@ -305,10 +297,22 @@ void loadInvalidFlags(const char compatible[compatibleL][16], char args[arg1Size
         }
     }
 
+    //NEW COMPATIBLE
+    char compatibleArgs[compatible1L][compatible2L + 2];
+    for (int i = 0; i < compatible1L; i++)
+    {
+        //ARG IS EMPTY
+        if (strcmp(compatible[i], "\0") == 0) break;
+
+        //ADD
+        strcpy(compatibleArgs[i], "--");
+        strcat(compatibleArgs[i], compatible[i]);
+    }
+
     //REMAINING ARGS
     char remainingArgs[arg1Size][arg2Size];
 
-    //ADD COMPATIBLE TO REMAINING
+    //ADD ARGS TO REMAINING
     for (int i = 0; i < arg1Size; i++)
     {
         //ARG IS EMPTY
@@ -323,13 +327,13 @@ void loadInvalidFlags(const char compatible[compatibleL][16], char args[arg1Size
         //REMAINING IS EMPTY
         if (strcmp(remainingArgs[i], "\0") == 0) break;
 
-        for (int j = 0; j < compatibleL; j++)
+        for (int j = 0; j < compatible1L; j++)
         {
             //COMPATIBLE IS EMPTY
-            if (strcmp(compatible[j], "\0") == 0) break;
+            if (strcmp(compatibleArgs[j], "\0") == 0) break;
 
-            //REMAINING CONTAINS COMPATIBLE
-            if (strcmp(remainingArgs[i], compatible[j]) == 0)
+            //REMAINING CONTAINS COMPATIBLE                     //THIS IS JUST TEST!!!
+            if ((strcmp(remainingArgs[i], compatibleArgs[j]) == 0) || (strcmp(remainingArgs[i], compatibleArgs[j]) == (int) (':')))
             {
                 //REMOVE COMPATIBLE FROM REMAINING
                 strcpy(remainingArgs[i], "\0");
@@ -337,8 +341,18 @@ void loadInvalidFlags(const char compatible[compatibleL][16], char args[arg1Size
         }
     }
 
-    //COMPATIBLE FLAGS
-    if (strcmp(remainingArgs[0], "\0") == 0) return;
+    //CHECK FOR COMPATIBLE
+    bool invalid = false;
+    for (int i = 0; i < compatible1L; i++)
+    {
+        if (strcmp(remainingArgs[i], "\0") == 0) break;
+
+        invalid = true;
+        break;
+    }
+
+    //RETURN IF COMPATIBLE
+    if (!invalid) return;
 
     //:)
     if (strcmp(remainingArgs[0], "sus") == 0)
@@ -347,6 +361,123 @@ void loadInvalidFlags(const char compatible[compatibleL][16], char args[arg1Size
         exitProgram(104);
     }
 
-    fprintf(stderr, "%s", replaceString(getDB("invalid_flag"), "{FLAG}", remainingArgs[0], NULL));
+    char buffer[64];
+    for (int i = 0; i < compatible1L; i++)
+    {
+        if (strcmp(remainingArgs[i], "\0") != 0)
+        {
+            strcpy(buffer, remainingArgs[i]);
+            break;
+        }
+    }
+
+    fprintf(stderr, "%s", replaceString(getDB("invalid_flag"), "{FLAG}", buffer, NULL));
     exitProgram(12);
+}
+
+bool argsContainsFlag(const char flag[compatible2L], char args[arg1Size][arg2Size])
+{
+    char text[32];
+    bool error = false;
+    bool returning = false;
+
+    //ADD 'FLAG' TO TEXT
+    strcpy(text, "--");
+    strcat(text, flag);
+
+    for (int i = 0; i < arg1Size; i++)
+    {
+        //ARG IS EMPTY
+        if (strcmp(args[i], "\0") == 0) break;
+
+        //CHECK IF ARGS CONTAINS FLAG      //THIS IS JUST TEST!!!
+        if ((strcmp(args[i], text) == 0) || (strcmp(args[i], text) == (int) (':')))
+        {
+            //IS DOUBLE-USED
+            if (error)
+            {
+                fprintf(stderr, "%s", replaceString(getDB("flag_used"), "{FLAG}", flag, NULL));
+                exitProgram(10);
+            }
+
+            error = true;
+            returning = true;
+        }
+    }
+
+    return returning;
+}
+
+void loadFlagText(const char flag[compatible2L], char args[arg1Size][arg2Size], char * target)
+{
+    char flagNew[32];
+    char buffer[compatible2L + 16];
+
+    //ADD 'FLAG' TO TEXT
+    strcpy(flagNew, "--");
+    strcat(flagNew, flag);
+
+    unsigned long flagLength = strlen(flagNew);
+    int flagPos = -1;
+
+    //ADD 1 TO flagLength (for :)
+    ++flagLength;
+
+    //LOAD flagPos
+    for (int i = 0; i < arg1Size; i++)
+    {
+        //FLAG IS EMPTY
+        if (strcmp(args[i], "\0") == 0) break;
+
+        //MATCH
+        if ((strcmp(args[i], flagNew) == 0) || (strcmp(args[i], flagNew) == (char) (':')))
+        {
+            //SET flagPos
+            flagPos = i;
+            break;
+        }
+    }
+
+    //flagPos DIDN'T CHANGE = THERE IS NO TEXT/FLAG (OR : IN FLAG)
+    if (flagPos == -1)
+    {
+        fprintf(stderr, "%s\n", replaceString(getDB("invalid_text"), "{FLAG}", flag, NULL));
+        exitProgram(8);
+    }
+
+    //LOAD FLAG TEXT (text)
+    for (unsigned long i = strlen(flagNew) + 1; i < arg2Size; i++)
+    {
+        //ARG IS EMPTY
+        if (args[flagPos][i] == '\0') break;
+
+        //printf("%c", args[flagPos][i]);
+        buffer[i - (strlen(flagNew) + 1)] = args[flagPos][i];
+    }
+
+    //buffer DIDN'T CHANGE = THERE IS NO TEXT
+    if (buffer[0] == '\0')
+    {
+        fprintf(stderr, "%s\n", replaceString(getDB("invalid_text"), "{FLAG}", flag, NULL));
+        exitProgram(8);
+    }
+
+    strcpy(target, buffer);
+}
+
+void loadInvalidLang(const char compatible[lang1L][lang2L], char target[])
+{
+    //LOAD COMPATIBLE LANGS
+    for (int i = 0; i < lang1L; i++)
+    {
+        //LANG IS NULL (THIS SHOULDN'T HAPPEN)
+        if (strcmp(compatible[i], "\0") == 0) break;
+
+        //CONTAINS
+        if (strcmp(compatible[i], target) == 0) return;
+    }
+
+    //PROGRAM CONTINUES - COMPATIBLE DOESN'T CONTAIN TARGET
+    fprintf(stderr, "%s\n", replaceString(getDB("invalid_arg"), "{ARG}", target, NULL));
+    exitProgram(13);
 }

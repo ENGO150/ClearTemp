@@ -5,10 +5,7 @@
 #ifndef CLEARTEMP_API_H
 #define CLEARTEMP_API_H
 
-#include <stdbool.h>
-
-#define arg1Size 16
-#define arg2Size 256
+#include <flags.h>
 
 void clearTemp(char args[arg1Size][arg2Size]); //"Main" void
 

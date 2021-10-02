@@ -7,26 +7,34 @@
 #IncludeRegexTransform: 
 
 ../include/api.h
+flags.h
+-
+
+../include/flags.h
 stdbool.h
 -
 
-/mnt/D9CB7B60C982002D/C/ClearTemp/include/tools.h
-api.h
+../include/tools.h
+flags.h
 -
 
-/mnt/D9CB7B60C982002D/C/ClearTemp/lib/engodatabase/edb.h
-
-/mnt/D9CB7B60C982002D/C/ClearTemp/src/assets/tools.c
+/mnt/D9CB7B60C982002D/C/ClearTemp/src/assets/api.c
 stdio.h
 -
 stdlib.h
 -
-stdbool.h
--
 string.h
 -
-../../lib/engodatabase/edb.h
-/mnt/D9CB7B60C982002D/C/ClearTemp/lib/engodatabase/edb.h
-../../include/tools.h
-/mnt/D9CB7B60C982002D/C/ClearTemp/include/tools.h
+time.h
+-
+dirent.h
+-
+ctype.h
+-
+api.h
+-
+tools.h
+-
+flags.h
+-
 

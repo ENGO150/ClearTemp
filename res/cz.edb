@@ -46,7 +46,7 @@ invalid_arg_exit: použit neplatný argument
 reason_exit: ! důvod není dostupný !
 
 console_exit: Program skončil s kódem {CODE};
-press_enter: Zmáčkněte ENTER pro uložení:
+press_enter: Zmáčkněte ENTER pro ukončení:
 
 thanks: :) Děkujeme, že podporujete tento projekt!
 look: Podívejte se: https://cutt.ly/4n4LcDo
@@ -58,5 +58,6 @@ creating_config: Vytváří se nový konfigurační soubor.{LINE}
 edit_file: Konfigurace souboru se nezdařila!
 
 invalid_char: Použili jste neplatný znak! ('_')
-invalid_flag: Použili jste neplatnou vlajku! ('{FLAG}')
+invalid_flag: Použili jste neplatnou vlajku! Použili jste "--"? ('{FLAG}')
 invalid_arg: Použili jste neplatný argument! ('{ARG}')
+invalid_text: Vypadá to, že jste nepoužili žádný text ve vlajce! ('{FLAG}')

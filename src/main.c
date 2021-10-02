@@ -1,10 +1,11 @@
 /*
-    This file runs void clearTemp() from src/api.c
+    This file runs void clearTemp() from src/api.c with used args (except the first one [with index 0])
 */
 
 #include <string.h>
 
-#include "../include/api.h"
+#include <api.h>
+#include <flags.h>
 
 int main(__attribute__((unused)) int argc, char * argv[])
 {
