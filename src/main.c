@@ -24,6 +24,7 @@ int main(__attribute__((unused)) int argc, char * argv[])
         }
     }
 
+    //START API VOID WITH ARGS
     clearTemp(args);
     return 0;
 }

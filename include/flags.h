@@ -7,15 +7,17 @@
 
 #include <stdbool.h>
 
-//CONSTANT VARIABLES
+//CONSTANT VARIABLES (MAXIMUM SUPPORTED LENGTH)
 #define compatible1L 8 //Length of first dimension of compatibleArgs in api.c
 #define compatible2L 16  //Length of second dimension of compatibleArgs in api.c
 
-#define arg1Size 16
-#define arg2Size 256
+#define arg1Size 16 //Length for first dimension of args in main.c
+#define arg2Size 256 //Length for second dimension of args in main.c
 
-#define lang1L 3
-#define lang2L 3
+#define lang1L 3 //Length for first dimension of compatibleLangs in api.c
+#define lang2L 3 //Length for second dimension of compatibleLangs in api.c
+
+#define flagTextL 64 //Length for text in flag ['flagText']
 
 //VARIABLES
 static bool consoleFlag = false; //If true doesn't close windows at end - waits for your input
@@ -25,17 +27,17 @@ static bool exitFlag = false; //If true shows exitCode and exitReason (console e
 static char langFlag[] = "en"; //Language for getDB() in tools.h;
 
 //GETTERS
-bool getConsoleFLag();
-bool getDebugFLag();
-bool getExitFLag();
+bool getConsoleFlag(); //GETTER FOR consoleFlag
+bool getDebugFlag(); //GETTER FOR debugFlag
+bool getExitFlag(); //GETTER FOR exitFlag
 
-char * getLangFLag();
+char * getLangFlag(); //GETTER FOR langFlag
 
-//SETTERS
-bool setConsoleFLag(bool object);
-bool setDebugFLag(bool object);
-bool setExitFLag(bool object);
+//SETTERS (CAN BE ALSO USED AS SETTER AND GETTER - RETURNS SET VALUE)
+bool setConsoleFlag(bool object); //SETTER FOR consoleFlag
+bool setDebugFlag(bool object); //SETTER FOR debugFlag
+bool setExitFlag(bool object); //SETTER FOR exitFlag
 
-char * setLangFlag(char object[]);
+char * setLangFlag(char object[]); //SETTER FOR langFlag
 
 #endif

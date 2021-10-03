@@ -14,26 +14,10 @@ flags.h
 stdbool.h
 -
 
-../include/tools.h
-flags.h
--
-
-/mnt/D9CB7B60C982002D/C/ClearTemp/src/assets/api.c
-stdio.h
--
-stdlib.h
--
+/mnt/D9CB7B60C982002D/C/ClearTemp/src/main.c
 string.h
 -
-time.h
--
-dirent.h
--
-ctype.h
--
 api.h
--
-tools.h
 -
 flags.h
 -

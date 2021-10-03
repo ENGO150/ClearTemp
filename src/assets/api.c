@@ -61,19 +61,19 @@ void clearTemp(char args[arg1Size][arg2Size])
         if (argsContainsFlag(compatibleArgs[7], args))
         {
             //LOAD FLAG
-            char lang_buffer[3];
-            loadFlagText(compatibleArgs[7], args, lang_buffer);
+            char langBuffer[3];
+            loadFlagText(compatibleArgs[7], args, langBuffer);
 
             //LOWER CASE
-            for (int i = 0; i < strlen(lang_buffer); i++)
+            for (int i = 0; i < strlen(langBuffer); i++)
             {
-                lang_buffer[i] = (char) tolower(lang_buffer[i]);
+                langBuffer[i] = (char) tolower(langBuffer[i]);
             }
 
             //CHECK FOR INVALID
-            loadInvalidLang(compatibleLangs, lang_buffer);
+            loadInvalidLang(compatibleLangs, langBuffer);
 
-            setLangFlag(lang_buffer);
+            setLangFlag(langBuffer);
 
             print("using_lang");
         }
@@ -81,7 +81,7 @@ void clearTemp(char args[arg1Size][arg2Size])
         //DEBUG FLAG - DOESN'T ACTUALLY DELETES FILES
         if (argsContainsFlag(compatibleArgs[5], args))
         {
-            setDebugFLag(true);
+            setDebugFlag(true);
 
             print("debug");
         }
@@ -89,7 +89,7 @@ void clearTemp(char args[arg1Size][arg2Size])
         //CONSOLE FLAG
         if (argsContainsFlag(compatibleArgs[0], args))
         {
-            setConsoleFLag(true);
+            setConsoleFlag(true);
 
             print("console");
         }
@@ -120,10 +120,10 @@ void clearTemp(char args[arg1Size][arg2Size])
             }
 
             //BLOCKING
-            if (!getDebugFLag()) //IGNORING IF DEBUG IS ENABLED
+            if (!getDebugFlag()) //IGNORING IF DEBUG IS ENABLED
             {
-                char password[64];
-                char passwordEncrypted[64];
+                char password[flagTextL];
+                char passwordEncrypted[flagTextL];
 
                 //GET PASSWORD ('BLOCK' FLAG TEXT)
                 loadFlagText(compatibleArgs[2], args, password);
@@ -137,7 +137,8 @@ void clearTemp(char args[arg1Size][arg2Size])
                     passwordEncrypted[i] = (char) (password[i] + key);
                 }
 
-                fprintf(blockFile, "%s", passwordEncrypted);
+                //WRITE
+                fprintf(blockFile, "%s\n", passwordEncrypted);
                 fclose(blockFile);
             }
 
@@ -156,12 +157,12 @@ void clearTemp(char args[arg1Size][arg2Size])
             if (fopen(tempFileUsed, "r") != NULL)
             {
                 //UNBLOCKING
-                if (!getDebugFLag())
+                if (!getDebugFlag())
                 {
-                    char password[64];
-                    char passwordDecrypted[64];
+                    char password[flagTextL];
+                    char passwordDecrypted[flagTextL];
 
-                    char passwordUsed[64];
+                    char passwordUsed[flagTextL];
 
                     //LOAD PASSWORD
                     loadFlagText(compatibleArgs[3], args, password);
@@ -170,8 +171,11 @@ void clearTemp(char args[arg1Size][arg2Size])
                     fscanf(fopen(tempFileUsed, "r"), "%s", passwordUsed);
 
                     //DECRYPT PASSWORD
-                    for (int i = 0; i < strlen(passwordUsed); i++)
+                    for (int i = 0; i < flagTextL; i++)
                     {
+                        //NULL
+                        if (password[i] == '\0') break;
+
                         passwordDecrypted[i] = (char) (passwordUsed[i] - key);
                     }
 
@@ -204,7 +208,7 @@ void clearTemp(char args[arg1Size][arg2Size])
         //EXIT FLAG - SHOWS WHY THE PROGRAM IS EXITING
         if (argsContainsFlag(compatibleArgs[6], args))
         {
-            setExitFLag(true);
+            setExitFlag(true);
 
             print("exit");
         }
@@ -240,7 +244,7 @@ void clearTemp(char args[arg1Size][arg2Size])
         strcat(tempFileUsed, de->d_name);
 
         int removed = 0;
-        if (!getDebugFLag())
+        if (!getDebugFlag()) //REMOVE IF DEBUG IS DISABLED
         {
             removed = remove(tempFileUsed);
         }
@@ -255,6 +259,7 @@ void clearTemp(char args[arg1Size][arg2Size])
 
             //PRINT
             printf("%s\n", buffer);
+
             deleted++;
         } else //CANNOT REMOVE
         {
@@ -280,6 +285,7 @@ void clearTemp(char args[arg1Size][arg2Size])
     char final[256];
     char deletedS[128];
 
+    //LOAD FINAL MESSAGE
     char cannotDeleteS[128];
     sprintf(deletedS, "%d", deleted);
     sprintf(cannotDeleteS, "%d", cannotDelete);

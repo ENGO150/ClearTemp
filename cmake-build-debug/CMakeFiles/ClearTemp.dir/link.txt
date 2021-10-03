@@ -1,1 +1,1 @@
-/usr/bin/gcc -g CMakeFiles/ClearTemp.dir/lib/engodatabase/edb.c.o CMakeFiles/ClearTemp.dir/src/assets/api.c.o CMakeFiles/ClearTemp.dir/src/assets/tools.c.o CMakeFiles/ClearTemp.dir/src/main.c.o CMakeFiles/ClearTemp.dir/src/assets/flags.c.o -o ClearTemp 
+/usr/bin/gcc -g CMakeFiles/ClearTemp.dir/src/main.c.o CMakeFiles/ClearTemp.dir/src/assets/api.c.o CMakeFiles/ClearTemp.dir/src/assets/tools.c.o CMakeFiles/ClearTemp.dir/src/assets/flags.c.o CMakeFiles/ClearTemp.dir/lib/engodatabase/edb.c.o -o ClearTemp 

@@ -7,10 +7,12 @@ include_directories(include)
 include_directories(lib/engodatabase)
 
 add_executable(ClearTemp
-        include/api.h
-        include/tools.h
-        lib/engodatabase/edb.c
-        lib/engodatabase/edb.h
+        src/main.c
         src/assets/api.c
         src/assets/tools.c
-        src/main.c include/flags.h src/assets/flags.c)
+        src/assets/flags.c
+        include/api.h
+        include/tools.h
+        include/flags.h
+        lib/engodatabase/edb.c
+        lib/engodatabase/edb.h)

@@ -66,18 +66,18 @@ include CMakeFiles/ClearTemp.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/ClearTemp.dir/flags.make
 
-CMakeFiles/ClearTemp.dir/lib/engodatabase/edb.c.o: CMakeFiles/ClearTemp.dir/flags.make
-CMakeFiles/ClearTemp.dir/lib/engodatabase/edb.c.o: ../lib/engodatabase/edb.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/D9CB7B60C982002D/C/ClearTemp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/ClearTemp.dir/lib/engodatabase/edb.c.o"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ClearTemp.dir/lib/engodatabase/edb.c.o -c /mnt/D9CB7B60C982002D/C/ClearTemp/lib/engodatabase/edb.c
+CMakeFiles/ClearTemp.dir/src/main.c.o: CMakeFiles/ClearTemp.dir/flags.make
+CMakeFiles/ClearTemp.dir/src/main.c.o: ../src/main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/D9CB7B60C982002D/C/ClearTemp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/ClearTemp.dir/src/main.c.o"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ClearTemp.dir/src/main.c.o -c /mnt/D9CB7B60C982002D/C/ClearTemp/src/main.c
 
-CMakeFiles/ClearTemp.dir/lib/engodatabase/edb.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ClearTemp.dir/lib/engodatabase/edb.c.i"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/D9CB7B60C982002D/C/ClearTemp/lib/engodatabase/edb.c > CMakeFiles/ClearTemp.dir/lib/engodatabase/edb.c.i
+CMakeFiles/ClearTemp.dir/src/main.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ClearTemp.dir/src/main.c.i"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/D9CB7B60C982002D/C/ClearTemp/src/main.c > CMakeFiles/ClearTemp.dir/src/main.c.i
 
-CMakeFiles/ClearTemp.dir/lib/engodatabase/edb.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ClearTemp.dir/lib/engodatabase/edb.c.s"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/D9CB7B60C982002D/C/ClearTemp/lib/engodatabase/edb.c -o CMakeFiles/ClearTemp.dir/lib/engodatabase/edb.c.s
+CMakeFiles/ClearTemp.dir/src/main.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ClearTemp.dir/src/main.c.s"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/D9CB7B60C982002D/C/ClearTemp/src/main.c -o CMakeFiles/ClearTemp.dir/src/main.c.s
 
 CMakeFiles/ClearTemp.dir/src/assets/api.c.o: CMakeFiles/ClearTemp.dir/flags.make
 CMakeFiles/ClearTemp.dir/src/assets/api.c.o: ../src/assets/api.c
@@ -105,22 +105,9 @@ CMakeFiles/ClearTemp.dir/src/assets/tools.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ClearTemp.dir/src/assets/tools.c.s"
 	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/D9CB7B60C982002D/C/ClearTemp/src/assets/tools.c -o CMakeFiles/ClearTemp.dir/src/assets/tools.c.s
 
-CMakeFiles/ClearTemp.dir/src/main.c.o: CMakeFiles/ClearTemp.dir/flags.make
-CMakeFiles/ClearTemp.dir/src/main.c.o: ../src/main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/D9CB7B60C982002D/C/ClearTemp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/ClearTemp.dir/src/main.c.o"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ClearTemp.dir/src/main.c.o -c /mnt/D9CB7B60C982002D/C/ClearTemp/src/main.c
-
-CMakeFiles/ClearTemp.dir/src/main.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ClearTemp.dir/src/main.c.i"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/D9CB7B60C982002D/C/ClearTemp/src/main.c > CMakeFiles/ClearTemp.dir/src/main.c.i
-
-CMakeFiles/ClearTemp.dir/src/main.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ClearTemp.dir/src/main.c.s"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/D9CB7B60C982002D/C/ClearTemp/src/main.c -o CMakeFiles/ClearTemp.dir/src/main.c.s
-
 CMakeFiles/ClearTemp.dir/src/assets/flags.c.o: CMakeFiles/ClearTemp.dir/flags.make
 CMakeFiles/ClearTemp.dir/src/assets/flags.c.o: ../src/assets/flags.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/D9CB7B60C982002D/C/ClearTemp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/ClearTemp.dir/src/assets/flags.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/D9CB7B60C982002D/C/ClearTemp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/ClearTemp.dir/src/assets/flags.c.o"
 	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ClearTemp.dir/src/assets/flags.c.o -c /mnt/D9CB7B60C982002D/C/ClearTemp/src/assets/flags.c
 
 CMakeFiles/ClearTemp.dir/src/assets/flags.c.i: cmake_force
@@ -131,22 +118,35 @@ CMakeFiles/ClearTemp.dir/src/assets/flags.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ClearTemp.dir/src/assets/flags.c.s"
 	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/D9CB7B60C982002D/C/ClearTemp/src/assets/flags.c -o CMakeFiles/ClearTemp.dir/src/assets/flags.c.s
 
+CMakeFiles/ClearTemp.dir/lib/engodatabase/edb.c.o: CMakeFiles/ClearTemp.dir/flags.make
+CMakeFiles/ClearTemp.dir/lib/engodatabase/edb.c.o: ../lib/engodatabase/edb.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/D9CB7B60C982002D/C/ClearTemp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/ClearTemp.dir/lib/engodatabase/edb.c.o"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ClearTemp.dir/lib/engodatabase/edb.c.o -c /mnt/D9CB7B60C982002D/C/ClearTemp/lib/engodatabase/edb.c
+
+CMakeFiles/ClearTemp.dir/lib/engodatabase/edb.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ClearTemp.dir/lib/engodatabase/edb.c.i"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/D9CB7B60C982002D/C/ClearTemp/lib/engodatabase/edb.c > CMakeFiles/ClearTemp.dir/lib/engodatabase/edb.c.i
+
+CMakeFiles/ClearTemp.dir/lib/engodatabase/edb.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ClearTemp.dir/lib/engodatabase/edb.c.s"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/D9CB7B60C982002D/C/ClearTemp/lib/engodatabase/edb.c -o CMakeFiles/ClearTemp.dir/lib/engodatabase/edb.c.s
+
 # Object files for target ClearTemp
 ClearTemp_OBJECTS = \
-"CMakeFiles/ClearTemp.dir/lib/engodatabase/edb.c.o" \
+"CMakeFiles/ClearTemp.dir/src/main.c.o" \
 "CMakeFiles/ClearTemp.dir/src/assets/api.c.o" \
 "CMakeFiles/ClearTemp.dir/src/assets/tools.c.o" \
-"CMakeFiles/ClearTemp.dir/src/main.c.o" \
-"CMakeFiles/ClearTemp.dir/src/assets/flags.c.o"
+"CMakeFiles/ClearTemp.dir/src/assets/flags.c.o" \
+"CMakeFiles/ClearTemp.dir/lib/engodatabase/edb.c.o"
 
 # External object files for target ClearTemp
 ClearTemp_EXTERNAL_OBJECTS =
 
-ClearTemp: CMakeFiles/ClearTemp.dir/lib/engodatabase/edb.c.o
+ClearTemp: CMakeFiles/ClearTemp.dir/src/main.c.o
 ClearTemp: CMakeFiles/ClearTemp.dir/src/assets/api.c.o
 ClearTemp: CMakeFiles/ClearTemp.dir/src/assets/tools.c.o
-ClearTemp: CMakeFiles/ClearTemp.dir/src/main.c.o
 ClearTemp: CMakeFiles/ClearTemp.dir/src/assets/flags.c.o
+ClearTemp: CMakeFiles/ClearTemp.dir/lib/engodatabase/edb.c.o
 ClearTemp: CMakeFiles/ClearTemp.dir/build.make
 ClearTemp: CMakeFiles/ClearTemp.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/D9CB7B60C982002D/C/ClearTemp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking C executable ClearTemp"

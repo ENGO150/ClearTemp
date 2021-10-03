@@ -1,5 +1,8 @@
 /*
     This source file contains all getters and setters for flags.h
+
+
+    Note: *almost* every void here is explained in flags.h
 */
 
 #include <string.h>
@@ -7,38 +10,38 @@
 #include <flags.h>
 
 //GETTERS
-bool getConsoleFLag()
+bool getConsoleFlag()
 {
     return consoleFlag;
 }
 
-bool getDebugFLag()
+bool getDebugFlag()
 {
     return debugFlag;
 }
 
-bool getExitFLag()
+bool getExitFlag()
 {
     return exitFlag;
 }
 
-char * getLangFLag()
+char * getLangFlag()
 {
     return langFlag;
 }
 
 //SETTERS
-bool setConsoleFLag(bool object)
+bool setConsoleFlag(bool object)
 {
     consoleFlag = object;
 }
 
-bool setDebugFLag(bool object)
+bool setDebugFlag(bool object)
 {
     debugFlag = object;
 }
 
-bool setExitFLag(bool object)
+bool setExitFlag(bool object)
 {
     exitFlag = object;
 }

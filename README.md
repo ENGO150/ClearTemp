@@ -1,12 +1,14 @@
 # ClearTemp
-Project that clears your temp files.
+More than just clearing temp files...
 -
 ---
-You can launch the file by double-clicking it, but if you want to use some flags, launch it from command line:
+There are two ways to run ClearTemp.
 
-./ClearTemp [--console] [--usernameFlag:NAME] [--block:PASSWORD] [--unblock:PASSWORD] [--excex] [--debug] [--exit] [--language:LANG]
+1) You can launch ClearTemp by opening `ClearTemp.sh` (If you're on Windows, use `ClearTemp.bat`).
 
-^ This works on Linux shell or Windows powershell
+2) You can launch it from command line:
+   ./ClearTemp [--console] [--usernameFlag:NAME] [--block:PASSWORD] [--unblock:PASSWORD] [--excex] [--debug] [--exit] [--language:LANG]
+   ^ This works on Linux shell or Windows powershell + you must open cmake folder (here it is `cmake-build-debug`)
 
 - -console = show console
 - -username:NAME = clear temp of specific user (replace NAME with user's name) !!THIS ISN'T WORKING ON LINUX - DEFAULT TEMP DIRECTORY ON LINUX IS /TMP!!
@@ -17,8 +19,8 @@ You can launch the file by double-clicking it, but if you want to use some flags
 - -exit = shows exit reasons
 - -language:LANG = use more languages (replace LANG with language shortcut; Available: EN, CZ)
 
-The args in square brackets aren't required, and you also don't need to use both of them. I am not responsible for any misuse. Use this program only with the permission of the user to whom you are deleting temporary files. I am developing this program on Linux (Ubuntu), but it should work perfectly on Windows, too.
+The args in square brackets aren't required, and you also don't need to use both of them. I am not responsible for any misuse. Use this program only with the permission of the user to whom you are deleting temporary files. I am developing this program on Linux (Arch), but it should work perfectly on Windows, too.
 
 Java version of ClearTemp lasted 300ms, the new C version lasts 6ms.
 
-*you can download the latest release [here](https://github.com/ENGO150/ClearTemp/releases/latest).
+*clone the repository using `git clone https://github.com/ENGO150/ClearTemp.git` for latest 'release' or you can download the latest stable release [here](https://github.com/ENGO150/ClearTemp/releases/latest).

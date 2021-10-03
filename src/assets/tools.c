@@ -56,9 +56,6 @@ char * replaceString(const char * word, const char * wordFind, const char * word
 
     result[i] = '\0';
 
-    //REMOVE \n FROM THE END
-    //result[strlen(result) - 1] = '\0';
-
     if (store != NULL)
     {
         *store = result;
@@ -76,7 +73,7 @@ char * getDB(char object[])
 
     char lang[strlen("../res/xx.edb")];
     strcpy(lang, "../res/");
-    strcat(lang, getLangFLag());
+    strcat(lang, getLangFlag());
     strcat(lang, ".edb");
 
     readString(object , fopen(lang, "r"), finalString);
@@ -85,7 +82,7 @@ char * getDB(char object[])
 
 void exitProgram(int code)
 {
-    if (getExitFLag())
+    if (getExitFlag())
     {
         char replacing[5];
         char reason[256];
@@ -176,7 +173,7 @@ void exitProgram(int code)
         }
     }
 
-    if (getConsoleFLag())
+    if (getConsoleFlag())
     {
         printf("\n%s\n", getDB("press_enter"));
 
@@ -215,12 +212,12 @@ int getEncryptionKey() {
     char path[256];
 
     //GET PATH
-    if (os == 1)
+    if (os == 1) //WINDOWS
     {
         strcpy(path, "C:/Users/");
         strcat(path, getUser());
         strcat(path, "/.ek.ecfg");
-    } else if (os == 2)
+    } else if (os == 2) //LINUX
     {
         strcpy(path, "/home/");
         strcat(path, getUser());
@@ -234,7 +231,7 @@ int getEncryptionKey() {
     printf("%s\n", replaceString(getDB("creating_config"), "{LINE}", "\n", NULL));
     fp = fopen(path, "w");
 
-    //WRITE RANDOM NUMBER
+    //WRITE RANDOM NUMBER BETWEEN 0 AND 100
     int random = rand() % (100 + 1);
     fprintf(fp, "%d", random);
     fclose(fp);
@@ -297,6 +294,15 @@ void loadInvalidFlags(const char compatible[compatible1L][compatible2L], char ar
         }
     }
 
+    //LOAD argsL
+    int argsL = 0;
+    for (int i = 0; i < arg1Size; i++)
+    {
+        if (strcmp(args[i], "\0") == 0) break;
+
+        argsL++;
+    }
+
     //NEW COMPATIBLE
     char compatibleArgs[compatible1L][compatible2L + 2];
     for (int i = 0; i < compatible1L; i++)
@@ -322,11 +328,13 @@ void loadInvalidFlags(const char compatible[compatible1L][compatible2L], char ar
         strcpy(remainingArgs[i], args[i]);
     }
 
+    //LOAD REMAINING ARGS
     for (int i = 0; i < arg1Size; i++)
     {
         //REMAINING IS EMPTY
         if (strcmp(remainingArgs[i], "\0") == 0) break;
 
+        //LOAD COMPATIBLE
         for (int j = 0; j < compatible1L; j++)
         {
             //COMPATIBLE IS EMPTY
@@ -335,7 +343,7 @@ void loadInvalidFlags(const char compatible[compatible1L][compatible2L], char ar
             //REMAINING CONTAINS COMPATIBLE                     //THIS IS JUST TEST!!!
             if ((strcmp(remainingArgs[i], compatibleArgs[j]) == 0) || (strcmp(remainingArgs[i], compatibleArgs[j]) == (int) (':')))
             {
-                //REMOVE COMPATIBLE FROM REMAINING
+                //REMOVE ARG FROM REMAINING
                 strcpy(remainingArgs[i], "\0");
             }
         }
@@ -343,12 +351,13 @@ void loadInvalidFlags(const char compatible[compatible1L][compatible2L], char ar
 
     //CHECK FOR COMPATIBLE
     bool invalid = false;
-    for (int i = 0; i < compatible1L; i++)
+    for (int i = 0; i < argsL; i++)
     {
-        if (strcmp(remainingArgs[i], "\0") == 0) break;
-
-        invalid = true;
-        break;
+        if (strcmp(remainingArgs[i], "\0") != 0)
+        {
+            invalid = true;
+            break;
+        }
     }
 
     //RETURN IF COMPATIBLE
@@ -410,18 +419,15 @@ bool argsContainsFlag(const char flag[compatible2L], char args[arg1Size][arg2Siz
 
 void loadFlagText(const char flag[compatible2L], char args[arg1Size][arg2Size], char * target)
 {
-    char flagNew[32];
-    char buffer[compatible2L + 16];
+    char flagNew[compatible2L + 2];
+    char buffer[flagTextL];
+    char bufferString[2];
 
-    //ADD 'FLAG' TO TEXT
+    //ADD 'FLAG' TO flagNew
     strcpy(flagNew, "--");
     strcat(flagNew, flag);
 
-    unsigned long flagLength = strlen(flagNew);
     int flagPos = -1;
-
-    //ADD 1 TO flagLength (for :)
-    ++flagLength;
 
     //LOAD flagPos
     for (int i = 0; i < arg1Size; i++)
@@ -445,13 +451,12 @@ void loadFlagText(const char flag[compatible2L], char args[arg1Size][arg2Size], 
         exitProgram(8);
     }
 
-    //LOAD FLAG TEXT (text)
+    //LOAD FLAG TEXT (buffer)
     for (unsigned long i = strlen(flagNew) + 1; i < arg2Size; i++)
     {
         //ARG IS EMPTY
         if (args[flagPos][i] == '\0') break;
 
-        //printf("%c", args[flagPos][i]);
         buffer[i - (strlen(flagNew) + 1)] = args[flagPos][i];
     }
 
@@ -462,7 +467,24 @@ void loadFlagText(const char flag[compatible2L], char args[arg1Size][arg2Size], 
         exitProgram(8);
     }
 
-    strcpy(target, buffer);
+    //RETURN VALUE
+    for (unsigned long i = strlen(flagNew) + 1; i < arg2Size; i++)
+    {
+        if (args[flagPos][i] == '\0') break;
+
+        //CAST CHAR TO STRING
+        sprintf(bufferString, "%c", buffer[i - (strlen(flagNew) + 1)]);
+
+        if ((i - (strlen(flagNew) + 1)) == 0)
+        {
+            //COPY BUFFER TO TARGET
+            strcpy(target, bufferString);
+        } else
+        {
+            //APPEND BUFFER TO TARGET
+            strcat(target, bufferString);
+        }
+    }
 }
 
 void loadInvalidLang(const char compatible[lang1L][lang2L], char target[])
