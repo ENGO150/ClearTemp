@@ -14,13 +14,13 @@ More than just clearing temp files...
 - [Getting ClearTemp](#Getting)
 
 # Linux
-To run ClearTemp on Linux, you have to run makefile (or you can run Debug/ClearTemp, but I STRONGLY recommend not using that way). Makefile is located in Debug folder (Debug/makefile). You can run makefile by command `make` from makefile's directory - here it is Debug/.
+To run ClearTemp on Linux, you have to run makefile (or you can run Debug/ClearTemp, but I STRONGLY recommend not using that way). Makefile is located in Debug folder (Debug/makefile). You can run makefile by command `make` from makefile's directory (or using the directory as parameter) - here it is Debug/.
 
 # Windows
 Running ClearTemp on Windows is similar to running on Linux, except you have to install compiler. My favorite is [MinGW](https://sourceforge.net/projects/mingw/). Search for any tutorial on YouTube if needed.
 
 # Running
-To run compiled program, you have to run it from directory, where it was compiled (Debug/). If you will not do this (making shortcut etc.), program will probably print "EDBLOC is NULL" and end. Running is possible by double clicking (you can't use flags here), or in terminal (the method below is working in Linux terminal and Microsoft powershell; if you're using the powershell method, you probably have to use ClearTemp.exe instead of ClearTemp):
+To run compiled program, you have to run it from project directory. If you will not do this (making shortcut etc.), program will probably print "EDBLOC is NULL" (language configuration files weren't found) and end. Running is possible by double clicking from project directory (you can't use flags here), or in terminal - still using project directory (the method below is working in Linux terminal and Microsoft powershell; if you're using the powershell method, you probably have to use ClearTemp.exe instead of ClearTemp):
 
 `./ClearTemp [--console] [--usernameFlag:NAME] [--block:PASSWORD] [--unblock:PASSWORD] [--excex] [--debug] [--exit] [--language:LANG]`
 
