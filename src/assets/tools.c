@@ -12,9 +12,9 @@
 #include <stdbool.h>
 #include <string.h>
 
-#include <edb.h>
+#include "../../lib/engodatabase/edb.h"
 
-#include <tools.h>
+#include "../../include/tools.h"
 
 bool isOsCompatible()
 {
@@ -71,8 +71,8 @@ char * getDB(char object[])
 {
     char * finalString[256];
 
-    char lang[strlen("../res/xx.edb")];
-    strcpy(lang, "../res/");
+    char lang[strlen("res/xx.edb")];
+    strcpy(lang, "res/");
     strcat(lang, getLangFlag());
     strcat(lang, ".edb");
 

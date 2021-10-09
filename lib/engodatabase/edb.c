@@ -6,7 +6,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-#include <edb.h>
+#include "edb.h"
 
 void readString(char objectRaw[], FILE * edbLoc, char ** objectFinal)
 {

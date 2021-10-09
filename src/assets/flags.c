@@ -7,7 +7,7 @@
 
 #include <string.h>
 
-#include <flags.h>
+#include "../../include/flags.h"
 
 //GETTERS
 bool getConsoleFlag()
@@ -34,16 +34,22 @@ char * getLangFlag()
 bool setConsoleFlag(bool object)
 {
     consoleFlag = object;
+
+    return consoleFlag;
 }
 
 bool setDebugFlag(bool object)
 {
     debugFlag = object;
+
+    return debugFlag;
 }
 
 bool setExitFlag(bool object)
 {
     exitFlag = object;
+
+    return exitFlag;
 }
 
 char * setLangFlag(char object[])

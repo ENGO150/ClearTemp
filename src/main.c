@@ -4,8 +4,8 @@
 
 #include <string.h>
 
-#include <api.h>
-#include <flags.h>
+#include "../include/api.h"
+#include "../include/flags.h"
 
 int main(__attribute__((unused)) int argc, char * argv[])
 {

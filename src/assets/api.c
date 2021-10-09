@@ -9,9 +9,9 @@
 #include <dirent.h>
 #include <ctype.h>
 
-#include <api.h>
-#include <tools.h>
-#include <flags.h>
+#include "../../include/api.h"
+#include "../../include/tools.h"
+#include "../../include/flags.h"
 
 void clearTemp(char args[arg1Size][arg2Size])
 {

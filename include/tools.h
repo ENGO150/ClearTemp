@@ -5,15 +5,15 @@
 #ifndef CLEARTEMP_TOOLS_H
 #define CLEARTEMP_TOOLS_H
 
-#include <flags.h>
+#include "flags.h"
 
 //Used OS; 1 = Windows, 2 = Linux (UNIX), 3 = Mac, 0 = Incompatible | MAC IS NO LONGER SUPPORTED !!!
 #ifdef _WIN32 //WINDOWS
-    #define os 1
+#define os 1
 #elif __unix__ //LINUX (UNIX)
-    #define os 2
+#define os 2
 #else //ELSE
-    #define os 0
+#define os 0
 #endif
 
 void print(char object[]); //This prints object from langFlag.edb using langFlag (api.h) (edb stands for "ENGO DataBase", which is my database system; lib/engodatabase/edb.h)
