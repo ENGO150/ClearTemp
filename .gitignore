@@ -1,1 +1,7 @@
+#INTELLIJ
 .idea
+
+#ECLIPSE
+.settings
+.cproject
+.project
