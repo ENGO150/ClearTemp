@@ -14,3 +14,4 @@
 25th of September 2021 - Pre v2.1.1 = Remade code in C, Mac support was removed
 2nd of October 2021 - v2.2 = Re-Added flags
 3rd of October 2021 - v2.2.1 = Fixed flags, finished remaking in C, edited README
+9th of October 2021 - v2.3 = Migrated to Eclipse, updated README and .gitignore
