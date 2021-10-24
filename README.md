@@ -14,15 +14,15 @@ More than just clearing temp files...
 - [Getting ClearTemp](#Getting)
 
 # Linux
-To run ClearTemp on Linux, you have to run makefile (or you can run Debug/ClearTemp, but I STRONGLY recommend not using that way). Makefile is located in Debug folder (Debug/makefile). You can run makefile by command `make` from makefile's directory (or using the directory as parameter) - here it is Debug/.
+To run ClearTemp on Linux, you have to run makefile (or you can run out/ClearTemp, but I STRONGLY recommend not using that way). Makefile is located in project folder (ClearTemp/Makefile). You can run makefile by command `make` from Makefile's (project) directory.
 
 # Windows
 Running ClearTemp on Windows is similar to running on Linux, except you have to install compiler. My favorite is [MinGW](https://sourceforge.net/projects/mingw/). Search for any tutorial on YouTube if needed.
 
 # Running
-To run compiled program, you have to run it from project directory. If you will not do this (making shortcut etc.), program will probably print "EDBLOC is NULL" (language configuration files weren't found) and end. Running is possible by double clicking from project directory (you can't use flags here), or in terminal - still using project directory (the method below is working in Linux terminal and Microsoft powershell; if you're using the powershell method, you probably have to use ClearTemp.exe instead of ClearTemp):
+To run compiled program, **you have to run it from project directory**. If you will not do this (making shortcut etc.), program will probably print **"EDBLOC is NULL"** (language configuration files weren't found) and end (crash). Running is possible by double clicking from project directory (you can't use flags here), or in terminal - still using project directory (the method below is working in Linux terminal and Microsoft powershell; if you're using the powershell method, you probably have to use ClearTemp.exe instead of ClearTemp):
 
-`./ClearTemp [--console] [--usernameFlag:NAME] [--block:PASSWORD] [--unblock:PASSWORD] [--excex] [--debug] [--exit] [--language:LANG]`
+`./out/ClearTemp [--console] [--usernameFlag:NAME] [--block:PASSWORD] [--unblock:PASSWORD] [--excex] [--debug] [--exit] [--language:LANG]`
 
 # Flags
 - -console = show console
@@ -34,8 +34,7 @@ To run compiled program, you have to run it from project directory. If you will 
 - -exit = shows exit reasons
 - -language:LANG = use more languages (replace LANG with language shortcut; Available: EN, CZ)
 
-The args in square brackets aren't required, and you also don't need to use both of them. I am not responsible for any misuse. Use this program only with the permission of the user to whom you are deleting temporary files. I am developing this program on Linux (Arch), but it should work perfectly on Windows, too.
-
+The args in square brackets **aren't** required, and you also don't need to use both of them. I am not responsible for any misuse. Use this program only with the permission of the user to whom you are deleting temporary files. I am developing this program on Linux (Arch), but it should work perfectly on Windows, too.
 
 # Getting
-Clone the repository using `git clone https://github.com/ENGO150/ClearTemp.git` for latest 'release' or you can download the latest stable release [here](https://github.com/ENGO150/ClearTemp/releases/latest).
+Clone the repository using `git clone https://github.com/ENGO150/ClearTemp.git` for latest 'release' or you can download the latest **stable** release [here](https://github.com/ENGO150/ClearTemp/releases/latest).

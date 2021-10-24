@@ -5,6 +5,8 @@
 #ifndef CLEARTEMP_EDB_H
 #define CLEARTEMP_EDB_H
 
+#include <stdio.h>
+
 void readString(char objectRaw[], FILE * edbLoc, char ** objectFinal); //This reads objectRaw (string) from edbLoc and stores it into objectFinal
 
 #endif

@@ -15,7 +15,7 @@
 
 void clearTemp(char args[arg1Size][arg2Size])
 {
-    srand(time(NULL)); //MAKE RAND() REALLY RANDOM
+    srand(time(NULL)); //MAKE RAND() REALLY RANDOM (SET TIME SEED)
 
     if (!isOsCompatible())
     {

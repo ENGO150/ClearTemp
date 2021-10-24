@@ -1,7 +1,10 @@
 #INTELLIJ
-.idea
+.idea/
 
 #ECLIPSE
-.settings
+.settings/
 .cproject
 .project
+
+#VS CODE
+.vscode/
