@@ -20,11 +20,11 @@
 #define flagTextL 64 //Length for text in flag ['flagText']
 
 //VARIABLES
-__attribute__((unused)) static bool consoleFlag = false; //If true doesn't close windows at end - waits for your input
-__attribute__((unused)) static bool debugFlag = false; //If true, program just pretends it's deleting temp
-__attribute__((unused)) static bool exitFlag = false; //If true shows exitCode and exitReason (console enable is recommended)
+static bool consoleFlag = false; //If true doesn't close windows at end - waits for your input
+static bool debugFlag = false; //If true, program just pretends it's deleting temp
+static bool exitFlag = false; //If true shows exitCode and exitReason (console enable is recommended)
 
-__attribute__((unused)) static char langFlag[] = "en"; //Language for getDB() in tools.h;
+static char langFlag[] = "en"; //Language for getDB() in tools.h;
 
 //GETTERS
 bool getConsoleFlag(); //GETTER FOR consoleFlag

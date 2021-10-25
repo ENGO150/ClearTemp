@@ -8,6 +8,7 @@
 #include <time.h>
 #include <dirent.h>
 #include <ctype.h>
+#include <sys/stat.h>
 
 #include "../../include/api.h"
 #include "../../include/tools.h"
@@ -34,6 +35,8 @@ void clearTemp(char args[arg1Size][arg2Size])
 
     struct dirent * de;
     DIR * dr;
+
+    struct stat pathStat;
 
     bool excex = false;
 
@@ -246,7 +249,19 @@ void clearTemp(char args[arg1Size][arg2Size])
         int removed = 0;
         if (!getDebugFlag()) //REMOVE IF DEBUG IS DISABLED
         {
-            removed = remove(tempFileUsed);
+            //LOAD PATH TO pathStat
+            stat(tempFileUsed, &pathStat);
+
+            //FILE
+            if (S_ISREG(pathStat.st_mode) != 0)
+            {
+                removed = remove(tempFileUsed);
+            } else //DIRECTORY (DOESN'T REMOVE DIRECTORIES IN DIRECTORIES)
+            {
+                //TODO: REPLACE WITH SOMETHING 'GOOD'
+
+                removed = rmdir(tempFileUsed);
+            }
         }
 
         //REMOVED
