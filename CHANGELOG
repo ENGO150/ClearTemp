@@ -16,3 +16,4 @@
 3rd of October 2021 - v2.2.1 = Fixed flags, finished remaking in C, edited README
 9th of October 2021 - v2.3 = Migrated to Eclipse, updated README and .gitignore
 24th of October 2021 - v2.3.1 = Migrated to VSCode, updated Makefile, README and .gitignore
+26th of October 2021 - Pre v2.3.2 = Trying to fix folder removing bug
