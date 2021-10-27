@@ -8,7 +8,8 @@ files += src/assets/*
 files += include/*
 
 # OTHER (lib/)
-files += lib/*/*
+	# ENGODATABASE
+	files += lib/*/*/*
 
 # OUTPUT FILE GENERATION
 main : $(files)

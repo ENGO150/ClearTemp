@@ -12,7 +12,7 @@
 #include <stdbool.h>
 #include <string.h>
 
-#include "../../lib/engodatabase/edb.h"
+#include "../../lib/EngoDatabase/include/edb.h"
 
 #include "../../include/tools.h"
 
