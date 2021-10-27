@@ -9,7 +9,8 @@ files += include/*
 
 # OTHER (lib/)
 	# ENGODATABASE
-	files += lib/*/*/*
+	files += lib/EngoDatabase/src/*
+	files += lib/EngoDatabase/include/*
 
 # OUTPUT FILE GENERATION
 main : $(files)
