@@ -312,5 +312,7 @@ void clearTemp(char args[arg1Size][arg2Size])
 
     printf("%s\n", final);
 
+    closedir(dr);
+
     exitProgram(0);
 }
