@@ -7,7 +7,7 @@
 #include "../include/api.h"
 #include "../include/flags.h"
 
-int main(__attribute__((unused)) int argc, char * argv[])
+int main(int argc, char * argv[])
 {
     //CREATE ARGS ARRAY
     char args[arg1Size][arg2Size];
