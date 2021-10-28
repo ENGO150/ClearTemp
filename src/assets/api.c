@@ -14,7 +14,7 @@
 #include "../../include/tools.h"
 #include "../../include/flags.h"
 
-int rmdir(); //IGNORE THAT, IT'S HERE JUST TO SUPRESS Wimplicit-function-declaration WARNING
+int rmdir(); //IGNORE THAT, IT'S HERE JUST TO SUPPRESS Wimplicit-function-declaration WARNING
 
 void clearTemp(char args[arg1Size][arg2Size])
 {
