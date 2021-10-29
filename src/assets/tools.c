@@ -324,8 +324,13 @@ void loadInvalidFlags(const char compatible[compatible1L][compatible2L], char ar
         //ARG IS EMPTY
         if (strcmp(args[i], "\0") == 0) break;
 
-        //ADD
-        strcpy(remainingArgs[i], args[i]);
+        //ADD + SPLIT BEFORE COLON
+        for (int j = 0; j < arg2Size; j++)
+        {
+            if (args[i][j] == ':') break;
+
+            remainingArgs[i][j] = args[i][j];
+        }
     }
 
     //LOAD REMAINING ARGS
@@ -340,8 +345,8 @@ void loadInvalidFlags(const char compatible[compatible1L][compatible2L], char ar
             //COMPATIBLE IS EMPTY
             if (strcmp(compatibleArgs[j], "\0") == 0) break;
 
-            //REMAINING CONTAINS COMPATIBLE                     //THIS IS JUST TEST!!!
-            if ((strcmp(remainingArgs[i], compatibleArgs[j]) == 0) || (strcmp(remainingArgs[i], compatibleArgs[j]) == (int) (':')))
+            //REMAINING CONTAINS COMPATIBLE
+            if (strcmp(remainingArgs[i], compatibleArgs[j]) == 0)
             {
                 //REMOVE ARG FROM REMAINING
                 strcpy(remainingArgs[i], "\0");
@@ -380,27 +385,38 @@ void loadInvalidFlags(const char compatible[compatible1L][compatible2L], char ar
         }
     }
 
-    fprintf(stderr, "%s", replaceString(getDB("invalid_flag"), "{FLAG}", buffer, NULL));
+    fprintf(stderr, "%s\n", replaceString(getDB("invalid_flag"), "{FLAG}", buffer, NULL));
     exitProgram(12);
 }
 
 bool argsContainsFlag(const char flag[compatible2L], char args[arg1Size][arg2Size])
 {
-    char text[32];
+    //char textBefore[flagTextL];
+    char text[flagTextL];
     bool error = false;
     bool returning = false;
 
-    //ADD 'FLAG' TO TEXT
+    //ADD 'FLAG' TO textBefore
+    /*strcpy(textBefore, "--");
+    strcat(textBefore, flag);*/
     strcpy(text, "--");
     strcat(text, flag);
+
+    /*//SPLIT TEXT (BEFORE COLON)
+    for (int i = 0; i < flagTextL; i++)
+    {
+        if (textBefore[i] == ':') break;
+
+        text[i] = textBefore[i];
+    }*/
 
     for (int i = 0; i < arg1Size; i++)
     {
         //ARG IS EMPTY
         if (strcmp(args[i], "\0") == 0) break;
 
-        //CHECK IF ARGS CONTAINS FLAG      //THIS IS JUST TEST!!!
-        if ((strcmp(args[i], text) == 0) || (strcmp(args[i], text) == (int) (':')))
+        //CHECK IF ARGS CONTAINS FLAG     //THIS IS JUST TEST!!!
+        if (strcmp(args[i], text) == 0 || strcmp(args[i], text) == ':')
         {
             //IS DOUBLE-USED
             if (error)
