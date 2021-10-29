@@ -243,6 +243,9 @@ void clearTemp(char args[arg1Size][arg2Size])
     //REMOVE FILES
     while ((de = readdir(dr)) != NULL)
     {
+        //IS . OR ..
+        if ((strcmp(de->d_name, ".") == 0) || (strcmp(de->d_name, "..") == 0)) continue;
+
         //GET FILE LOCATION
         strcpy(tempFileUsed, fileUsed);
         strcat(fileUsed, "/");
