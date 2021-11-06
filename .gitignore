@@ -1,5 +1,5 @@
 #LOGS
-logs/
+logs/*
 
 #INTELLIJ
 .idea/
