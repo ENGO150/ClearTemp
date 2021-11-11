@@ -36,7 +36,7 @@ wrong_password_exit: invalid password
 temp_already_unblocked_exit: not blocked temp
 temp_blocked_err_exit: temp blocked
 temp_folder_err_exit: temp folder not found
-m: no flag text found
+no_flag_text_exit: no flag text found
 no_flag_exit: no flag found
 flag_used_exit: one flag used more than once
 edit_file_exit: cannot configure the file
