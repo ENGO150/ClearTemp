@@ -1,63 +1,63 @@
-not_compatible_os: Omlouváme se, ale tento operační systém není podporován. Pokud používáte podporovaný OS (Windows, Linux), nahlašte chybu zde: https://github.com/ENGO150/ClearTemp/issues.
+not_compatible_os: Omlouvame se, ale tento operacni system neni podporovan. Pokud pouzivate podporovany OS (Windows, Linux), nahlaste chybu zde: https://github.com/ENGO150/ClearTemp/issues.
 
-using_lang: Používá se Čeština.
+using_lang: Pouziva se Cestina. (Diakritika je zakazana...)
 
-debug: Používá se debugovací mód.
-console: Používá se konzole.
-excex: Zastavení na výjímkách.
-exit: Ukazují se důvody zastavení.
+debug: Pouziva se debugovaci mod.
+console: Pouziva se konzole.
+excex: Zastaveni na vyjimakch.
+exit: Ukazuji se duvody zastaveni.
 
-username_linux: Funkce uživatelského jména nemůže být použita na Linuxu!
+username_linux: Funkce uzivatelskeho jmena nemuze byt pouzita na Linuxu!
 
-temp_already_blocked: Dočasné soubory jsou již zablokované!
-temp_already_unblocked: Dočasné soubory nejsou zablokované.
-temp_blocked: Dočasné soubory byly zablokovány.
-temp_unblocked: Dočasné soubory byly odblokovány.
-wrong_password: Špatné heslo!
-temp_blocked_err: Dočasné soubory jsou zablokované!
-temp_folder_err: Složka dočasných souborů neexistuje!
+temp_already_blocked: Docasne soubory jsou jiz zablokovane!
+temp_already_unblocked: Docasne soubory nejsou zablokovane.
+temp_blocked: Docasne soubory byly zablokovany.
+temp_unblocked: Docasne soubory byly odblokovany.
+wrong_password: Spatne heslo!
+temp_blocked_err: Docasne soubory jsou zablokovany!
+temp_folder_err: Slozka docasnych souboru neexistuje!
 
-removed_file: Soubor smazán:
+removed_file: Soubor smazan:
 cant_remove: Nelze smazat:
 
-final: {LINE}Bylo úspěšně smazáno {DELETED} souborů, {CANNOT} souborů je nyní pravděpodobně používáno a není možné je smazat.
+final: {LINE}Bylo uspesne smazano {DELETED} souboru, {CANNOT} souboru je nyni pravdepodobne pouzivano a neni mozne je smazat.
 
-no_flag_text: Nebyl nalezen žádný text flajky!
-no_flag: Nebyla nalezena žádná vlajka!
+no_flag_text: Nebyl nalezen zadny text flajky!
+no_flag: Nebyla nalezena zadna vlajka!
 
-excex_exit: excex ukončení
-temp_unblocked_exit: dočasné soubory úspěšně zablokovány
-temp_blocked_exit: dočasné soubory úspěšně odblokovány
-temp_deleted_exit: dočasné soubory úspěšně smazány
-not_compatible_os_exit: nepodporovaný OS
-username_linux_exit: uživatelské jméno použito na linuxu
-temp_already_blocked_exit: dočasné soubory jsou již zablokovány
-wrong_password_exit: neplatné heslo
-temp_already_unblocked_exit: dočasné soubory nejsou zablokovány
-temp_blocked_err_exit: dočasné soubory jsou zablokovány
-temp_folder_err_exit: složka dočasných souborů nenalezena
-no_flag_text_exit: žádný text vlajky
-no_flag_exit: žádná vlajka
-flag_used_exit: jedna vlajka je použita vícekrát
+excex_exit: excex ukonceni
+temp_unblocked_exit: docasne soubory odblokovany
+temp_blocked_exit: docasne soubory zablokovany
+temp_deleted_exit: docasne soubory smazany
+not_compatible_os_exit: nepodporovany OS
+username_linux_exit: uzivatelske jmeno pouzito na Linuxu
+temp_already_blocked_exit: docasne soubory jiz zablokovany
+wrong_password_exit: neplatne heslo
+temp_already_unblocked_exit: docasne soubory nejsou zablokovany
+temp_blocked_err_exit: docasne soubory jsou zablokovany
+temp_folder_err_exit: slozka docasnych souboru nenalezena
+no_flag_text_exit: text vlajky nenalezen
+no_flag_exit: zadna vlajka
+flag_used_exit: jedna vlajka je pou\u017Eita v\u00EDcekr\u00E1t
 edit_file_exit: nelze nastavit soubor
-invalid_flag_exit: použita neplatná vlajka
-invalid_arg_exit: použit neplatný argument
+invalid_flag_exit: pouzita neplatna vlajka
+invalid_arg_exit: pouzit neplatny argument
 
-reason_exit: ! důvod není dostupný !
+reason_exit: ! duvod neni dostupny !
 
-console_exit: Program skončil s kódem {CODE};
-press_enter: Zmáčkněte ENTER pro ukončení:
+console_exit: Program skoncil s kodem {CODE};
+press_enter: Zmacknete ENTER pro ukonceni:
 
-thanks: :) Děkujeme, že podporujete tento projekt!
-look: Podívejte se: https://cutt.ly/4n4LcDo
+thanks: :) Dekujeme, ze podporujete tento projekt!
+look: Podivejte se: https://cutt.ly/4n4LcDo
 
-flag_used: Vlajka '{FLAG}' je použita více než jednou!
+flag_used: Vlajka '{FLAG}' je pouzita vice nez jednou!
 
-creating_config: Vytváří se nový konfigurační soubor.{LINE}
+creating_config: Vytvari se novy konfiguracni soubor.{LINE}
 
-edit_file: Konfigurace souboru se nezdařila!
+edit_file: Konfigurace souboru se nezdarila!
 
-invalid_char: Použili jste neplatný znak! ('_')
-invalid_flag: Použili jste neplatnou vlajku! Použili jste "--"? ('{FLAG}')
-invalid_arg: Použili jste neplatný argument! ('{ARG}')
-invalid_text: Vypadá to, že jste nepoužili žádný text ve vlajce! ('{FLAG}')
+invalid_char: Pouzili jste neplatny znak! ('_')
+invalid_flag: Pouzili jste neplatnou vlajku! Pouzili jste "--"? ('{FLAG}')
+invalid_arg: Pouzili jste neplatny argument! ('{ARG}')
+invalid_text: Vypada to, ze jste nepouzili zadny text ve vlajce! ('{FLAG}')
