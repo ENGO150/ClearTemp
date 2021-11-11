@@ -16,12 +16,14 @@
 #define os 0
 #endif
 
-void print(char object[]); //This prints object from langFlag.edb using langFlag (api.h) (edb stands for "ENGO DataBase", which is my database system; lib/engodatabase/edb.h)
-void printErr(char object[], int exitCode); //Does almost same thing as print(), but prints stderr
+void print(char * format, ...); //This works just like normal printf(), but uses logging system
+void printTranslate(char object[]); //This prints object from langFlag.edb using langFlag (api.h) (edb stands for "ENGO DataBase", which is my database system; lib/engodatabase/edb.h)
+void printTranslateErr(char object[], int exitCode); //Does almost same thing as print(), but prints stderr
 void exitProgram(int code); //Exits program with code (look for exitFlag in api.h for more)
 void loadInvalidFlags(const char compatibleArgs[compatible1L][compatible2L], char args[arg1Size][arg2Size]); //If flags contains more than compatibleArgs, program ends
 void loadInvalidLang(const char compatible[lang1L][lang2L], char target[]); //If compatible doesn't contain target, program ends
 void loadFlagText(const char flag[compatible2L], char args[arg1Size][arg2Size], char * target); //Returns flag text (if flag is something:ABCD, returns ABCD)
+void generateLogFile(char time[], char args[arg1Size][arg2Size]); //Creates logs file (for example 'logs/2006-09-19-03.log', where 2006 is year, 09 is month, 19 is day and 03 means, the program was used for third time in that day)
 
 int getEncryptionKey(); //This void creates encryption file and returns "secret" value, which is password being encrypted with
 

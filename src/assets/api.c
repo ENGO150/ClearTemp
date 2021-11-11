@@ -22,7 +22,7 @@ void clearTemp(char args[arg1Size][arg2Size])
 
     if (!isOsCompatible())
     {
-        printErr("not_compatible_os", 1);
+        printTranslateErr("not_compatible_os", 1);
     }
 
     //VARS
@@ -43,8 +43,8 @@ void clearTemp(char args[arg1Size][arg2Size])
     bool excex = false;
 
     const char compatibleArgs[compatible1L][compatible2L] =
-    {       //0        //1         //2      //3        //4      //5      //6     //7
-            "console", "username", "block", "unblock", "excex", "debug", "exit", "language"
+    {       //0        //1         //2      //3        //4      //5      //6     //7         //8
+            "console", "username", "block", "unblock", "excex", "debug", "exit", "language", "logs"
     };
 
     const char compatibleLangs[lang1L][lang2L] =
@@ -62,6 +62,21 @@ void clearTemp(char args[arg1Size][arg2Size])
     //THERE ARE FLAGS
     if (strcmp(args[0], "\0") != 0)
     {
+        //LOGS FLAG
+        if (argsContainsFlag(compatibleArgs[8], args))
+        {
+            setLogFlag(true);
+
+            //GET TIME
+            char timeS[strlen(getLogTextFlag())];
+            time_t t = time(NULL);
+            struct tm tm = *localtime(&t);
+
+            sprintf(timeS, "%04d-%02d-%02d", tm.tm_year + 1900, tm.tm_mon, tm.tm_mday);
+
+            generateLogFile(timeS, args);
+        }
+        
         //LANGUAGE FLAG - SET LANG
         if (argsContainsFlag(compatibleArgs[7], args))
         {
@@ -80,7 +95,7 @@ void clearTemp(char args[arg1Size][arg2Size])
 
             setLangFlag(langBuffer);
 
-            print("using_lang");
+            printTranslate("using_lang");
         }
 
         //DEBUG FLAG - DOESN'T ACTUALLY DELETES FILES
@@ -88,7 +103,7 @@ void clearTemp(char args[arg1Size][arg2Size])
         {
             setDebugFlag(true);
 
-            print("debug");
+            printTranslate("debug");
         }
 
         //CONSOLE FLAG
@@ -96,7 +111,7 @@ void clearTemp(char args[arg1Size][arg2Size])
         {
             setConsoleFlag(true);
 
-            print("console");
+            printTranslate("console");
         }
 
         //USERNAME FLAG - WINDOWS TEMP FOLDER FOR USER
@@ -105,7 +120,7 @@ void clearTemp(char args[arg1Size][arg2Size])
             //LINUX IS USED
             if (os == 2)
             {
-                printErr("username_linux", 2);
+                printTranslateErr("username_linux", 2);
             }
 
             loadFlagText(compatibleArgs[1], args, username);
@@ -121,7 +136,7 @@ void clearTemp(char args[arg1Size][arg2Size])
             //TEMP IS ALREADY BLOCKED
             if (fopen(tempFileUsed, "r") != NULL)
             {
-                printErr("temp_already_blocked", 3);
+                printTranslateErr("temp_already_blocked", 3);
             }
 
             //BLOCKING
@@ -147,7 +162,7 @@ void clearTemp(char args[arg1Size][arg2Size])
                 fclose(blockFile);
             }
 
-            print("temp_blocked");
+            printTranslate("temp_blocked");
             exit(101);
         }
 
@@ -187,18 +202,18 @@ void clearTemp(char args[arg1Size][arg2Size])
                     //PASSWORD DOESN'T MATCH
                     if (strcmp(password, passwordDecrypted) != 0)
                     {
-                        printErr("wrong_password", 4);
+                        printTranslateErr("wrong_password", 4);
                     }
 
                     //REMOVE BLOCK FILE
                     remove(tempFileUsed);
                 }
 
-                print("temp_unblocked");
+                printTranslate("temp_unblocked");
                 exitProgram(102);
             } else
             {
-                printErr("temp_already_unblocked", 5);
+                printTranslateErr("temp_already_unblocked", 5);
             }
         }
 
@@ -207,7 +222,7 @@ void clearTemp(char args[arg1Size][arg2Size])
         {
             excex = true;
 
-            print("excex");
+            printTranslate("excex");
         }
 
         //EXIT FLAG - SHOWS WHY THE PROGRAM IS EXITING
@@ -215,10 +230,10 @@ void clearTemp(char args[arg1Size][arg2Size])
         {
             setExitFlag(true);
 
-            print("exit");
+            printTranslate("exit");
         }
 
-        printf("\n");
+        print("\n");
     }
 
     //ADD BLOCK FILE
@@ -228,13 +243,13 @@ void clearTemp(char args[arg1Size][arg2Size])
     //CHECK IF TEMP IS BLOCKED
     if (fopen(tempFileUsed, "r") != NULL)
     {
-        printErr("temp_blocked_err", 6);
+        printTranslateErr("temp_blocked_err", 6);
     }
 
     //CHECK FOR TEMP FOLDER
     if (fopen(fileUsed, "r") == NULL)
     {
-        printErr("temp_folder_err", 7);
+        printTranslateErr("temp_folder_err", 7);
     }
 
     //LIST FILES
@@ -278,7 +293,7 @@ void clearTemp(char args[arg1Size][arg2Size])
             strcat(buffer, de->d_name);
 
             //PRINT
-            printf("%s\n", buffer);
+            print("%s\n", buffer);
 
             deleted++;
         } else //CANNOT REMOVE
@@ -289,7 +304,7 @@ void clearTemp(char args[arg1Size][arg2Size])
             strcat(buffer, de->d_name);
 
             //PRINT
-            printf("%s\n", buffer);
+            print("%s\n", buffer);
 
             //EXCEX
             if (excex)
@@ -315,7 +330,7 @@ void clearTemp(char args[arg1Size][arg2Size])
     strcpy(final, replaceString(final, "{DELETED}", deletedS, NULL));
     strcpy(final, replaceString(final, "{CANNOT}", cannotDeleteS, NULL));
 
-    printf("%s\n", final);
+    print("%s\n", final);
 
     closedir(dr);
 

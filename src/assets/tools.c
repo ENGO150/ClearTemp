@@ -11,6 +11,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
+#include <stdarg.h>
 
 #include "../../lib/EngoDatabase/include/edb.h"
 
@@ -78,6 +79,37 @@ char * getDB(char object[])
 
     readString(object , fopen(lang, "r"), finalString);
     return * finalString;
+}
+
+//WRITE LOG IF IS LOGGING ENABLED
+void writeLog(char text[])
+{
+    if (!getLogFlag()) return;
+
+    //GET LOG FILE PATH
+    char logFilePath[5 + strlen(getLogTextFlag()) + 4];
+
+    strcpy(logFilePath, "logs/");
+    strcat(logFilePath, getLogTextFlag());
+    strcat(logFilePath, ".log");
+
+    FILE * logFile = fopen(logFilePath, "a");
+
+    fprintf(logFile, "%s", text);
+}
+
+void print(char * format, ...)
+{
+    char buffer[printBufferL] = "";
+
+    va_list args;
+    va_start(args,format);
+    vsnprintf(buffer, printBufferL, format, args);
+    va_end(args);
+
+    printf("%s", buffer);
+
+    writeLog(buffer);
 }
 
 void exitProgram(int code)
@@ -160,12 +192,12 @@ void exitProgram(int code)
         }
 
         //MESSAGE
-        printf("%s %s\n", replaceString(getDB("console_exit"), "{CODE}", replacing, NULL), reason);
+        print("%s %s\n", replaceString(getDB("console_exit"), "{CODE}", replacing, NULL), reason);
     }
 
     if ((rand() % (100 + 1) > 75) && (code == 0 || code > 100))
     {
-        printf("\n%s\n", getDB("thanks"));
+        print("\n%s\n", getDB("thanks"));
 
         if (rand() % (1000 + 1) == 420)
         {
@@ -175,7 +207,7 @@ void exitProgram(int code)
 
     if (getConsoleFlag())
     {
-        printf("\n%s\n", getDB("press_enter"));
+        print("\n%s\n", getDB("press_enter"));
 
         //WAIT FOR ENTER (\n)
         while (getchar() != '\n');
@@ -197,12 +229,12 @@ char * getUser()
     return NULL;
 }
 
-void print(char object[])
+void printTranslate(char object[])
 {
-    printf("%s\n", getDB(object));
+    print("%s\n", getDB(object));
 }
 
-void printErr(char object[], int exitCode)
+void printTranslateErr(char object[], int exitCode)
 {
     fprintf(stderr, "%s\n", getDB(object));
     exitProgram(exitCode);
@@ -228,7 +260,7 @@ int getEncryptionKey() {
     if (fp != NULL) goto notNull; //PATH EXISTS
 
     //CREATE
-    printf("%s\n", replaceString(getDB("creating_config"), "{LINE}", "\n", NULL));
+    print("%s\n", replaceString(getDB("creating_config"), "{LINE}", "\n", NULL));
     fp = fopen(path, "w");
 
     //WRITE RANDOM NUMBER BETWEEN 0 AND 100
@@ -289,7 +321,7 @@ void loadInvalidFlags(const char compatible[compatible1L][compatible2L], char ar
             //CONTAINS _
             if (args[i][j] == '_')
             {
-                printErr("invalid_char", 12);
+                printTranslateErr("invalid_char", 12);
             }
         }
     }
@@ -371,7 +403,7 @@ void loadInvalidFlags(const char compatible[compatible1L][compatible2L], char ar
     //:)
     if (strcmp(remainingArgs[0], "sus") == 0)
     {
-        printf("Oh, so you're a sussy boi?\n\nNever gonna give you up\nNever gonna let you down\nNever gonna run around and desert you\nNever gonna make you cry\nNever gonna say goodbye\nNever gonna tell a lie and hurt you\n");
+        print("Oh, so you're a sussy boi?\n\nNever gonna give you up\nNever gonna let you down\nNever gonna run around and desert you\nNever gonna make you cry\nNever gonna say goodbye\nNever gonna tell a lie and hurt you\n");
         exitProgram(104);
     }
 
@@ -518,4 +550,62 @@ void loadInvalidLang(const char compatible[lang1L][lang2L], char target[])
     //PROGRAM CONTINUES - COMPATIBLE DOESN'T CONTAIN TARGET
     fprintf(stderr, "%s\n", replaceString(getDB("invalid_arg"), "{ARG}", target, NULL));
     exitProgram(13);
+}
+
+void generateLogFile(char time[], char args[arg1Size][arg2Size])
+{
+    char useS[2];
+
+    char buffer[5 + strlen(time) + 1 + sizeof(useS)];
+    char bufferLog[5 + strlen(time) + 1 + sizeof(useS) + 4];
+
+    //CHECK FOR LATEST LOG
+    for (int i = 1; i < 100; i++)
+    {
+        sprintf(useS, "%02d", i);
+
+        //GET LOG FILE PATH
+        strcpy(buffer, time);
+        strcat(buffer, "-");
+        strcat(buffer, useS);
+
+        strcpy(bufferLog, "logs/");
+        strcat(bufferLog, buffer);
+        strcat(bufferLog, ".log");
+
+        //GENERATE LOG FILE
+        if (fopen(bufferLog, "r") == NULL)
+        {
+            //CREATE FILE
+            FILE * logFile = fopen(bufferLog, "w");
+
+            //ADD FLAGS
+            fprintf(logFile, "Used flags: | ");
+
+            for (int j = 0; j < arg1Size; j++)
+            {
+                //ARG IS NULL
+                if (strcmp(args[j], "\0") == 0) break;
+
+                fprintf(logFile, "%s | ", args[j]);
+            }
+
+            //ADD SEPARATING LINE
+            fprintf(logFile, "\n\n");
+
+            for (int j = 0; j < 20; j++)
+            {
+                fprintf(logFile, "-");
+            }
+
+            fprintf(logFile, "\n");
+
+            //CLOSE FILE
+            fclose(logFile);
+
+            setLogTextFlag(buffer);
+
+            return;
+        }
+    }
 }

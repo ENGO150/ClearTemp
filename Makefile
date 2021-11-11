@@ -20,7 +20,10 @@ main : $(files)
 
 # OUTPUT FILE REMOVING
 clean:
-	@echo Removing...
+	@echo Removing output...
 	rm -rf out/*
+
+	@echo Removing logs...
+	rm -rf logs/*
 
 	@echo Output files cleared!

@@ -25,9 +25,19 @@ bool getExitFlag()
     return exitFlag;
 }
 
+bool getLogFlag()
+{
+    return logFlag;
+}
+
 char * getLangFlag()
 {
     return langFlag;
+}
+
+char * getLogTextFlag()
+{
+    return logTextFlag;
 }
 
 //SETTERS
@@ -52,9 +62,23 @@ bool setExitFlag(bool object)
     return exitFlag;
 }
 
+bool setLogFlag(bool object)
+{
+    logFlag = object;
+
+    return logFlag;
+}
+
 char * setLangFlag(char object[])
 {
     strcpy(langFlag, object);
 
     return langFlag;
+}
+
+char * setLogTextFlag(char object[])
+{
+    strcpy(logTextFlag, object);
+
+    return logTextFlag;
 }
