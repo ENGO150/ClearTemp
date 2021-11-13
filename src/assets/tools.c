@@ -78,6 +78,15 @@ char * getDB(char object[])
     strcat(lang, getLangFlag());
     strcat(lang, ".edb");
 
+    FILE * langFile = fopen(lang, "r");
+
+    if (langFile == NULL)
+    {
+        print("Resource folder not found!\n");
+
+        exit(15);
+    }
+
     readString(object , fopen(lang, "r"), finalString);
     return * finalString;
 }
@@ -184,6 +193,9 @@ void exitProgram(int code)
                 break;
             case 14:
                 strcpy(reason, getDB("invalid_json_exit"));
+                break;
+            case 15:
+                strcpy(reason, getDB("no_res_exit"));
                 break;
 
                 //ELSE
