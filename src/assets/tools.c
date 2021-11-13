@@ -84,7 +84,7 @@ char * getDB(char object[])
     {
         print("Resource folder not found!\n");
 
-        exit(15);
+        exit(99);
     }
 
     readString(object , fopen(lang, "r"), finalString);
@@ -193,9 +193,6 @@ void exitProgram(int code)
                 break;
             case 14:
                 strcpy(reason, getDB("invalid_json_exit"));
-                break;
-            case 15:
-                strcpy(reason, getDB("no_res_exit"));
                 break;
 
                 //ELSE
