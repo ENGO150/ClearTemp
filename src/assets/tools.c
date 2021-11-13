@@ -12,6 +12,7 @@
 #include <stdbool.h>
 #include <string.h>
 #include <stdarg.h>
+#include <sys/stat.h>
 
 #include "../../lib/EngoDatabase/include/edb.h"
 
@@ -554,6 +555,12 @@ void loadInvalidLang(const char compatible[lang1L][lang2L], char target[])
 
 void generateLogFile(char time[], char args[arg1Size][arg2Size])
 {
+    //GENERATE logs/ FOLDER
+    if (fopen("logs/", "r") == NULL)
+    {
+        mkdir("logs", 0777);
+    }
+
     char useS[2];
 
     char buffer[5 + strlen(time) + 1 + sizeof(useS)];
