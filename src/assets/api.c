@@ -85,7 +85,7 @@ void clearTemp(char args[arg1Size][arg2Size])
             loadFlagText(compatibleArgs[7], args, langBuffer);
 
             //LOWER CASE
-            for (int i = 0; i < strlen(langBuffer); i++)
+            for (int i = 0; i < (int) strlen(langBuffer); i++)
             {
                 langBuffer[i] = (char) tolower(langBuffer[i]);
             }
@@ -152,7 +152,7 @@ void clearTemp(char args[arg1Size][arg2Size])
                 FILE * blockFile = fopen(tempFileUsed, "w");
 
                 //ENCRYPT PASSWORD
-                for (int i = 0; i < strlen(password); i++)
+                for (int i = 0; i < (int) strlen(password); i++)
                 {
                     passwordEncrypted[i] = (char) (password[i] + key);
                 }
