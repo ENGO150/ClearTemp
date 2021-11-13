@@ -26,7 +26,7 @@ There's also simplified way to compile and run ClearTemp. Run **cleartemp-simpli
 # Running
 To run compiled program, **you have to run it from project directory**. If you will not do this (making shortcut etc.), program will probably print **"Resource folder not found"** (language configuration files weren't found) and end. Running is possible by double clicking from project directory (you can't use flags here), or in terminal - still using project directory (the method below is working in Linux terminal and Microsoft powershell; if you're using the powershell method, you probably have to use ClearTemp.exe instead of ClearTemp):
 
-`./out/ClearTemp [--console] [--usernameFlag:NAME] [--block:PASSWORD] [--unblock:PASSWORD] [--excex] [--debug] [--exit] [--language:LANG] [--logs]`
+`./out/ClearTemp [--console] [--username:NAME] [--block:PASSWORD] [--unblock:PASSWORD] [--excex] [--debug] [--exit] [--language:LANG] [--logs]`
 
 # Flags
 - --console = show console
