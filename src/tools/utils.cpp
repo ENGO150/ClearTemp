@@ -427,6 +427,15 @@ namespace utils
         //LOAD ALL ARGS
         for (auto & arg: args)
         {
+            //GET ARG BEFORE COLON
+            string::size_type colonPos = arg.find(":"); //LOOK FOR COLON
+
+            if (colonPos != string::npos) //ARG REALLY CONTAINS COLON
+            {
+                //CUT ARG BEFORE COLON
+                arg = arg.substr(0, colonPos);
+            }
+
             if (("--" + flag) == arg) //ARG EQUALS FLAG
             {
                 if (found) //IS DOUBLE-USED
