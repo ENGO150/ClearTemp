@@ -25,7 +25,7 @@ void writeLog(string text) //WRITE LOG IF IS LOGGING ENABLED
     if (!getLogFlag()) return; //LOGGING IS DISABLED
 
     //WRITE LOG
-    ofstream(getLogTextFlag()) << text;
+    ofstream(getLogTextFlag()) << utils::getDB(text);
 }
 
 namespace utils
