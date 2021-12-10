@@ -32,7 +32,7 @@ namespace utils
 {
     string getDB(string object)
     {
-        fstream dat_file("res/" + langFlag + ".json", ios::in);
+        fstream dat_file("res/" + getLangFlag() + ".json", ios::in);
 
         nlohmann::json database;
         dat_file >> database;
