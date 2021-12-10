@@ -28,19 +28,6 @@ void writeLog(string text) //WRITE LOG IF IS LOGGING ENABLED
     ofstream(getLogTextFlag()) << text;
 }
 
-string getUser()
-{
-    if (os == 1)
-    {
-        return getenv("USERNAME");
-    } else if (os == 2)
-    {
-        return getenv("USER");
-    }
-
-    return NULL;
-}
-
 namespace utils
 {
     string getDB(string object)
@@ -354,10 +341,10 @@ namespace utils
         //GET path
         if (os == 1) //WINDOWS
         {
-            path = "C:/Users/" + getUser() + "/.ek.ecfg";
+            path = "C:/Users/" + getUsernameFlag() + "/.ek.ecfg";
         } else if (os == 2)
         {
-            path = "/home/" + getUser() + "/.ek.ecfg";
+            path = "/home/" + getUsernameFlag() + "/.ek.ecfg";
         }
 
         if (!fstream(path)) //CONFIG FILE DOESN'T EXISTS
@@ -381,7 +368,7 @@ namespace utils
     {
         if (os == 1) //WINDOWS
         {
-            return "C:/Users/ " + getUser() + "/AppData/Local/Temp";
+            return "C:/Users/ " + getUsernameFlag() + "/AppData/Local/Temp";
         } else if (os == 2) //LINUX
         {
             return "/tmp";
@@ -452,5 +439,16 @@ namespace utils
         }
 
         return found;
+    }
+
+    void setUser()
+    {
+        if (os == 1)
+        {
+            setUsernameFlag(getenv("USERNAME"));
+        } else if (os == 2)
+        {
+            setUsernameFlag(getenv("USER"));
+        }
     }
 }
