@@ -1,6 +1,13 @@
 all: main
 
+# MAIN
 files = src/main.cpp
+
+# TOOLS
+files += src/tools/*
+
+# INCLUDE
+files += include/*
 
 main: $(files)
 	@echo Compiling...
