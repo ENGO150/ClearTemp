@@ -27,7 +27,7 @@ namespace utils
     void loadInvalidFlags(std::string compatibleArgs[], std::list<std::string> args); //If flags contains more than compatibleArgs, program ends
     void loadInvalidLang(std::string compatible[], std::string lang); //If compatibles doesn't contain lang, program ends
     void generateLogFile(); //Creates logs file (for example 'logs/2021-12-7-02.log', where 2021 is year, 12 is month, 7 is day and it's third log that day)
-    void setUser(); //Initializes usernameFlag from flags.hpp
+    void setUser(); //Initializes usernameFlag from flags.hpp (THIS ISN'T SETTER FOR usernameFlag!!!)
 
     int getEncryptionKey(); //This void creates encryption file and returns "secret" value, which is password being encrypted with
 
