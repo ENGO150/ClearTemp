@@ -25,7 +25,7 @@ void writeLog(string text) //WRITE LOG IF IS LOGGING ENABLED
     if (!getLogFlag()) return; //LOGGING IS DISABLED
 
     //WRITE LOG
-    ofstream(getLogTextFlag()) << utils::getDB(text);
+    ofstream(getLogTextFlag()) << text;
 }
 
 namespace utils
@@ -60,14 +60,14 @@ namespace utils
     {
         cout << getDB(text) << endl;
 
-        writeLog(text);
+        writeLog(getDB(text));
     }
 
     void printErrTranslate(string text, int exitCode)
     {
         cerr << getDB(text) << endl;
 
-        writeLog(text);
+        writeLog(getDB(text));
 
         exitProgram(exitCode);
     }
