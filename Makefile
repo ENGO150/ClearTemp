@@ -11,7 +11,7 @@ files += include/*
 
 main: $(files)
 	@echo Compiling...
-	g++ $(files) -o out/ClearTemp
+	g++ $(files) -std=c++20 -o out/ClearTemp
 
 	@echo Output file generated.
 
