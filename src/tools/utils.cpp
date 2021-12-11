@@ -20,12 +20,14 @@
 
 using namespace std;
 
+fstream loggingFile;
+
 void writeLog(string text) //WRITE LOG IF IS LOGGING ENABLED
 {
     if (!getLogFlag()) return; //LOGGING IS DISABLED
 
     //WRITE LOG
-    ofstream(getLogTextFlag()) << text;
+    loggingFile.write(text.c_str(), text.length());
 }
 
 namespace utils
@@ -60,14 +62,14 @@ namespace utils
     {
         cout << getDB(text) << endl;
 
-        writeLog(getDB(text));
+        writeLog(getDB(text) + "\n");
     }
 
     void printErrTranslate(string text, int exitCode)
     {
         cerr << getDB(text) << endl;
 
-        writeLog(getDB(text));
+        writeLog(getDB(text) + "\n");
 
         exitProgram(exitCode);
     }
@@ -319,7 +321,7 @@ namespace utils
             //LOG FILE DOESN'T EXIST
             if (!fstream(logFilePath))
             {
-                fstream(logFilePath, ios::out);
+                loggingFile.open(logFilePath, ios::out);
 
                 break;
             }
