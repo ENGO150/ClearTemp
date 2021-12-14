@@ -1,6 +1,6 @@
 not_compatible_os: Omlouvame se, ale tento operacni system neni podporovan. Pokud pouzivate podporovany OS (Windows, Linux), nahlaste chybu zde: https://github.com/ENGO150/ClearTemp/issues.
 
-using_lang: Pouziva se Cestina. (Diakritika je zakazana...)
+using_lang: Pouziva se cestina. (Diakritika je zakazana...)
 
 debug: Pouziva se debugovaci mod.
 console: Pouziva se konzole.
