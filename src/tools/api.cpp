@@ -38,7 +38,7 @@ void clearTemp(std::list<std::string> args)
     };
 
     //CHECK IF TEMP FOLDER EXISTS
-    if (!opendir("logs"))
+    if (!opendir(loadTemp().c_str()))
     {
         printErrTranslate("temp_folder_err", 7);
     }
