@@ -244,6 +244,12 @@ void clearTemp(std::list<std::string> args)
             deleted++;
         } else //CANNOT REMOVE
         {
+            //EXCEX
+            if (excex)
+            {
+                exitProgram(103);
+            }
+
             print(getDB("cant_remove") + file.path().filename().c_str() + "\n");
 
             cannotDelete++;
