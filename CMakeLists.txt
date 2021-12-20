@@ -3,10 +3,14 @@ set(CMAKE_CXX_STANDARD 17)
 
 project(ClearTemp)
 
-add_executable(ClearTemp src/main.cpp
-                         src/tools/api.cpp
-                         src/tools/flags.cpp
-                         src/tools/utils.cpp
-                         include/api.hpp
-                         include/flags.hpp
-                         include/utils.hpp)
+add_executable(
+    ClearTemp src/main.cpp 
+    src/tools/api.cpp
+    src/tools/flags.cpp
+    src/tools/utils.cpp
+    include/api.hpp
+    include/flags.hpp
+    include/utils.hpp
+)
+
+# file(COPY res/ DESTINATION "${CMAKE_BINARY_DIR}")
