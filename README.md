@@ -14,7 +14,7 @@ More than just clearing temp files...
 - [Getting ClearTemp](#Getting)
 
 # Linux
-To run ClearTemp on Linux, **you have to** get submodules and then run makefile (cmake). To get submodules ([JSON](https://github.com/nlohmann/json)), use commands (in ClearTemp folder) `git submodule init`, `git submodule update`, then open JSON-lib (libs/json/) and install it with `cmake .`, `make` and `make install`. Now you have to run cmake. Cmake is in project folder (ClearTemp/CMakeLists.txt). You can run cmake by command `cmake ..` from out/ folder (or you can specify path to cmake after `cmake`, but I recommend the previous way).
+To run ClearTemp on Linux, **you have to** get submodules and then run makefile (cmake). To get submodules ([JSON](https://github.com/nlohmann/json)), use commands (in ClearTemp folder) `git submodule init`, `git submodule update`, then open JSON-lib (libs/json/) and install it with `cmake .`, `make` and `make install`. Now you have to run cmake. Cmake is in project folder (ClearTemp/CMakeLists.txt). You can run cmake by command `cmake ..` from folder, you want to store output, I would recommend creating folder out/...
 
 # Windows
 Running ClearTemp on Windows is same as running on [Linux](#Linux), except you have to install compiler(s). My favorite compiler is [MinGW](https://sourceforge.net/projects/mingw/) AND you have to install [CMake](https://cmake.org/). Search for any tutorial on YouTube if needed.
