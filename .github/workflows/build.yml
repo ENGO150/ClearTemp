@@ -12,4 +12,7 @@ jobs:
     - uses: actions/checkout@v2
     
     - name: Building
-      run: mkdir out && chmod +x build.sh && ./build.sh
+      run: |
+        chmod +x configure.sh && chmod +x build.sh
+        ./configure.sh
+        ./build.sh
