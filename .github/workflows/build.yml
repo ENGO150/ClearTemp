@@ -11,8 +11,13 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     
-    - name: Building
+    - name: Preparing permissions
       run: |
-        chmod +x configure.sh && chmod +x build.sh
-        ./configure.sh
-        ./build.sh
+        chmod +x configure.sh
+        chmod +x build.sh
+
+    - name: Configuring
+      run: ./configure.sh
+
+    - name: Building
+      run: ./build.sh
