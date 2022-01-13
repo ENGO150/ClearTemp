@@ -11,13 +11,16 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     
+    # Set permissions for scripts
     - name: Preparing permissions
       run: |
         chmod +x configure.sh
         chmod +x build.sh
 
+    # Setup dependencies
     - name: Configuring
       run: ./configure.sh
 
+    # Build ClearTemp
     - name: Building
       run: ./build.sh
