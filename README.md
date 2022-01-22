@@ -9,18 +9,22 @@ More than just clearing temp files...
 - Compiling
 	- [Linux way](#Linux)
 	- [Windows way](#Windows)
+	- [Simplified way](#Simplified)
 - [Running](#Running)
 - [Flags](#Flags)
 - [Getting ClearTemp](#Getting)
 
 # Linux
-To run ClearTemp on Linux, **you have to** get submodules and then run makefile (cmake). To get submodules ([JSON](https://github.com/nlohmann/json)), use commands (in ClearTemp folder) `git submodule init`, `git submodule update`, then open JSON-lib (libs/json/) and install it with `cmake .`, `make` and `make install`. Now you have to run cmake. Cmake is in project folder (ClearTemp/CMakeLists.txt). You can run cmake by command `cmake ..` from folder, you want to store output, I would recommend creating folder out/...
+To run ClearTemp on Linux, **you have to** get submodules and then run makefile (cmake). You can use the [simplified](#Simplified) way, or you can do it yourself. To get submodules ([JSON](https://github.com/nlohmann/json)), use commands (in ClearTemp folder) `git submodule init`, `git submodule update`, then open JSON-lib (libs/json/) and install it with `cmake .`, `make` and `make install`. Now you have to run cmake. Cmake is in project folder (ClearTemp/CMakeLists.txt). You can run cmake by command `cmake ..` from folder, you want to store output, I would recommend using folder `out/`...
 
 # Windows
 Running ClearTemp on Windows is same as running on [Linux](#Linux), except you have to install compiler(s). My favorite compiler is [MinGW](https://sourceforge.net/projects/mingw/) AND you have to install [CMake](https://cmake.org/). Search for any tutorial on YouTube if needed.
 
+# Simplified
+Running can be really simple. If you didn't use ClearTemp before, you'll need to launch `configure` script to setup libraries. Then you can run `build` script to compile project. Then the output file should be saved in `out/` as `ClearTemp`...
+
 # Running
-To run compiled program, **you have to run it from project directory**. If you will not do this (making shortcut etc.), program will probably print **"Resource folder not found"** (language configuration files weren't found) and end. Running is possible in terminal - still using project directory (the method below is working in Linux terminal and Microsoft powershell; if you're using the powershell method, you probably have to use ClearTemp.exe instead of ClearTemp):
+To run compiled program, **you have to run it from project directory**. If you will not do this (making shortcut etc.), program will probably print **"Resource folder not found"** (language configuration files weren't found) and end. Running is possible in terminal - still using project directory (the method below is working in Linux terminal and Microsoft powershell (or cmd); if you're using the powershell method, you probably have to use ClearTemp.exe instead of ClearTemp):
 
 `./out/ClearTemp [--console] [--username:NAME] [--block:PASSWORD] [--unblock:PASSWORD] [--excex] [--debug] [--exit] [--language:LANG] [--logs]`
 
