@@ -155,7 +155,7 @@ void clearTemp(std::list<std::string> args)
             if (!getDebugFlag()) //SKIP THIS, IF DEBUGGING IS ENABLED
             {
                 std::string password; //THERE WILL BE FLAG TEXT
-                std::string passwordDecrypted; //THIS WILL BE password, BUT DECRYPTED WITH ENCRYPTION KEY (getEncryptionKey())
+                std::string passwordEncrypted; //THIS WILL BE password, BUT ENCRYPTED WITH ENCRYPTION KEY (getEncryptionKey())
                 std::string passwordUsed; //THERE WILL BE PASSWORD FOUND IN BLOCK FILE
 
                 //GET password
@@ -164,15 +164,15 @@ void clearTemp(std::list<std::string> args)
                 //GET passwordUsed
                 std::fstream(usedFileBuffer, std::ios::in) >> passwordUsed;
 
-                //DECRYPT passwordUsed
+                //ENCRYPT password
                 for (int i = 0; i < passwordUsed.length(); i++)
                 {
-                    //ADD IT TO passwordDecrypted
-                    passwordDecrypted += (char) (passwordUsed[i] - getEncryptionKey());
+                    //ADD IT TO passwordEncrypted
+                    passwordEncrypted += (char) (password[i] + getEncryptionKey());
                 }
 
-                //password DOESN'T MATCH passwordDecrypted
-                if (password != passwordDecrypted)
+                //password DOESN'T MATCH passwordEncrypted
+                if (passwordEncrypted != passwordUsed)
                 {
                     printErrTranslate("wrong_password", 4);
                 }
