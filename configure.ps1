@@ -1,1 +1,1 @@
-Install-Package nlohmann.json -Version 3.10.4
+Install-Package nlohmann.json
