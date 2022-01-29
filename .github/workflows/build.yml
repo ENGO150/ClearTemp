@@ -26,6 +26,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v1
 
+      - name: Permissions
+        run: |
+          chmod +x ${{ matrix.configure }}
+          chmod +x ${{ matrix.build }}
+
       - name: Configure
         run: ./${{ matrix.configure }}
 
