@@ -5,4 +5,4 @@ cd lib/json/
 
 cmake .
 make
-make install
+runas /noprofile /user:Administrator make install
