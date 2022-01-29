@@ -1,1 +1,1 @@
-Install-Package nlohmann.json
+Install-Package nlohmann.json -Force
