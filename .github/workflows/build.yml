@@ -3,7 +3,6 @@ name: Analyze and Build
 on:
   push:
     branches: [ master ]
-    
   workflow_dispatch:
 
 jobs:
@@ -23,7 +22,6 @@ jobs:
             output: out/ClearTemp.exe
             configure: configure.ps1
             build: build.ps1
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v1
