@@ -1,26 +1,42 @@
-name: C/C++ CI
+name: Analyze and Build
 
 on:
   push:
     branches: [ master ]
+  workflow_dispatch:
 
 jobs:
-  linux:
-    runs-on: ubuntu-latest
+  build:
+    runs-on: ${{ matrix.os }}
 
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        include:
+          - os: ubuntu-latest
+            output: out/ClearTemp
+            configure: configure.sh
+            build: build.sh
+
+          - os: windows-latest
+            output: out/ClearTemp.exe
+            configure: configure.ps1
+            build: build.ps1
     steps:
-    - uses: actions/checkout@v2
-    
-    # Set permissions for scripts
-    - name: Preparing permissions
-      run: |
-        chmod +x configure.sh
-        chmod +x build.sh
+      - name: Checkout repository
+        uses: actions/checkout@v1
 
-    # Setup dependencies
-    - name: Configuring
-      run: ./configure.sh
+      - name: Configure
+        run: ./${{ matrix.configure }}
 
-    # Build ClearTemp
-    - name: Building
-      run: ./build.sh
+      - name: Build
+        run: ./${{ matrix.build }}
+
+      - name: Test
+        run: ./${{ matrix.output }}
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: native-executables
+          path: ./${{ matrix.output }}
