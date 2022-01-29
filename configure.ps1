@@ -1,8 +1,1 @@
-git submodule init
-git submodule update
-
-cd lib/json/
-
-cmake .
-make
-runas /noprofile /user:Administrator make installcd
+Install-Package nlohmann.json -Version 3.10.4
