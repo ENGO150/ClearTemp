@@ -1,4 +1,4 @@
-rm -rf out/*
+Remove-Item out/* -Recurse
 
 cd out/
 
