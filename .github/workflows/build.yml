@@ -19,7 +19,7 @@ jobs:
             build: build.sh
 
           - os: windows-latest
-            output: out/ClearTemp.exe
+            output: out/Debug/ClearTemp.exe
             configure: configure.ps1
             build: build.ps1
     steps:
