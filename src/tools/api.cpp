@@ -9,12 +9,6 @@
 #include <filesystem>
 #include <regex>
 
-#ifdef __unix__
-#include <dirent.h>
-#elif
-#include <windows.h>
-#endif
-
 #include "../../include/utils.hpp"
 #include "../../include/flags.hpp"
 
@@ -41,8 +35,13 @@ void clearTemp(std::list<std::string> args)
             "en", "cz"
     };
 
-    //CHECK IF TEMP FOLDER EXISTS
+    /*//CHECK IF TEMP FOLDER EXISTS
     if (!opendir(loadTemp().c_str()))
+    {
+        printErrTranslate("temp_folder_err", 7);
+    }*/
+
+    if (!(std::filesystem::is_directory(loadTemp()) && std::filesystem::is_directory(loadTemp())))
     {
         printErrTranslate("temp_folder_err", 7);
     }

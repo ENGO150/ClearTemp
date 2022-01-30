@@ -12,12 +12,6 @@
 #include <regex>
 #include <algorithm>
 
-#ifdef __unix__
-#include <dirent.h>
-#elif
-#include <windows.h>
-#endif
-
 #include <nlohmann/json.hpp>
 
 #include "../../include/flags.hpp"
@@ -274,7 +268,7 @@ namespace utils
     void generateLogFile()
     {
         //IF logs/ FOLDER DOESN'T EXISTS, GENERATE IT
-        if (!opendir("logs"))
+        if (!(filesystem::is_directory("logs") && filesystem::is_directory("logs")))
         {
             filesystem::create_directory("logs");
         }
