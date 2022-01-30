@@ -31,12 +31,12 @@ jobs:
           chmod +x ${{ matrix.configure }}
           chmod +x ${{ matrix.build }}
 
-      - name: Configure
-        run: ./${{ matrix.configure }}
-
       - if: matrix.os == 'windows-latest'
         name: Setup MSBuild
         uses: microsoft/setup-msbuild@v1.1
+
+      - name: Configure
+        run: ./${{ matrix.configure }}
 
       - name: Build
         run: ./${{ matrix.build }}
