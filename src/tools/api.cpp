@@ -9,7 +9,11 @@
 #include <filesystem>
 #include <regex>
 
+#ifdef __unix__
 #include <dirent.h>
+#elif
+#include <windows.h>
+#endif
 
 #include "../../include/utils.hpp"
 #include "../../include/flags.hpp"

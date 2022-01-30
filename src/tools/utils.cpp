@@ -12,7 +12,11 @@
 #include <regex>
 #include <algorithm>
 
+#ifdef __unix__
 #include <dirent.h>
+#elif
+#include <windows.h>
+#endif
 
 #include <nlohmann/json.hpp>
 
