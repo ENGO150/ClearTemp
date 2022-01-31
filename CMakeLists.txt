@@ -3,6 +3,8 @@ set(CMAKE_CXX_STANDARD 17)
 
 project(ClearTemp)
 
+find_package(nlohmann_json CONFIG REQUIRED)
+
 add_executable(
     ClearTemp src/main.cpp 
     src/tools/api.cpp
@@ -14,3 +16,5 @@ add_executable(
 )
 
 # file(COPY res/ DESTINATION "${CMAKE_BINARY_DIR}")
+
+target_link_libraries(ClearTemp PRIVATE nlohmann_json::nlohmann_json)
