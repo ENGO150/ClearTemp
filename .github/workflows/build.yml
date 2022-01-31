@@ -36,7 +36,8 @@ jobs:
         name: Setup MSBuild
         uses: microsoft/setup-msbuild@v1.1
 
-      - name: Configure
+      - if: matrix.os == 'ubuntu-latest'
+        name: Configure
         run: ./${{ matrix.configure }}
 
       - name: Build
