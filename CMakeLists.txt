@@ -38,4 +38,7 @@ add_executable(
 CPMAddPackage(
     NAME nlohmann_json
     GITHUB_REPOSITORY nlohmann/json
-    VERSION 3.9.1)
+    VERSION 3.9.1
+)
+
+target_link_libraries(ClearTemp PRIVATE nlohmann_json::nlohmann_json)
