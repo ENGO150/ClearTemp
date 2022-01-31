@@ -2,5 +2,5 @@ Remove-Item out/* -Recurse
 
 cd out/
 
-cmake ..
-msbuild ClearTemp.sln
+cmake .. -DCMAKE_TOOLCHAIN_FILE=../vcpkg/scripts/buildsystems/vcpkg.cmake
+cmake --build .
