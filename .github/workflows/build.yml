@@ -44,5 +44,6 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v1
         with:
-          name: native-executables
+          name: ClearTemp
+          job_alias: latest
           path: ./${{ matrix.output }}
