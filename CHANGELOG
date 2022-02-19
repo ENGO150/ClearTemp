@@ -3,13 +3,13 @@
 8th of June 2021 - v1.2 = Excex
 17th of June 2021 - v1.3 = Completely remade code in Java, added debug flag, added PASSWORD needed for block & unblock flags + random password encryption, removed codeql-analysis.yml, moved code to more classes, added .gitignore, added CHANGELOG
 18th of June 2021 - v1.4 = Cleaned code, fixed Windows bug
-20th of June 2021 - v1.5 = Cleaned code, fixed FileEdit bug, :)
+20th of June 2021 - v1.5 = Cleaned code, fixed FileEdit bug, :slight_smile:
 23rd of June 2021 - v1.6 = Fixed double-flag bug
 25th of June 2021 - Pre v1.7 = Cleaned code, added exit flag
 2nd of July 2021 - v1.8 = Remade project in Gradle
 9th of July 2021 - v1.9 = Added English and Czech translation (JSON), language flag
 3rd of August 2021 - v1.9.1 = Trying to support Mac
-4th of August 2021 - v2.0 = Added Mac support, :)
+4th of August 2021 - v2.0 = Added Mac support, :slight_smile:
 13th of September 2021 - v2.1 = Edited README, Added autoClearTemp to releases
 25th of September 2021 - Pre v2.1.1 = Remade code in C, Mac support was removed
 2nd of October 2021 - v2.2 = Re-Added flags
@@ -21,4 +21,4 @@
 11th of November 2021 - v2.4 = Added logging system, debugging
 11th of December 2021 - v2.5 = Remade project in C++, implemented JSON lib
 14th of December 2021 - v2.5.1 = Re-added missing files (LICENSE, CHANGELOG), reuploaded to git (I accidentaly force pushed)
-19th of February 2021 - v2.5.2 = Added time information to logs, automated building, removed build files for Windows (Windows is still supported)
+19th of February 2022 - v2.5.2 = Added time information to logs, automated building, removed build files for Windows (Windows is still supported)
