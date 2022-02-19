@@ -11,17 +11,12 @@ jobs:
 
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]
+        os: [ubuntu-latest]
         include:
           - os: ubuntu-latest
             output: out/ClearTemp
             configure: configure.sh
             build: build.sh
-
-          - os: windows-latest
-            output: out/Debug/ClearTemp.exe
-            configure: configure.ps1
-            build: build.ps1
             
     steps:
       - name: Checkout repository
@@ -32,12 +27,7 @@ jobs:
           chmod +x ${{ matrix.configure }}
           chmod +x ${{ matrix.build }}
 
-      - if: matrix.os == 'windows-latest'
-        name: Setup MSBuild
-        uses: microsoft/setup-msbuild@v1.1
-
-      - if: matrix.os == 'ubuntu-latest'
-        name: Configure
+      - name: Configure
         run: ./${{ matrix.configure }}
 
       - name: Build
