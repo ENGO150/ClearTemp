@@ -25,6 +25,33 @@ void writeLog(string text) //WRITE LOG IF IS LOGGING ENABLED
 {
     if (!getLogFlag()) return; //LOGGING IS DISABLED
 
+    if (text == "\n") return; //TEXT IS JUST 'ENTER' (NEW LINE)
+
+    //ADDING TIME INFO BEFORE TEXT ([20:57:08]: text)
+    time_t timeT = time(0);
+    tm * time = localtime(&timeT);
+
+    string hour = to_string(time -> tm_hour);
+    string minute = to_string(time -> tm_min);
+    string second = to_string(time -> tm_sec);
+
+    if (hour.length() == 1)
+    {
+        hour = "0" + hour;
+    }
+
+    if (minute.length() == 1)
+    {
+        minute = "0" + minute;
+    }
+
+    if (second.length() == 1)
+    {
+        second = "0" + second;
+    }
+
+    text = "[" + hour + ":" + minute + ":" + second + "]: " + text; //ADDING
+
     //WRITE LOG
     loggingFile.write(text.c_str(), text.length());
 }
