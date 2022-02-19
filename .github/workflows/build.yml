@@ -22,6 +22,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v1
 
+      - name: Update packages
+        run: | 
+          sudo apt update 
+          sudo apt upgrade 
+
       - name: Permissions
         run: |
           chmod +x ${{ matrix.configure }}
