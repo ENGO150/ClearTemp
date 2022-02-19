@@ -195,7 +195,7 @@ namespace utils
 
             if (rand() % (1000 + 1) == 420)
             {
-                print("\n look");
+                print("\n" + getDB("look"));
             }
         }
 
