@@ -27,6 +27,10 @@ void writeLog(string text) //WRITE LOG IF IS LOGGING ENABLED
 
     if (text == "\n") return; //TEXT IS JUST 'ENTER' (NEW LINE)
 
+    bool addSeparator = text.c_str()[0] == '\n';
+
+    if (addSeparator) text = text.substr(1);
+
     //ADDING TIME INFO BEFORE TEXT ([20:57:08]: text)
     time_t timeT = time(0);
     tm * time = localtime(&timeT);
@@ -51,6 +55,8 @@ void writeLog(string text) //WRITE LOG IF IS LOGGING ENABLED
     }
 
     text = "[" + hour + ":" + minute + ":" + second + "]: " + text; //ADDING
+
+    if (addSeparator) text = "\n" + text;
 
     //WRITE LOG
     loggingFile.write(text.c_str(), text.length());
@@ -185,21 +191,23 @@ namespace utils
 
         if ((rand() % (100 + 1) > 75) && (code == 0 || code > 100))
         {
-            print("\n" + getDB("thanks") + "\n");
+            print("\n" + getDB("thanks"));
 
             if (rand() % (1000 + 1) == 420)
             {
-                print("look");
+                print("\n look");
             }
         }
 
         if (getConsoleFlag())
         {
-            print("\n" + getDB("press_enter") + "\n");
+            print("\n" + getDB("press_enter"));
 
             //WAIT FOR ENTER (\n)
             while (getchar() != '\n');
         }
+
+        printf("\n");
 
         exit(code); //EXIT
     }

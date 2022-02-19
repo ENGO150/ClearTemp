@@ -265,7 +265,8 @@ void clearTemp(std::list<std::string> args)
     message = std::regex_replace(getDB("final_1"), std::regex("\\{DELETED}"), std::to_string(deleted));
     message += std::regex_replace(getDB("final_2"), std::regex("\\{CANNOT}"), std::to_string(cannotDelete));
 
-    print("\n" + message + "\n");
+    print("\n");
+    print(message);
 
     exitProgram(0);
 }
