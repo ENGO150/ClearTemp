@@ -29,7 +29,7 @@ jobs:
 
       - name: Intall latest G++
         run: |
-          sudo apt install g++-20
+          sudo apt install build-essential
 
       - name: Permissions
         run: |
