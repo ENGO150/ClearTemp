@@ -25,11 +25,7 @@ jobs:
       - name: Update packages
         run: | 
           sudo apt update 
-          sudo apt upgrade 
-
-      - name: Intall latest G++
-        run: |
-          sudo apt install build-essential
+          sudo apt upgrade
 
       - name: Permissions
         run: |
