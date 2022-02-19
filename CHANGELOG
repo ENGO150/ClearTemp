@@ -21,3 +21,4 @@
 11th of November 2021 - v2.4 = Added logging system, debugging
 11th of December 2021 - v2.5 = Remade project in C++, implemented JSON lib
 14th of December 2021 - v2.5.1 = Re-added missing files (LICENSE, CHANGELOG), reuploaded to git (I accidentaly force pushed)
+19th of February 2021 - v2.5.2 = Added time information to logs, automated building, removed build files for Windows (Windows is still supported)
