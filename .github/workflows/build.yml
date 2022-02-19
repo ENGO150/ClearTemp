@@ -27,6 +27,10 @@ jobs:
           sudo apt update 
           sudo apt upgrade 
 
+      - name: Intall latest G++
+        run: |
+          sudo apt install g++-20
+
       - name: Permissions
         run: |
           chmod +x ${{ matrix.configure }}
