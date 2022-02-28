@@ -9,7 +9,7 @@ files += src/tools/*
 # INCLUDE
 files += include/*
 
-main: $(files)
+main:
 	@echo Compiling...
 	g++ $(files) -std=c++2a -o out/ClearTemp
 
