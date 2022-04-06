@@ -43,4 +43,4 @@ To run compiled program, you can run it using GitHub Actions' Artifacts (click [
 The args in square brackets **aren't** required, and you also don't need to use both of them. I am not responsible for any misuse. Use this program only with the permission of the user to whom you are deleting temporary files. I am developing this program on Linux (Arch), but it should work perfectly on Windows, too.
 
 # Getting
-Clone the repository using `git clone https://github.com/ENGO150/ClearTemp.git` for latest 'release' or you can download the latest **stable** release [here](https://github.com/ENGO150/ClearTemp/releases/latest).
+Clone the repository using `git clone https://gitlab.com/ENGO150/ClearTemp.git` for latest 'release' or you can download the latest **stable** release [here](https://gitlab.com/ENGO150/ClearTemp/-/releases).
