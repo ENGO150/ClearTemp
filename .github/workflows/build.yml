@@ -1,0 +1,48 @@
+name: Analyze and Build
+
+on:
+  push:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        include:
+          - os: ubuntu-latest
+            output: out/ClearTemp
+            configure: configure.sh
+            build: build.sh
+            
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v1
+
+      - name: Update packages
+        run: | 
+          sudo apt update 
+          sudo apt upgrade
+
+      - name: Permissions
+        run: |
+          chmod +x ${{ matrix.configure }}
+          chmod +x ${{ matrix.build }}
+
+      - name: Configure
+        run: ./${{ matrix.configure }}
+
+      - name: Build
+        run: ./${{ matrix.build }}
+
+      - name: Test
+        run: ./${{ matrix.output }}
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: ClearTemp
+          path: ./${{ matrix.output }}
